@@ -1,0 +1,8 @@
+#qrcode{
+   width:400px;
+   height:400px;
+   #display: none;
+}
+#content{
+    margin:20px 0 0 400px;
+}

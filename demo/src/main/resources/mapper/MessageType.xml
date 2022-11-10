@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.UserInfoMapper">
+
+
+    <update id="updateOpenIdAndNickName" parameterType="UserInfo">
+        update `PMS_UserInfo` set openId=#{openId}, wxNickname = #{wxNickname} where id=#{id}
+    </update>
+
+    <select id="getUserInfoByServerIdAndUserId" parameterType="UserInfo" resultType="UserInfo">
+        select * from `PMS_UserInfo` where userId=#{userId} and serverId = #{serverId}
+    </select>
+
+    <select id="list" resultType="UserInfo">
+        select * from `PMS_UserInfo`
+    </select>
+</mapper>
