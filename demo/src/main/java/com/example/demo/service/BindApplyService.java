@@ -1,18 +1,22 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Hero;
+import com.example.demo.entity.BindApply;
 
 import java.util.List;
 
 
-public interface HeroService {
-    public int add(Hero hero);
+public interface BindApplyService {
+    public int add(BindApply bindApply);
+//
+//    public void delete(int id);
+//
+    public BindApply get(int id);
 
-    public void delete(int id);
+    public List<BindApply> getUnRevewByServerIdAndUserId(BindApply bindApply);
+//
+//    public int update(Hero hero);
 
-    public Hero get(int id);
+    public int review(int id);
 
-    public int update(Hero hero);
-
-    public List<Hero> list();
+    public List<BindApply> list();
 }

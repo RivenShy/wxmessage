@@ -1,37 +1,31 @@
 package com.example.demo.entity;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
-@Entity
-@Table(name = "user")
-public class User {
+import java.util.Date;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+@Data
+public class BindApply {
+
     private int id;
 
-    @Column(name = "name")
-    private String name;
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+    private int serverId;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+    private int userId;
+
+    private String wxNickname;
+
+    private String openId;
+
+    private int status;
+
+    private String operator;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date applyDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date reviewDate;
 }
 

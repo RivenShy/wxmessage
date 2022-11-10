@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>发送信息列表</title>
+    <title>信息类型列表</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/vue.min.js"></script>
@@ -50,26 +50,25 @@
 
 <body>
 <div id="app">
-    用户列表页面：
+    定时消息列表页面：
     <table id="bindApplyListTable" class="layui-table" lay-even>
-
         <thead>
         <tr>
-            <td>消息Id</td>
             <td>消息类型Id</td>
-            <td>状态</td>
-            <td>发送时间</td>
+            <td>消息名称</td>
+            <td>定时时间(cron表达式)</td>
+            <td>服务器Id</td>
             <td>用户Id</td>
-            <td>点击时间</td>
+            <td>用户名称</td>
         </tr>
         </thead>
-        <tr v-for="message in messages">
-            <td>{{message.id}}</td>
-            <td>{{message.msgTypeId}}</td>
-            <td v-html="message.status==0?'发送成功':'发送失败'">{{message.status}}</td>
-            <td>{{message.sendTime}}</td>
-            <td>{{message.userId}}</td>
-            <td>{{message.clickTime}}</td>
+        <tr v-for="messageType in messageTypes">
+            <td>{{messageType.id}}</td>
+            <td>{{messageType.messageName}}</td>
+            <td>{{messageType.scheduleTime}}</td>
+            <td>{{messageType.serverId}}</td>
+            <td>{{messageType.userId}}</td>
+            <td>{{messageType.userName}}</td>
         </tr>
 
         <tr>
@@ -95,7 +94,7 @@
 
 <script type="text/javascript">
     var data4Vue = {
-            messages: [],
+            messageTypes: [],
             pagination:{},
             qrCode: '',
 	};
@@ -109,11 +108,11 @@
         },        
         methods: {     	
         	list:function(start){
-                var url = "/message/messages?start="+start;
+                var url = "/messageType/messageTypes?start="+start;
                 axios.get(url).then(function(response) {
                 	vue.pagination = response.data;
                 	console.log(vue.pagination);
-                	vue.messages = response.data.list;
+                	vue.messageTypes = response.data.list;
                 })     
         	},        	
             jump: function(page){

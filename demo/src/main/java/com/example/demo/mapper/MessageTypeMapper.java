@@ -1,17 +1,13 @@
 package com.example.demo.mapper;
 
-import com.example.demo.entity.UserInfo;
+import com.example.demo.entity.MessageType;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface UserInfoMapper {
+public interface MessageTypeMapper {
 
-    public int updateOpenIdAndNickName(UserInfo userInfo);
-
-    public UserInfo getUserInfoByServerIdAndUserId(UserInfo userInfo);
-
-    public List<UserInfo> list();
+    public List<MessageType> list();
 
 }

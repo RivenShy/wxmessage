@@ -37,6 +37,13 @@
 		    color:#E5E0E0;
 		    text-decoration:none;        
         }
+        #sendMsg{
+            width:300px;
+        }
+        .layui-form-label {
+            padding: 9px 0px;
+            text-align: left;
+        }
     </style>
     <script>
 	    $(function(){
@@ -80,7 +87,7 @@
             <td>
 <!--                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>-->
 <!--                <span v-else>已审核</span>-->
-                <button type="button"  @click="review(userInfo.serverId, userInfo.userId)" class="layui-btn layui-btn-sm">生成绑定二维码</button>
+                <button type="button"  @click="sendMsgToUser(userInfo.id)" class="layui-btn layui-btn-sm">发送消息</button>
 <!--                <span v-else>已审核</span>-->
             </td>
         </tr>
@@ -103,16 +110,74 @@
         </tr>
 
     </table>
-    <img v-bind:src="qrCode">
+<!--    <img v-bind:src="qrCode">-->
+    <div id="sendMsg" v-show='showMsgForm'>
+<!--        id:-->
+        <input type="hidden" v-model="hero4Update.id" />
+        <br>
+<!--        服务器Id：-->
+        <input type="hidden" v-model="hero4Update.serverId" class="layui-input" readonly/>
+        <br>
+<!--        用户Id:-->
+<!--        <input type="number" v-model="hero4Update.userId" class="layui-input" readonly/>-->
+<!--        <br>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户代码:</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.userId" type="text" autocomplete="off" class="layui-input" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名称:</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.userName" type="text" class="layui-input" readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户openId:</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.openId" type="text" class="layui-input" readonly>
+            </div>
+        </div>
+<!--        用户名称:-->
+<!--        <input type="text" v-model="hero4Update.userName" class="layui-input" readonly/>-->
+<!--        <br>-->
+<!--        用户openId:-->
+<!--        <input type="text" v-model="hero4Update.openId" class="layui-input" readonly/>-->
+<!--        <br>-->
+<!--        <div class="layui-form-item">-->
+<!--            <label class="layui-form-label">请选择一个消息模板</label>-->
+<!--            <div class="layui-input-block">-->
+<!--                <select name="messageName" v-model="messageName">-->
+<!--                    <option value="流程待审批提醒">流程待审批提醒</option>-->
+<!--                    <option value="异地登录提醒">异地登录提醒</option>-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
+
+            <select name="messageName" v-model="messageName" class="layui-input">
+                <option value="" class="layui-input layui-unselect" placeholder="请选择一个消息模板" readonly>请选择一个消息模板</option>
+                <option value="流程待审批提醒">流程待审批提醒</option>
+                <option value="异地登录提醒">异地登录提醒</option>
+            </select>
+
+<!--        <br>-->
+        <button type="button" @click="confirmSend" class="layui-btn layui-btn-sm" style="margin:20px 220px;">确认发送</button>
+<!--        <button type="button"  v-on:click="cancel">取消-->
+
+    </div>
 </div>
 
 <script type="text/javascript">
     var data4Vue = {
             userInfos: [],
-<!--            hero4Add: { id: 0, name: '', hp: '0'},-->
-            hero4Add: { userName: '', description: ''},
+            hero4Update: { id: 0, serverId: 0, userId: 0, userName: '', openId: ''},
+<!--            hero4Add: { userName: '', description: ''},-->
             pagination:{},
-            qrCode: '',
+            messages: ['流程待审批提醒','异地登录提醒'],
+            messageName: '',
+            showMsgForm: false,
+<!--            qrCode: '',-->
 	};
 
     //ViewModel
@@ -131,31 +196,44 @@
                 	vue.userInfos = response.data.list;
                 })     
         	},        	
-            review: function (serverId, userId, event) {
-<!--                    alert(userName);-->
-<!--                    alert(description);-->
-            	    var url = "/userInfo/getQRcodeByServerIdAndUserId";
-            	    var data = {serverId:serverId, userId:userId};
-<!--            	    let data={id:100}-->
-<!--            	    alert(JSON.stringify(data));-->
-                    axios.post(url, data).then(function(response){
-                        console.log(response);
-                        if(response.data.code == 200) {
-                            if(response.data.success == true) {
-                                alert(response.data.msg);
-<!--                                alert(response.data.data);-->
-                                vue.qrCode = response.data.data;
-<!--                                vue.qrCode = '';-->
-<!--                                alert(vue.qrCode);-->
-                            } else{
-                                alert(response.data.msg);
-                            }
+            sendMsgToUser: function (id, event) {
+                var url = "/userInfo/get/" + id;
+                axios.get(url).then(function(response){
+                    console.log(response);
+                    if(response.data.code == 200) {
+                        if(response.data.success == true) {
+<!--                            alert(response.data.msg);-->
+                            vue.hero4Update = response.data.data;
+                            vue.showMsgForm = true;
                         } else{
-                            alert("请求失败");
+                            alert(response.data.msg);
                         }
-                        vue.list(1);
-    <!--					vue.hero4Add = { id: 0, name: '', hp: '0'}-->
-                    });
+                    } else{
+                        alert("请求失败");
+                    }
+<!--                    vue.list(1);-->
+                });
+            },
+            confirmSend: function(event) {
+<!--                alert(vue.messageName);-->
+                if(vue.messageName == '') {
+                    alert("请选择一个消息模板");
+                    return;
+                }
+                var url = "/userInfo/sendWxMsgToUser/" + vue.hero4Update.id + "/" + vue.messageName;
+                axios.get(url).then(function(response){
+                    console.log(response);
+                    if(response.data.code == 200) {
+                        if(response.data.success == true) {
+                            alert(response.data.msg);
+<!--                            vue.hero4Update = response.data.data;-->
+                        } else{
+                            alert(response.data.msg);
+                        }
+                    } else{
+                        alert("请求失败");
+                    }
+                });
             },
             jump: function(page){
 				if('first'== page && 1!=vue.pagination.pageNum)

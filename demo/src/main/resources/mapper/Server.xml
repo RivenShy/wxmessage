@@ -3,33 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.demo.mapper.BindApplyMapper">
-    <insert id="add" parameterType="BindApply" >
-        insert into bind_apply ( username, useropenid, status, nickname ) values (#{userName}, #{userOpenid}, #{status}, #{nickName})
+<mapper namespace="com.example.demo.mapper.ServerMapper">
 
-    </insert>
-
-<!--    <delete id="delete" parameterType="Hero" >-->
-<!--        delete from hero where id= #{id}-->
-<!--    </delete>-->
-
-    <select id="get" parameterType="_int" resultType="BindApply">
-        select * from bind_apply where id= #{id}
-    </select>
-
-    <select id="getUnRevewByID" parameterType="_int" resultType="BindApply">
-        select * from bind_apply where userid = #{id} and status = 0;
-    </select>
-
-<!--    <update id="update" parameterType="Hero" >-->
-<!--        update hero set name=#{name}, hp = #{hp} where id=#{id}-->
-<!--    </update>-->
-    <update id="review" parameterType="_int" >
-        update bind_apply set status = 1 where id=#{id}
-    </update>
-    <select id="list" resultType="BindApply">
-<!--        select b.*, u.name as userName-->
-<!--        from bind_apply b, userInfo u where u.id = b.userid-->
-        select * from bind_apply
+    <select id="get" parameterType="_int" resultType="Server">
+        select * from PMS_Server where id= #{id}
     </select>
 </mapper>

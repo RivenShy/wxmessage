@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>发送推送消息</title>
+    <!--    <link rel="stylesheet" href="./layui/css/layui.css">-->
+    <link rel="stylesheet" href="../static/layui/css/layui.css">
+    <link rel="stylesheet" href="../static/bind.css">
 </head>
 <body>
-$END$
+<div id="app">
+
+    用户选择：
+    <select>
+<!--        <option>18岁以下</option>-->
+<!--        <option>18-28岁</option>-->
+<!--        <option>28-38岁</option>-->
+<!--        <option>38岁以上</option>-->
+        <option :value="userDepms" v-for="item in userDepms">{{ item }}</option>
+    </select>
+
+
+    消息模板选择：
+    <select>
+        <option>18岁以下</option>
+        <option>18-28岁</option>
+        <option>28-38岁</option>
+        <option>38岁以上</option>
+    </select>
+    <br>
+    <button type="button" class="layui-btn" v-on:click="send">发送</button>
+</div>
+
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/vue.min.js"></script>
+<script src="../static/js/axios.min.js"></script>
+<script src="../static/js/bindVue.js"></script>
+<script type="text/javascript">
+    var data4Vue = {
+            userDepms: [1,2,3,4,5,6,7,8],
+<!--            hero4Add: { userName: '', description: ''},-->
+<!--            pagination:{},-->
+<!--            qrCode: '',-->
+	};
+
+    //ViewModel
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted:function(){ //mounted　表示这个 Vue 对象加载成功了
+        	alert("hello vue");
+        },
+        methods: {
+        	list:function(start){
+                var url = "/userDepm/userDepms?start="+start;
+                axios.get(url).then(function(response) {
+                	vue.pagination = response.data;
+                	console.log(vue.pagination);
+                	vue.userDepms = response.data.list;
+                })
+        	},
+        	send:function(event) {
+        	    alert("send");
+        	},
+        }
+    });
+    </script>
+
 </body>
 </html>

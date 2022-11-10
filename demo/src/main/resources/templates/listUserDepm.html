@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>绑定申请审核</title>
+    <title>用户列表</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/vue.min.js"></script>
@@ -50,34 +50,39 @@
 
 <body>
 <div id="app">
-    审核绑定申请页面：
+    用户列表页面：
     <table id="bindApplyListTable" class="layui-table" lay-even>
 
         <thead>
         <tr>
-            <td>用户ID</td>
-            <td>用户名称</td>
-            <td>用户昵称</td>
-            <td>用户公众号openid</td>
-            <td>状态</td>
+            <td>默认数据库</td>
+            <td>用户代码</td>
+            <td>KeyID</td>
+            <td>密码</td>
+            <td>MDPswd</td>
+            <td>描述</td>
             <td>操作</td>
         </tr>
         </thead>
-        <tr v-for="bindApply in bindApplys">
-            <td>{{bindApply.userId}}</td>
-            <td>{{bindApply.userName}}</td>
-            <td>{{bindApply.nickName}}</td>
-            <td>{{bindApply.userOpenid}}</td>
-            <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>
+        <tr v-for="userDepm in userDepms">
+            <td>{{userDepm.defaultDBName}}</td>
+            <td>{{userDepm.userName}}</td>
+            <td>{{userDepm.keyID}}</td>
+            <td>{{userDepm.pswd}}</td>
+            <td>{{userDepm.MDPswd}}</td>
+            <td>{{userDepm.description}}</td>
+<!--            <td>{{bindApply.userOpenid}}</td>-->
+<!--            <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>-->
             <td>
-                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>
-                <span v-else>已审核</span>
-<!--                <a href="#nowhere" @click="deleteHero(hero.id)">删除</a>-->
+<!--                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>-->
+<!--                <span v-else>已审核</span>-->
+                <button type="button"  @click="review(userDepm.userName, userDepm.description)" class="layui-btn layui-btn-sm">生成绑定二维码</button>
+<!--                <span v-else>已审核</span>-->
             </td>
         </tr>
 
         <tr>
-            <td colspan="5">
+            <td colspan="7">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
@@ -94,13 +99,16 @@
         </tr>
 
     </table>
+    <img v-bind:src="qrCode">
 </div>
 
 <script type="text/javascript">
     var data4Vue = {
-            bindApplys: [],
-            hero4Add: { id: 0, name: '', hp: '0'},
-            pagination:{}
+            userDepms: [],
+<!--            hero4Add: { id: 0, name: '', hp: '0'},-->
+            hero4Add: { userName: '', description: ''},
+            pagination:{},
+            qrCode: '',
 	};
 
     //ViewModel
@@ -112,17 +120,18 @@
         },        
         methods: {     	
         	list:function(start){
-                var url = "/bindApply/bindApplys?start="+start;
+                var url = "/userDepm/userDepms?start="+start;
                 axios.get(url).then(function(response) {
                 	vue.pagination = response.data;
                 	console.log(vue.pagination);
-                	vue.bindApplys = response.data.list;
+                	vue.userDepms = response.data.list;
                 })     
         	},        	
-            review: function (param, event) {
-<!--                    alert(param);-->
-            	    var url = "/bindApply/review";
-            	    var data = {id:param};
+            review: function (userName, description, event) {
+<!--                    alert(userName);-->
+<!--                    alert(description);-->
+            	    var url = "/userDepm/getQRcodeByUserNameAndDes";
+            	    var data = {userName:userName, description:description};
 <!--            	    let data={id:100}-->
 <!--            	    alert(JSON.stringify(data));-->
                     axios.post(url, data).then(function(response){
@@ -130,6 +139,10 @@
                         if(response.data.code == 200) {
                             if(response.data.success == true) {
                                 alert(response.data.msg);
+<!--                                alert(response.data.data);-->
+                                vue.qrCode = response.data.data;
+<!--                                vue.qrCode = '';-->
+<!--                                alert(vue.qrCode);-->
                             } else{
                                 alert(response.data.msg);
                             }

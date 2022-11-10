@@ -5,12 +5,12 @@ import com.example.demo.entity.UserInfo;
 import java.util.List;
 
 
-public interface UserService {
+public interface UserInfoService {
 //    public int add(BindApply bindApply);
 //
 //    public void delete(int id);
 //
-//    public BindApply get(int id);
+    public UserInfo get(int id);
 
       public UserInfo getUserInfoByServerIdAndUserId(UserInfo userInfo);
 //

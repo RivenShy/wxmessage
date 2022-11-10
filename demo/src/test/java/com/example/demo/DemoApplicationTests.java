@@ -1,16 +1,25 @@
 package com.example.demo;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.controller.WxOfficialAccountController;
+import com.example.demo.entity.Message;
+import com.example.demo.entity.MessageType;
+import com.example.demo.entity.ScheduleJob;
+import com.example.demo.entity.UserDepm;
+import com.example.demo.mapper.MessageMapper;
+import com.example.demo.service.MessageTypeService;
+import com.example.demo.service.UserDepmService;
 import com.example.demo.util.WxUtil;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.junit.jupiter.api.Test;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,11 +27,22 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static org.quartz.JobBuilder.newJob;
 
 @SpringBootTest
 class DemoApplicationTests {
+
+	@Autowired
+	private UserDepmService userDepmService;
+
+	@Autowired
+	private MessageTypeService messageTypeService;
+
+	@Autowired
+	private MessageMapper messageMapper;
 
 	@Test
 	void contextLoads() {
@@ -143,7 +163,7 @@ class DemoApplicationTests {
 
 	@Test
 	public void sendMsgToUser() {
-		String openid = "oa9m45sEj_dDR9FGoeoGmx7_M21o";
+		String openid = "oa9m45rV0-lXYLO064zo-BJBNkSE";
 		String template_id = "Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE";
 		String url = "http://weixin.qq.com/download";
 		//
@@ -190,7 +210,7 @@ class DemoApplicationTests {
 		//
 		jsonObject.put("data", jsonObject2);
 		//
-		String accessToken = "62_Gw8EaAqQxSZUCafVWByIfALTx9aC3LSAGBLhANbt85yhPCmwIEGMCQ2KZVKKiEj89XEeF0iDaaD8ER0joxTBfbPjSBEeVV95LiWL_emTAs3m-ThSHidcTVFrYzPFQrD5lMgs-SciKkvI5T1UETDhAIAQFP";
+		String accessToken = "62_TaBhppNdn6pWxgZsOCgRTvT5pD9s6z3NEKPduXrmkbkdzbHeNaoOQV-r3gg5PFLpMVtFdLNx7zv9e0AS8PJtC-9C7MEz727TvOJKypqxvvNCtQ10lRmnutYQHpeVj9rj940QeQI9TwnSFrP7OAPhAJASET";
 		String sendMsgUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s";
 		sendMsgUrl = String.format(sendMsgUrl, accessToken);
 		System.out.println("sendMsgUrl:" + sendMsgUrl);
@@ -226,7 +246,7 @@ class DemoApplicationTests {
 
 	@Test
 	public void createTicket() {
-		String accessToken = "62_dn-lvinpbTP8KkcUsQtn-II-gJTI1l5YDUvl6ky7EpG1kvqYQDpQlDatwzP1amditTnZ017XMKwuvgSAtI20p2fVjwx51nOil8-ASrb2U9ma8iyl2UCS7J3o75z2gnr32jJlgxONOGX9_W6EIOYiACACIS";
+		String accessToken = "62_pzOl3ITpWqva_5NZ9oj8GXDEuoZ0qCV3xMIbNsrYbBPTu0ZKN5p1GVHzsN0XCB96VFBdKlUtC9wWvzl_az92sTolgddWZMbWGzGhdNhrKk4nZ8pLMm93ENo0IgTey_-V8jvKprH5flD_eCCBXKKbAHATGG";
 		String createTempTicketUrl = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s";
 		createTempTicketUrl = String.format(createTempTicketUrl, accessToken);
 		JSONObject jsonObject = new JSONObject();
@@ -262,8 +282,23 @@ class DemoApplicationTests {
 			String getQRcodeUrl = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=%s";
 			getQRcodeUrl = String.format(getQRcodeUrl, ticket);
 			System.out.println("getQRcodeUrl:" + getQRcodeUrl);
-//			JSONObject resultQRcode = WxUtil.getDataFromWxServer(getQRcodeUrl);
-//			System.out.println("resultQRcode:" + resultQRcode);
+
+//			HttpClient httpClient = HttpClientBuilder.create().build();
+//			//
+//			try {
+//				HttpGet httpGet = new HttpGet(getQRcodeUrl);
+//				HttpResponse response = httpClient.execute(httpGet);// 接收client执行的结果
+//				HttpEntity entity = response.getEntity();
+//				if (entity != null) {
+//					File qrCodePictureSavePath = new File("d:/qrcode/" + new Random().nextInt() +".jpg");
+//					OutputStream os = new FileOutputStream(qrCodePictureSavePath);
+//					entity.writeTo(os);
+//				} else {
+//					System.out.println("向微信服务器发送Get请求发生错误！");
+//				}
+//			} catch (Exception e) {
+//				System.out.println("向微信服务器发送Get请求发生错误：" + e.getMessage());
+//			}
 		} else {
 			String errmsg = jsonObject.getString("errmsg");
 			System.out.println("createTicket请求微信服务器失败，errcode:" + errcode + ",errmsg:" + errmsg);
@@ -299,7 +334,117 @@ class DemoApplicationTests {
 	}
 
 	@Test
+	public void sendOuthMsgToUser() {
+		String openid = "oa9m45sEj_dDR9FGoeoGmx7_M21o";
+		String template_id = "McTEif4kxJ-BNiLp1fMFYR8Ymzc5kJoujeIq1dhqL20";
+		String REDIRECT_URI = "http://www.szwd.online//wx/outhPage/" + 1;
+		String outhUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+		outhUrl = String.format(outhUrl, WxOfficialAccountController.appid, REDIRECT_URI);
+		String url = outhUrl;
+		//
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("touser", openid);
+		jsonObject.put("template_id", template_id);
+		jsonObject.put("url", url);
+		JSONObject jsonObject2 = new JSONObject();
+		//
+		JSONObject jsonObjectFirst = new JSONObject();
+		jsonObjectFirst.put("value", "您好，由于您申请了工程项目管理系统绑定申请，现已生成授权申请。");
+		jsonObjectFirst.put("color", "#173177");
+		jsonObject2.put("first", jsonObjectFirst);
+		//
+		JSONObject jsonObjectKeyword1 = new JSONObject();
+		jsonObjectKeyword1.put("value", "工程项目管理系统");
+		jsonObjectKeyword1.put("color", "#173177");
+		jsonObject2.put("keyword1", jsonObjectKeyword1);
+		//
+		JSONObject jsonObjectKeyword2 = new JSONObject();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		jsonObjectKeyword2.put("value", simpleDateFormat.format(new Date()));
+		jsonObjectKeyword2.put("color", "#173177");
+		jsonObject2.put("keyword2", jsonObjectKeyword2);
+		//
+		JSONObject jsonObjectRemark = new JSONObject();
+		jsonObjectRemark.put("value", "请点击详情进行授权操作");
+		jsonObjectRemark.put("color", "#173177");
+		jsonObject2.put("remark", jsonObjectRemark);
+		//
+		jsonObject.put("data", jsonObject2);
+		//
+//		String accessToken = WxUtil.getAccessToken();
+		String accessToken = "62_1Q1ewVp6tWH7J73zidPos5PEJerZEKeeTNuWYih-Duqep3Rgm6w-J83vq91_lSPZ-UJRcMVDQhmD5U2BsYdxIlAeCCFT72EpXcZxizyV4FdQkemMGnrGbBjBW3jSRlY5OqJwq20izZ8dFQD_TPUhAHAHDI";
+		String sendMsgUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s";
+		sendMsgUrl = String.format(sendMsgUrl, accessToken);
+		System.out.println("sendMsgUrl:" + sendMsgUrl);
+		System.out.println("jsonObject:" + jsonObject.toString());
+		JSONObject wxResult = WxUtil.postToWxServer(sendMsgUrl, jsonObject.toString());
+		String errcode = wxResult.getString("errcode");
+		String errmsg = wxResult.getString("errmsg");
+		String msgid = wxResult.getString("msgid");
+		System.out.println("errcode:" + errcode + ", errmsg:" + errmsg + ", msgid:" + msgid);
+	}
+
+	@Test
 	public void test() throws UnsupportedEncodingException {
-		System.out.println(URLEncoder.encode("gQEl8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyX2hFcFI5SHBlVUMxdWhkRnh6MUMAAgQRk2BjAwSAOgkA", "GBK"));
+
+		String str = "qrscene_1";
+		String[] strArr = str.split("_");
+		System.out.println("strArr[1]:" + strArr[1]);
+	}
+
+	@Test
+	public void testGetUserDepmList() {
+		List<UserDepm> list = userDepmService.list();
+		for(UserDepm userDepm : list) {
+			System.out.println(userDepm);
+		}
+	}
+
+	@Test
+	public void testGetMessgeTypeList() {
+		List<MessageType> list = messageTypeService.list();
+		System.out.println(list);
+	}
+
+	@Test
+	public void testQuartz() {
+		try {
+			Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+			CronTrigger trigger = (CronTrigger) TriggerBuilder.newTrigger().withIdentity("trigger", "group")
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/1 * * * * ?")).build();
+			JobDetail job = newJob(ScheduleJob.class)
+					.withIdentity("job", "group")
+					.usingJobData("name", "testJob")
+					.build();
+			CronTrigger trigger2 = (CronTrigger) TriggerBuilder.newTrigger().withIdentity("trigger2", "group")
+					.withSchedule(CronScheduleBuilder.cronSchedule("0/3 * * * * ?")).build();
+			JobDetail job2 = newJob(ScheduleJob.class)
+					.withIdentity("job2", "group")
+					.usingJobData("name", "testJob222222")
+					.build();
+			scheduler.scheduleJob(job, trigger);
+			scheduler.scheduleJob(job2, trigger2);
+			scheduler.start();
+			Thread.sleep(28000);
+			scheduler.shutdown();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void testReurnMessageID() {
+		Message message = new Message();
+		message.setSendTime(new Date());
+		message.setUserId(1);
+		message.setMsgTypeId(1);
+		message.setStatus(0);
+		messageMapper.add(message);
+		System.out.println("Message.getId():" + message.getId());
+	}
+
+	@Test
+	public void testSendRemoteLoginMsg() {
+		WxUtil.sendRemoteLoginMsg("oa9m45sEj_dDR9FGoeoGmx7_M21o", 1);
 	}
 }

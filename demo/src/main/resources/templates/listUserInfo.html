@@ -55,34 +55,38 @@
 
         <thead>
         <tr>
-            <td>默认数据库</td>
-            <td>用户代码</td>
-            <td>KeyID</td>
-            <td>密码</td>
-            <td>MDPswd</td>
-            <td>描述</td>
+            <td>服务器Id</td>
+            <td>用户Id</td>
+            <td>用户名称</td>
+            <td>手机号</td>
+            <td>微信昵称</td>
+            <td>openid</td>
+            <td>微信昵称2</td>
+            <td>openid2</td>
             <td>操作</td>
         </tr>
         </thead>
-        <tr v-for="userDepm in userDepms">
-            <td>{{userDepm.defaultDBName}}</td>
-            <td>{{userDepm.userName}}</td>
-            <td>{{userDepm.keyID}}</td>
-            <td>{{userDepm.pswd}}</td>
-            <td>{{userDepm.MDPswd}}</td>
-            <td>{{userDepm.description}}</td>
+        <tr v-for="userInfo in userInfos">
+            <td>{{userInfo.serverId}}</td>
+            <td>{{userInfo.userId}}</td>
+            <td>{{userInfo.userName}}</td>
+            <td>{{userInfo.phone}}</td>
+            <td>{{userInfo.wxNickname}}</td>
+            <td>{{userInfo.openId}}</td>
+            <td>{{userInfo.wxNickname2}}</td>
+            <td>{{userInfo.openId2}}</td>
 <!--            <td>{{bindApply.userOpenid}}</td>-->
 <!--            <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>-->
             <td>
 <!--                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>-->
 <!--                <span v-else>已审核</span>-->
-                <button type="button"  @click="review(userDepm.userName, userDepm.description)" class="layui-btn layui-btn-sm">生成绑定二维码</button>
+                <button type="button"  @click="review(userInfo.serverId, userInfo.userId)" class="layui-btn layui-btn-sm">生成绑定二维码</button>
 <!--                <span v-else>已审核</span>-->
             </td>
         </tr>
 
         <tr>
-            <td colspan="7">
+            <td colspan="9">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
@@ -104,7 +108,7 @@
 
 <script type="text/javascript">
     var data4Vue = {
-            userDepms: [],
+            userInfos: [],
 <!--            hero4Add: { id: 0, name: '', hp: '0'},-->
             hero4Add: { userName: '', description: ''},
             pagination:{},
@@ -120,18 +124,18 @@
         },        
         methods: {     	
         	list:function(start){
-                var url = "/userDepm/userDepms?start="+start;
+                var url = "/userInfo/userInfos?start="+start;
                 axios.get(url).then(function(response) {
                 	vue.pagination = response.data;
                 	console.log(vue.pagination);
-                	vue.userDepms = response.data.list;
+                	vue.userInfos = response.data.list;
                 })     
         	},        	
-            review: function (userName, description, event) {
+            review: function (serverId, userId, event) {
 <!--                    alert(userName);-->
 <!--                    alert(description);-->
-            	    var url = "/userDepm/getQRcodeByUserNameAndDes";
-            	    var data = {userName:userName, description:description};
+            	    var url = "/userInfo/getQRcodeByServerIdAndUserId";
+            	    var data = {serverId:serverId, userId:userId};
 <!--            	    let data={id:100}-->
 <!--            	    alert(JSON.stringify(data));-->
                     axios.post(url, data).then(function(response){

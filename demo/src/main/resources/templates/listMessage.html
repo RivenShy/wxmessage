@@ -3,7 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>用户列表</title>
+    <title>发送信息列表</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/vue.min.js"></script>
@@ -50,43 +50,31 @@
 
 <body>
 <div id="app">
-    用户列表页面：
+    发送信息列表页面：
     <table id="bindApplyListTable" class="layui-table" lay-even>
-
         <thead>
         <tr>
-            <td>服务器Id</td>
+            <td>消息Id</td>
+            <td>消息类型Id</td>
+            <td>状态</td>
+            <td>发送时间</td>
             <td>用户Id</td>
             <td>用户名称</td>
-            <td>手机号</td>
-            <td>微信昵称</td>
-            <td>openid</td>
-            <td>微信昵称2</td>
-            <td>openid2</td>
-            <td>操作</td>
+            <td>点击时间</td>
         </tr>
         </thead>
-        <tr v-for="userInfo in userInfos">
-            <td>{{userInfo.serverId}}</td>
-            <td>{{userInfo.userId}}</td>
-            <td>{{userInfo.userName}}</td>
-            <td>{{userInfo.phone}}</td>
-            <td>{{userInfo.wxNickname}}</td>
-            <td>{{userInfo.openId}}</td>
-            <td>{{userInfo.wxNickname2}}</td>
-            <td>{{userInfo.openId2}}</td>
-<!--            <td>{{bindApply.userOpenid}}</td>-->
-<!--            <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>-->
-            <td>
-<!--                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>-->
-<!--                <span v-else>已审核</span>-->
-                <button type="button"  @click="review(userInfo.serverId, userInfo.userId)" class="layui-btn layui-btn-sm">生成绑定二维码</button>
-<!--                <span v-else>已审核</span>-->
-            </td>
+        <tr v-for="message in messages">
+            <td>{{message.id}}</td>
+            <td>{{message.msgTypeId}}</td>
+            <td v-html="message.status==0?'发送成功':'发送失败'">{{message.status}}</td>
+            <td>{{message.sendTime}}</td>
+            <td>{{message.userId}}</td>
+            <td>{{message.userName}}</td>
+            <td>{{message.clickTime}}</td>
         </tr>
 
         <tr>
-            <td colspan="9">
+            <td colspan="7">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
@@ -108,9 +96,7 @@
 
 <script type="text/javascript">
     var data4Vue = {
-            userInfos: [],
-<!--            hero4Add: { id: 0, name: '', hp: '0'},-->
-            hero4Add: { userName: '', description: ''},
+            messages: [],
             pagination:{},
             qrCode: '',
 	};
@@ -124,39 +110,13 @@
         },        
         methods: {     	
         	list:function(start){
-                var url = "/userInfo/userInfos?start="+start;
+                var url = "/message/messages?start="+start;
                 axios.get(url).then(function(response) {
                 	vue.pagination = response.data;
                 	console.log(vue.pagination);
-                	vue.userInfos = response.data.list;
+                	vue.messages = response.data.list;
                 })     
         	},        	
-            review: function (serverId, userId, event) {
-<!--                    alert(userName);-->
-<!--                    alert(description);-->
-            	    var url = "/userInfo/getQRcodeByServerIdAndUserId";
-            	    var data = {serverId:serverId, userId:userId};
-<!--            	    let data={id:100}-->
-<!--            	    alert(JSON.stringify(data));-->
-                    axios.post(url, data).then(function(response){
-                        console.log(response);
-                        if(response.data.code == 200) {
-                            if(response.data.success == true) {
-                                alert(response.data.msg);
-<!--                                alert(response.data.data);-->
-                                vue.qrCode = response.data.data;
-<!--                                vue.qrCode = '';-->
-<!--                                alert(vue.qrCode);-->
-                            } else{
-                                alert(response.data.msg);
-                            }
-                        } else{
-                            alert("请求失败");
-                        }
-                        vue.list(1);
-    <!--					vue.hero4Add = { id: 0, name: '', hp: '0'}-->
-                    });
-            },
             jump: function(page){
 				if('first'== page && 1!=vue.pagination.pageNum)
 					vue.list(1);

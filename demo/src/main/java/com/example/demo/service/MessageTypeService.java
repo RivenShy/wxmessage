@@ -1,22 +1,13 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.MessageType;
 import com.example.demo.entity.UserInfo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
-public interface UserInfoService {
-//    public int add(BindApply bindApply);
-//
-//    public void delete(int id);
-//
-//    public BindApply get(int id);
+public interface MessageTypeService {
 
-      public UserInfo getUserInfoByServerIdAndUserId(UserInfo userInfo);
-//
-    public int updateOpenIdAndNickName(UserInfo userInfo);
-
-//    public int review(int id);
-//
-    public List<UserInfo> list();
+    public List<MessageType> list();
 }

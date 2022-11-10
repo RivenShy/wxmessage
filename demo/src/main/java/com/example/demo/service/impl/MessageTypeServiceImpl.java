@@ -1,4 +1,21 @@
 package com.example.demo.service.impl;
 
-public class MessageTypeServiceImpl {
+import com.example.demo.entity.MessageType;
+import com.example.demo.mapper.MessageTypeMapper;
+import com.example.demo.service.MessageTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class MessageTypeServiceImpl implements MessageTypeService {
+
+    @Autowired
+    MessageTypeMapper messageTypeMapper;
+
+    @Override
+    public List<MessageType> list() {
+        return messageTypeMapper.list();
+    }
 }

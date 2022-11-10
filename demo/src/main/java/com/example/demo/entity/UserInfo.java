@@ -2,25 +2,25 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
-
-//@Entity
-//@Table(name = "user")
 @Data
-public class User {
+public class UserInfo {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private int id;
 
-//    @Column(name = "name")
-    private String name;
+    private int serverId;
 
-//    @Column(name = "openid")
+    private String userId;
+
+    private String userName;
+
+    private String phone;
+
+    private String wxNickname;
+
     private String openId;
 
-//    @Column(name = "wxnickname")
-    private String wxNickname;
+    private String wxNickname2;
+
+    private String openId2;
 }
 
