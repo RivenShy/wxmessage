@@ -2,6 +2,8 @@ package com.example.demo.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.controller.WxOfficialAccountController;
+import com.example.demo.entity.AuditDelayCount;
+import com.example.demo.entity.PendingApproval;
 import com.example.demo.entity.UserInfo;
 import com.example.demo.entity.WxAccessToken;
 import org.apache.http.HttpEntity;
@@ -16,6 +18,11 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
+import javax.imageio.stream.FileImageInputStream;
+import javax.imageio.stream.FileImageOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -145,12 +152,12 @@ public class WxUtil {
         return cal.getTime();
     }
 
-    public static void sendOuthMsgToUser(String openid, String outhUrl) {
+    public static void sendOuthMsgToUser(String openid, String outhUrl, String customerName, String userId, String userName) {
 //        String openid = "oa9m45sEj_dDR9FGoeoGmx7_M21o";
         String template_id = "McTEif4kxJ-BNiLp1fMFYR8Ymzc5kJoujeIq1dhqL20";
-        String REDIRECT_URI = "http://www.szwd.online//wx/outhPage/" + 1;
+//        String REDIRECT_URI = "http://www.szwd.online//wx/outhPage/" + 1;
 //        String outhUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-        outhUrl = String.format(outhUrl, WxOfficialAccountController.appid, REDIRECT_URI);
+//        outhUrl = String.format(outhUrl, WxOfficialAccountController.appid, REDIRECT_URI);
         String url = outhUrl;
         //
         JSONObject jsonObject = new JSONObject();
@@ -160,12 +167,14 @@ public class WxUtil {
         JSONObject jsonObject2 = new JSONObject();
         //
         JSONObject jsonObjectFirst = new JSONObject();
-        jsonObjectFirst.put("value", "您好，由于您申请了工程项目管理系统绑定申请，现已生成授权申请。");
+        jsonObjectFirst.put("value", "您好，由于您申请了以下单位的绑定申请，现已生成授权申请。");
         jsonObjectFirst.put("color", "#173177");
         jsonObject2.put("first", jsonObjectFirst);
         //
+        String keyword1Content = userName == null ? userId : userName;
+        keyword1Content = keyword1Content + "（" + customerName + "）";
         JSONObject jsonObjectKeyword1 = new JSONObject();
-        jsonObjectKeyword1.put("value", "工程项目管理系统");
+        jsonObjectKeyword1.put("value", keyword1Content);
         jsonObjectKeyword1.put("color", "#173177");
         jsonObject2.put("keyword1", jsonObjectKeyword1);
         //
@@ -175,8 +184,9 @@ public class WxUtil {
         jsonObjectKeyword2.put("color", "#173177");
         jsonObject2.put("keyword2", jsonObjectKeyword2);
         //
+        String remarkMessage = "点击这里授权";
         JSONObject jsonObjectRemark = new JSONObject();
-        jsonObjectRemark.put("value", "请点击详情进行授权操作");
+        jsonObjectRemark.put("value", remarkMessage);
         jsonObjectRemark.put("color", "#173177");
         jsonObject2.put("remark", jsonObjectRemark);
         //
@@ -195,48 +205,44 @@ public class WxUtil {
         System.out.println("errcode:" + errcode + ", errmsg:" + errmsg + ", msgid:" + msgid);
     }
 
-    public static boolean sendProcessApprovalMsgToUser(String openid, int messageId) {
+    public static boolean sendProcessApprovalMsgToUser(String customerName, UserInfo userInfo, int messageId, AuditDelayCount auditDelayCount) {
         String template_id = Constant.processApproveRemindTemplateId;
-        String url = "http://www.szwd.online/userInfo/userClickWxMessage/" + messageId;
+        // todo 改成一个前端页面（早上详情），传messgeId、userCode参数给这个页面
+        String url = "http://www.szwd.online:8009/#/ApprovalInformation?messageId=" + messageId + "&userCode=" + userInfo.getUserId();
+//        String url = "http://www.szwd.online/userInfo/userClickWxMessage/" + messageId;
+//        String url = "http://www.szwd.online/userInfo/userClickWxMessage？messageId=" + messageId + "&userCode=" + userInfo.getUserId();
         //
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("touser", openid);
+        jsonObject.put("touser", userInfo.getOpenId());
         jsonObject.put("template_id", template_id);
         jsonObject.put("url", url);
         JSONObject jsonObject2 = new JSONObject();
         //
+        String userName = userInfo.getUserName() == null ? userInfo.getUserId() : userInfo.getUserName();
         JSONObject jsonObjectFirst = new JSONObject();
-        jsonObjectFirst.put("value", "微信绑定公众号提醒");
+        jsonObjectFirst.put("value", "您好，" + userName + "，今天需要您审批的单据汇总信息如下");
         jsonObjectFirst.put("color", "#173177");
         jsonObject2.put("first", jsonObjectFirst);
         //
+        String keyword1Content = "待审批单据总数：" + auditDelayCount.getAdcount() + "\n" + "已延期的单据数：" + auditDelayCount.getDelaycount();
         JSONObject jsonObjectKeyword1 = new JSONObject();
-        jsonObjectKeyword1.put("value", "JP1409010001");
+        jsonObjectKeyword1.put("value", keyword1Content);
         jsonObjectKeyword1.put("color", "#173177");
         jsonObject2.put("keyword1", jsonObjectKeyword1);
         //
         JSONObject jsonObjectKeyword2 = new JSONObject();
-        jsonObjectKeyword2.put("value", "2014-09-01");
+        jsonObjectKeyword2.put("value", customerName);
         jsonObjectKeyword2.put("color", "#173177");
         jsonObject2.put("keyword2", jsonObjectKeyword2);
         //
         JSONObject jsonObjectKeyword3 = new JSONObject();
-        jsonObjectKeyword3.put("value", "张三");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        jsonObjectKeyword3.put("value", simpleDateFormat.format(new Date()));
         jsonObjectKeyword3.put("color", "#173177");
         jsonObject2.put("keyword3", jsonObjectKeyword3);
         //
-        JSONObject jsonObjectKeyword4 = new JSONObject();
-        jsonObjectKeyword4.put("value", "财务部");
-        jsonObjectKeyword4.put("color", "#173177");
-        jsonObject2.put("keyword4", jsonObjectKeyword4);
-        //
-        JSONObject jsonObjectKeyword5 = new JSONObject();
-        jsonObjectKeyword5.put("value", "申请一部笔记本电脑");
-        jsonObjectKeyword5.put("color", "#173177");
-        jsonObject2.put("keyword5", jsonObjectKeyword5);
-        //
         JSONObject jsonObjectRemark = new JSONObject();
-        jsonObjectRemark.put("value", "请点击查看详情");
+        jsonObjectRemark.put("value", "点击查看详情信息");
         jsonObjectRemark.put("color", "#173177");
         jsonObject2.put("remark", jsonObjectRemark);
         //
@@ -258,6 +264,131 @@ public class WxUtil {
             return false;
         }
     }
+
+    public static boolean sendProcessApprovalMsgToUserAtNight(String customerName, UserInfo userInfo, int messageId, PendingApproval pendingApproval) {
+        String template_id = Constant.processApproveRemindTemplateId;
+        // todo 改成一个前端页面(晚上详情)，传messgeId、userCode参数给这个页面
+        String url = "http://www.szwd.online:8009/#/approvalToday?messageId?" + messageId + "&userCode=" + userInfo.getUserId();
+//        String url = "http://www.szwd.online/userInfo/userClickWxMessage/" + messageId;
+        //
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("touser", userInfo.getOpenId());
+        jsonObject.put("template_id", template_id);
+        jsonObject.put("url", url);
+        JSONObject jsonObject2 = new JSONObject();
+        //
+        String userName = userInfo.getUserName() == null ? userInfo.getUserId() : userInfo.getUserName();
+        JSONObject jsonObjectFirst = new JSONObject();
+        jsonObjectFirst.put("value", "您好，" + userName + "，今天您完成审批的单据汇总信息如下");
+        jsonObjectFirst.put("color", "#173177");
+        jsonObject2.put("first", jsonObjectFirst);
+        //
+        String keyword1Content = "今日已审核数：" + pendingApproval.getTotalCount() + "\n" + "待审/未审核数：" + pendingApproval.getAdcount();
+        JSONObject jsonObjectKeyword1 = new JSONObject();
+        jsonObjectKeyword1.put("value", keyword1Content);
+        jsonObjectKeyword1.put("color", "#173177");
+        jsonObject2.put("keyword1", jsonObjectKeyword1);
+        //
+        JSONObject jsonObjectKeyword2 = new JSONObject();
+        jsonObjectKeyword2.put("value", customerName);
+        jsonObjectKeyword2.put("color", "#173177");
+        jsonObject2.put("keyword2", jsonObjectKeyword2);
+        //
+        JSONObject jsonObjectKeyword3 = new JSONObject();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        jsonObjectKeyword3.put("value", simpleDateFormat.format(new Date()));
+        jsonObjectKeyword3.put("color", "#173177");
+        jsonObject2.put("keyword3", jsonObjectKeyword3);
+        //
+        JSONObject jsonObjectRemark = new JSONObject();
+        jsonObjectRemark.put("value", "点击查看详情信息");
+        jsonObjectRemark.put("color", "#173177");
+        jsonObject2.put("remark", jsonObjectRemark);
+        //
+        jsonObject.put("data", jsonObject2);
+        //
+        String accessToken = WxUtil.getAccessToken();
+        String sendMsgUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s";
+        sendMsgUrl = String.format(sendMsgUrl, accessToken);
+        logger.info("sendMsgUrl:" + sendMsgUrl);
+        logger.info("jsonObject:" + jsonObject.toString());
+        JSONObject wxResult = WxUtil.postToWxServer(sendMsgUrl, jsonObject.toString());
+        String errcode = wxResult.getString("errcode");
+        String errmsg = wxResult.getString("errmsg");
+        String msgid = wxResult.getString("msgid");
+        logger.info("errcode:" + errcode + ", errmsg:" + errmsg + ", msgid:" + msgid);
+        if(errcode.equals("0")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+//    暂时用不上
+//    public static boolean sendProcessApprovalMsgToUser(String openid, int messageId, int pendingApprovalNumber) {
+//        String template_id = Constant.processApproveRemindTemplateId;
+//        String url = "http://www.szwd.online/userInfo/userClickWxMessage/" + messageId;
+//        //
+//        JSONObject jsonObject = new JSONObject();
+//        jsonObject.put("touser", openid);
+//        jsonObject.put("template_id", template_id);
+//        jsonObject.put("url", url);
+//        JSONObject jsonObject2 = new JSONObject();
+//        //
+//        JSONObject jsonObjectFirst = new JSONObject();
+//        jsonObjectFirst.put("value", "你有" + pendingApprovalNumber + "个待审批事项");
+//        jsonObjectFirst.put("color", "#173177");
+//        jsonObject2.put("first", jsonObjectFirst);
+//        //
+//        JSONObject jsonObjectKeyword1 = new JSONObject();
+//        jsonObjectKeyword1.put("value", "xxxxxx");
+//        jsonObjectKeyword1.put("color", "#173177");
+//        jsonObject2.put("keyword1", jsonObjectKeyword1);
+//        //
+//        JSONObject jsonObjectKeyword2 = new JSONObject();
+//        jsonObjectKeyword2.put("value", "xxxxxx");
+//        jsonObjectKeyword2.put("color", "#173177");
+//        jsonObject2.put("keyword2", jsonObjectKeyword2);
+//        //
+//        JSONObject jsonObjectKeyword3 = new JSONObject();
+//        jsonObjectKeyword3.put("value", "xxxxxx");
+//        jsonObjectKeyword3.put("color", "#173177");
+//        jsonObject2.put("keyword3", jsonObjectKeyword3);
+//        //
+//        JSONObject jsonObjectKeyword4 = new JSONObject();
+//        jsonObjectKeyword4.put("value", "xxxxxx");
+//        jsonObjectKeyword4.put("color", "#173177");
+//        jsonObject2.put("keyword4", jsonObjectKeyword4);
+//        //
+//        JSONObject jsonObjectKeyword5 = new JSONObject();
+//        jsonObjectKeyword5.put("value", "待审批事项详情请登录后台查看");
+//        jsonObjectKeyword5.put("color", "#173177");
+//        jsonObject2.put("keyword5", jsonObjectKeyword5);
+//        //
+//        JSONObject jsonObjectRemark = new JSONObject();
+//        jsonObjectRemark.put("value", "点击查看详情阅读信息");
+//        jsonObjectRemark.put("color", "#173177");
+//        jsonObject2.put("remark", jsonObjectRemark);
+//        //
+//        jsonObject.put("data", jsonObject2);
+//        //
+//        String accessToken = WxUtil.getAccessToken();
+//        String sendMsgUrl = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=%s";
+//        sendMsgUrl = String.format(sendMsgUrl, accessToken);
+//        logger.info("sendMsgUrl:" + sendMsgUrl);
+//        logger.info("jsonObject:" + jsonObject.toString());
+//        JSONObject wxResult = WxUtil.postToWxServer(sendMsgUrl, jsonObject.toString());
+//        String errcode = wxResult.getString("errcode");
+//        String errmsg = wxResult.getString("errmsg");
+//        String msgid = wxResult.getString("msgid");
+//        logger.info("errcode:" + errcode + ", errmsg:" + errmsg + ", msgid:" + msgid);
+//        if(errcode.equals("0")) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
 
     public static boolean sendRemoteLoginMsg(String openid, int messageId) {
         String template_id = Constant.remoteLoginRemindTemplateId;
@@ -321,5 +452,78 @@ public class WxUtil {
         } else {
             return false;
         }
+    }
+
+    // 图片转byte数组
+    public static byte[] imageToByte(String path) {
+        byte[] data = null;
+        try {
+            HttpClient httpClient = HttpClientBuilder.create().build();
+            HttpGet httpGet = new HttpGet(path);
+            HttpResponse response = httpClient.execute(httpGet);// 接收client执行的结果
+            HttpEntity entity = response.getEntity();
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            entity.writeTo(output);
+            data = output.toByteArray();
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            logger.error("图片转二进制流失败");
+            return null;
+        }
+        return data;
+    }
+
+    // byte数组转图片
+    public static void byteToImage(byte[] data, String path) {
+        if(data.length < 3 || path.equals("")) {
+            logger.error("传入参数不合法");
+            return;
+        }
+        try {
+            FileImageOutputStream imageOutput = new FileImageOutputStream(new File(path));
+            imageOutput.write(data, 0, data.length);
+            imageOutput.close();
+            logger.info("图片位置在：" + path);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("byte数组转图片失败");
+        }
+    }
+
+    public static byte bit2byte(String bString){
+        byte result=0;
+        for(int i=bString.length()-1,j=0;i>=0;i--,j++){
+            result+=(Byte.parseByte(bString.charAt(i)+"")*Math.pow(2, j));
+        }
+        return result;
+    }
+
+
+    public static byte[] Hex2Byte(String inHex) {
+
+        String[] hex = inHex.split(" ");//将接收的字符串按空格分割成数组
+        byte[] byteArray = new byte[hex.length];
+
+        for (int i = 0; i < hex.length; i++) {
+            //parseInt()方法用于将字符串参数作为有符号的n进制整数进行解析
+            byteArray[i] = (byte) Integer.parseInt(hex[i], 16);
+        }
+
+        return byteArray;
+    }
+
+    public static String signEnCode(String pswd){
+        byte XorKey[] = { (byte)0xB1, 0x23, (byte) 0xBB,0x13, (byte) 0x93,0x6D,0x44, 0x16};
+        String str ="";
+        String tmp = "";
+        Integer j = 0;
+        for (int i=0;i<pswd.length();i++){
+            byte b = (byte)pswd.charAt(i);
+            tmp = Integer.toHexString(b ^ XorKey[j]);
+            str = str + tmp.substring(tmp.length()-2);
+            j = (j+1) % 8;
+        }
+        return  str;
     }
 }

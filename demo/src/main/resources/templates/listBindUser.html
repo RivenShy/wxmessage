@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>绑定申请审核</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/vue.min.js"></script>
     <script src="/js/axios.min.js"></script>
@@ -19,7 +20,7 @@
       
         div#app{
             margin:20px auto;
-            width:800px;
+            width:1200px;
             padding:20px;
 
         }      
@@ -55,12 +56,13 @@
 
         <thead>
         <tr>
-            <td>ID</td>
-            <td>服务器Id</td>
-            <td>用户Id</td>
+<!--            <td>ID</td>-->
+            <td>客户名称</td>
+            <td>服务器名称</td>
+            <td>用户代码</td>
             <td>微信昵称</td>
-            <td>公众号openId</td>
-            <td>操作人</td>
+            <td>用户openId</td>
+<!--            <td>操作人</td>-->
             <td>申请日期</td>
             <td>审核日期</td>
             <td>状态</td>
@@ -68,25 +70,26 @@
         </tr>
         </thead>
         <tr v-for="bindApply in bindApplys">
-            <td>{{bindApply.id}}</td>
-            <td>{{bindApply.serverId}}</td>
-            <td>{{bindApply.userId}}</td>
+            <td>{{bindApply.customerName}}</td>
+            <td>{{bindApply.serverName}}</td>
+            <td>{{bindApply.userCode}}</td>
             <td>{{bindApply.wxNickname}}</td>
             <td>{{bindApply.openId}}</td>
 <!--            <td>{{bindApply.status}}</td>-->
-            <td>{{bindApply.operator}}</td>
+<!--            <td>{{bindApply.operator}}</td>-->
             <td>{{bindApply.applyDate}}</td>
             <td>{{bindApply.reviewDate}}</td>
             <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>
             <td>
-                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>
-                <span v-else>已审核</span>
-<!--                <a href="#nowhere" @click="deleteHero(hero.id)">删除</a>-->
+                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id, bindApply.userId)" class="layui-btn layui-btn-sm">审核</button>
+<!--                <span v-else>已审核</span>-->
+                <button type="button" v-else class="layui-btn layui-btn-sm layui-btn-disabled">审核</button>
+<!--                <button type="button" @click="unBind(bindApply.userId)" class="layui-btn layui-btn-sm">取消绑定</button>-->
             </td>
         </tr>
 
         <tr>
-            <td colspan="10">
+            <td colspan="9">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
@@ -107,9 +110,9 @@
 
 <script type="text/javascript">
     var data4Vue = {
-            bindApplys: [],
-            hero4Add: { id: 0, name: '', hp: '0'},
-            pagination:{}
+        bindApplys: [],
+        hero4Add: { id: 0, name: '', hp: '0'},
+        pagination:{}
 	};
 
     //ViewModel
@@ -128,27 +131,73 @@
                 	vue.bindApplys = response.data.list;
                 })     
         	},        	
-            review: function (param, event) {
-<!--                    alert(param);-->
-            	    var url = "/bindApply/review";
-            	    var data = {id:param};
-<!--            	    let data={id:100}-->
-<!--            	    alert(JSON.stringify(data));-->
-                    axios.post(url, data).then(function(response){
-                        console.log(response);
-                        if(response.data.code == 200) {
-                            if(response.data.success == true) {
-                                alert(response.data.msg);
+            review: function (param, userId, event) {
+                if(userId == 0) {
+                   layer.confirm('服务器没有该用户信息，确定审核并新建该用户吗？', { icon: 3, title: '提示' }, function (index, layero) {
+                        layer.close(index);
+                        var url = "/bindApply/review";
+                        var data = {id:param};
+                        axios.post(url, data).then(function(response){
+                            console.log(response);
+                            if(response.data.code == 200) {
+                                if(response.data.success == true) {
+                                    layer.alert(response.data.msg, {icon: 1});
+                                } else{
+                                    layer.alert(response.data.msg);
+                                }
                             } else{
-                                alert(response.data.msg);
+                                layer.alert("请求失败");
                             }
-                        } else{
-                            alert("请求失败");
-                        }
-                        vue.list(1);
-    <!--					vue.hero4Add = { id: 0, name: '', hp: '0'}-->
+                            vue.list(1);
+                        });
+                    }, function (index, layero) {
+                        layer.close(index);
                     });
+                }
+                else{
+                    layer.confirm('确定审核吗？', { icon: 3, title: '提示' }, function (index, layero) {
+                        layer.close(index);
+                        var url = "/bindApply/review";
+                        var data = {id:param};
+                        axios.post(url, data).then(function(response){
+                            console.log(response);
+                            if(response.data.code == 200) {
+                                if(response.data.success == true) {
+                                    layer.alert(response.data.msg, {icon: 1});
+                                } else{
+                                    layer.alert(response.data.msg);
+                                }
+                            } else{
+                                layer.alert("请求失败");
+                            }
+                            vue.list(1);
+                        });
+                    }, function (index, layero) {
+                        layer.close(index);
+                    });
+                }
             },
+<!--            unBind: function(userId, event) {-->
+<!--                layer.confirm('确定解绑吗？', { icon: 3, title: '提示' }, function (index, layero) {-->
+<!--                    layer.close(index);-->
+<!--                    var url = "/userInfo/unBind";-->
+<!--                    var data = {id:userId};-->
+<!--                    axios.post(url, data).then(function(response){-->
+<!--                        console.log(response);-->
+<!--                        if(response.data.code == 200) {-->
+<!--                            if(response.data.success == true) {-->
+<!--                                layer.alert(response.data.msg, {icon: 1});-->
+<!--                            } else{-->
+<!--                                layer.alert(response.data.msg);-->
+<!--                            }-->
+<!--                        } else{-->
+<!--                            layer.alert("请求失败");-->
+<!--                        }-->
+<!--                    });-->
+<!--                }, function (index, layero) {-->
+<!--                    layer.close(index);-->
+<!--                });-->
+<!--            },-->
             jump: function(page){
 				if('first'== page && 1!=vue.pagination.pageNum)
 					vue.list(1);

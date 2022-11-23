@@ -15,4 +15,6 @@ public interface MessageService {
     public List<Message> list();
 
     public int updateStatus(Message message);
+
+    List<Message> listCondition(Message message);
 }

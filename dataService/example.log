@@ -387,3 +387,71 @@ INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - result 
 INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_ZLXbMnFK1OYjuLLDn-8zhpRMCHUqEr8Uf4MpHmyOqkHGdImnq0nhIloRlKjNt5U9D5XcjRPMQK-ZunahvCiPLPKCGFXDx3wE2EX6vKG2LHmblk2UXmzNhowJZkzleODYYIuAE4rCvBp_XNeCYVBhAFAURX
 INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/7"}
 INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658513696830586883
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-10 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-10 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-8 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+INFO http-nio-8111-exec-8 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+2022-11-11 09:15:36,011 INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+2022-11-11 09:18:51,576 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+2022-11-15 09:23:13,756 INFO http-nio-8111-exec-1 com.example.demo.controller.AuditDelayCountController - 查询待审批数量和延迟24小时的数量
+2022-11-18 12:12:17,845 INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalController - 查询待审批数据超过24小时数据
+2022-11-20 00:29:44,187 INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询待审批数据
+2022-11-20 00:33:43,696 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:36:53,830 INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalDetailController - 查询待审批数据
+2022-11-20 00:38:23,439 INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalDetailController - 查询待审批数据
+2022-11-20 00:41:39,911 INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalDetailController - 查询待审批数据
+2022-11-20 00:43:33,590 INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:43:33,601 INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:43:33,640 INFO http-nio-8111-exec-9 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:44:51,866 INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:44:51,874 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:45:47,885 INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:47:21,541 INFO http-nio-8111-exec-9 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:47:21,654 INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:47:53,393 INFO http-nio-8111-exec-8 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:51:53,206 INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:51:53,336 INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:51:53,344 INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:52:15,721 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:52:15,733 INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:52:15,743 INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:52:50,528 INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:52:50,536 INFO http-nio-8111-exec-8 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:52:50,543 INFO http-nio-8111-exec-9 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:54:06,989 INFO http-nio-8111-exec-9 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:54:06,999 INFO http-nio-8111-exec-10 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:54:07,009 INFO http-nio-8111-exec-2 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:54:15,255 INFO http-nio-8111-exec-1 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:54:15,267 INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:54:15,274 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:54:50,899 INFO http-nio-8111-exec-3 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:54:59,995 INFO http-nio-8111-exec-8 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:55:56,532 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:57:10,120 INFO http-nio-8111-exec-7 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:57:10,273 INFO http-nio-8111-exec-6 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:57:10,293 INFO http-nio-8111-exec-9 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）
+2022-11-20 00:58:08,437 INFO http-nio-8111-exec-5 com.example.demo.controller.PendingApprovalController - 查询今日已审、待审
+2022-11-20 00:58:08,560 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询待平均耗时
+2022-11-20 00:58:08,575 INFO http-nio-8111-exec-4 com.example.demo.controller.PendingApprovalController - 查询今日排行（已审批数目排行）

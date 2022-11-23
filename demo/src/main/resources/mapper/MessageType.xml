@@ -6,7 +6,22 @@
 <mapper namespace="com.example.demo.mapper.MessageTypeMapper">
 
     <select id="list" resultType="MessageType">
-        select messageType.*, userInfo.userName from `PMS_MessageType` messageType, `PMS_UserInfo` userInfo
-        where messageType.userId = userInfo.id
+        select messageType.*, userInfo.userName, userInfo.wxNickname, userInfo.userId as userCode, pmsServer.serverName, customer.customerName
+        from `PMS_MessageType` messageType
+        left join `PMS_Server` pmsServer on messageType.serverId = pmsServer.id
+        left join  `PMS_Customer` customer on pmsServer.customerId = customer.id
+        left join `PMS_UserInfo` userInfo on messageType.userId = userInfo.id
     </select>
+
+    <select id="get" parameterType="_int" resultType="MessageType">
+        select * from `PMS_MessageType` where id= #{id}
+    </select>
+
+    <update id="updateStatus" parameterType="MessageType">
+        update `PMS_MessageType` set status = #{status} where id=#{id}
+    </update>
+
+    <update id="updateScheduleTimeById" parameterType="MessageType">
+        update `PMS_MessageType` set scheduleTime = #{scheduleTime} where id=#{id}
+    </update>
 </mapper>

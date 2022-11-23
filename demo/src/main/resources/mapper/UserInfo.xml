@@ -15,10 +15,19 @@
     </select>
 
     <select id="list" resultType="UserInfo">
-        select * from `PMS_UserInfo`
+        select userInfo.*, server.serverName, server.serverIp, customer.customerName
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id
     </select>
 
     <select id="get" parameterType="_int" resultType="UserInfo">
-        select * from `PMS_UserInfo` where id= #{id}
+        select userInfo.*, server.serverName, customer.customerName
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id and userInfo.id= #{id}
     </select>
+
+    <insert id="add" parameterType="UserInfo" >
+        insert into `PMS_UserInfo` (serverId, userId, userName, phone, wxNickname, openId, wxNickname2, openId2)
+        values (#{serverId}, #{userId}, #{userName}, #{phone}, #{wxNickname}, #{openId}, #{wxNickname2}, #{openId2})
+    </insert>
 </mapper>

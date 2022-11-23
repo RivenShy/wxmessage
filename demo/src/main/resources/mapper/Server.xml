@@ -8,4 +8,23 @@
     <select id="get" parameterType="_int" resultType="Server">
         select * from PMS_Server where id= #{id}
     </select>
+
+    <select id="getServerByServerIp" parameterType="string" resultType="Server">
+        select * from PMS_Server where serverIp= #{serverIp}
+    </select>
+
+    <select id="list" resultType="Server">
+        select * from PMS_Server
+    </select>
+
+    <insert id="add" parameterType="Server">
+        insert into `PMS_Server` (serverName, customerId, serverUrl, serverIp)
+        values (#{serverName}, #{customerId}, #{serverUrl}, #{serverIp})
+    </insert>
+
+    <update id="update" parameterType="Server">
+        update `PMS_Server`
+        set serverName = #{serverName}, customerId = #{customerId}, serverUrl = #{serverUrl}, serverIp = #{serverIp}
+        where id = #{id};
+    </update>
 </mapper>

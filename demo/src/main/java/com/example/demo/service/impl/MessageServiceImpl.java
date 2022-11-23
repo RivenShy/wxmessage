@@ -39,4 +39,9 @@ public class MessageServiceImpl implements MessageService {
         return messageMapper.updateStatus(message);
     }
 
+    @Override
+    public List<Message> listCondition(Message message) {
+        return messageMapper.listCondition(message);
+    }
+
 }

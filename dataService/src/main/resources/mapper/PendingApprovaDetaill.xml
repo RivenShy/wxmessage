@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.PendingApprovalDetailMapper">
+
+<!--    <select id="list" resultType="PendingApprovalDetail">-->
+<!--        select isnull(a.jobuser,b.jobuser) as jobuser,isnull(a.adcount,0) as adcount,-->
+<!--        isnull(b.todayCount,0) as todayCount from st_common.dbo.Ark_AuditCount a full-->
+<!--        outer join st_common.dbo.Ark_AuditFinToday b on a.jobuser = b.jobuser-->
+<!--    </select>-->
+
+    <select id="listByUserCode" statementType="CALLABLE" parameterType="hashmap" resultType="PendingApprovalDetail">
+        {CALL Ark_GetDayAuditDetail
+            (
+            #{UserId,mode=IN}
+            )
+        }
+
+    </select>
+</mapper>

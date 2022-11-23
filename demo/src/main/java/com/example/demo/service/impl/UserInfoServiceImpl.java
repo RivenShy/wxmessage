@@ -29,6 +29,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
+    public int add(UserInfo userInfo) {
+        return userInfoMapper.add(userInfo);
+    }
+
+    @Override
     public UserInfo get(int id) {
         return userInfoMapper.get(id);
     }

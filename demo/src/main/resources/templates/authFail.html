@@ -2,23 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>绑定失败</title>
+    <title>授权申请失败</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/vue.min.js"></script>
     <style type="text/css">
         .fail {
             margin:100px auto;
-            color:red;
-            font-weight:700;
             width:600px;
-            height:200px;
-            border:1px solid grey;
-            text-align: center;
-            line-height: 200px;
+            font-size: 40px;
+        }
+        .divCommon{
+            margin-top:20px;
         }
     </style>
 </head>
 <body>
-    <div class="fail">
-         抱歉，授权绑定失败，请联系系统管理员查找原因！
+    <div class="fail" id="app">
+        <div v-if="userInfo.msg=='审核中'">
+            <div class="divCommon">授权申请失败通知</div>
+            <div class="divCommon">您好，由于您的微信已申请绑定“{{userInfo.customerName}}”工程管理系统“{{userInfo.userCode}}”账号，系统正在审核中</div>
+            <div class="divCommon">申请授权单位：{{userInfo.customerName}}</div>
+            <div class="divCommon">已申请绑定账号：{{userInfo.userCode}}</div>
+            <div class="divCommon">备注：审核中，请等待系统审核</div>
+        </div>
+        <div v-else-if="userInfo.msg=='已审核'">
+            <div class="divCommon">授权申请失败通知</div>
+            <div class="divCommon">您好，由于您的微信已经绑定”{{userInfo.customerName}}”工程管理系统”{{userInfo.userCode}}”账号，故授权申请失败</div>
+            <div class="divCommon">申请授权单位：{{userInfo.customerName}}</div>
+            <div class="divCommon">已绑定账号：{{userInfo.userCode}}</div>
+            <div class="divCommon">备注：已经绑定</div>
+        </div>
+        <div v-else-if="userInfo.msg=='已有微信绑定'">
+            <div class="divCommon">授权申请失败通知</div>
+            <div class="divCommon">该账号已经与微信“{{userInfo.nickname}}”绑定，请先解除绑定，再执行此操作。</div>
+            <div class="divCommon">申请授权单位：{{userInfo.customerName}}</div>
+            <!--            <div class="divCommon">已绑定账号：{{userInfo.userId}}</div>-->
+            <div class="divCommon">备注：请重新确认扫码</div>
+        </div>
+        <div v-else>
+            <div class="divCommon">授权申请失败通知</div>
+            <div class="divCommon">授权申请失败，未知错误，请联系系统管理员</div>
+        </div>
+        <div class="divCommon" id="timeShow"></div>
     </div>
+
+<script type="text/javascript">
+    function time() {
+        dt = new Date();
+        var y = dt.getFullYear();
+        var M = dt.getMonth() + 1;
+        var d = dt.getDate();
+        var h = dt.getHours();
+        var m = dt.getMinutes();
+        var s = dt.getSeconds();
+        document.getElementById("timeShow").innerHTML = "申请时间：" + y + "-" + M + "-" + d + " " + h + ":" + m + ":" + s;
+    }
+
+    window.onload = function () {
+        time()
+    }
+
+    var data4Vue ={
+        userInfo: {nickname: '[[${nickname}]]', headimgurl: '[[${headimgurl}]]', userName: '[[${userName}]]', customerName: '[[${customerName}]]', msg: '[[${msg}]]', userCode: '[[${userCode}]]'},
+    };
+
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted: function(){
+<!--            alert("hello vue");-->
+        },
+        methods: {
+        },
+    });
+</script>
 </body>
 </html>

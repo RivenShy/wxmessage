@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.PendingApprovalMapper">
+
+    <select id="list" resultType="PendingApproval">
+        select isnull(a.jobuser,b.jobuser) as jobuser,isnull(a.adcount,0) as adcount,
+        isnull(b.todayCount,0) as todayCount from st_common.dbo.Ark_AuditCount a full
+        outer join st_common.dbo.Ark_AuditFinToday b on a.jobuser = b.jobuser
+    </select>
+
+    <select id="getByUserCode" parameterType="string" resultType="PendingApproval">
+        select isnull(a.jobuser,b.jobuser) as jobuser,isnull(a.adcount,0) as adcount,
+        isnull(b.todayCount,0) as todayCount from st_common.dbo.Ark_AuditCount a full
+        outer join st_common.dbo.Ark_AuditFinToday b on a.jobuser = b.jobuser
+        where a.jobuser = #{userCode};
+    </select>
+
+    <select id="getAverageTime" statementType="CALLABLE" parameterType="hashmap" resultType="PendingApproval">
+        {CALL Ark_GetAuditEff
+            (
+            #{UserId,mode=IN}
+            )
+        }
+
+    </select>
+
+    <select id="getRank" resultType="PendingApproval">
+        select * from st_common.dbo.Ark_AuditFinToday order by todayCount desc
+    </select>
+
+    <!--    <select id="callProce" statementType="CALLABLE" parameterType="hashmap" resultType="PendingApproval">-->
+<!--        {CALL USP_GetAllUser-->
+<!--            (-->
+<!--            #{UserCode,mode=IN}-->
+<!--            )-->
+<!--        }-->
+
+<!--    </select>-->
+</mapper>

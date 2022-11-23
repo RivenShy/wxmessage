@@ -9,6 +9,7 @@ import com.example.demo.service.BindApplyService;
 import com.example.demo.service.MessageService;
 import com.example.demo.service.UserInfoService;
 import com.example.demo.util.Constant;
+import com.github.pagehelper.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -55,25 +56,47 @@ public class BindApplyController {
         int result = bindApplyService.review(bindApply.getId());
         logger.info("result:" + result);
         JSONObject jsonObject = new JSONObject();
+        BindApply bindApplyDB = bindApplyService.get(bindApply.getId());
         if(result == 1) {
-            // 更新User表，绑定openId
-            UserInfo userInfo = new UserInfo();
-            BindApply bindApplyDB = bindApplyService.get(bindApply.getId());
-            userInfo.setId(bindApplyDB.getUserId());
-            userInfo.setOpenId(bindApplyDB.getOpenId());
-            userInfo.setWxNickname(bindApplyDB.getWxNickname());
-            int resultUpdateUser = userInfoService.updateOpenIdAndNickName(userInfo);
-            logger.info("resultUpdateUser:" + resultUpdateUser);
-            if(resultUpdateUser == 1) {
-                jsonObject.put(Constant.code, 200);
-                jsonObject.put(Constant.success, true);
-                jsonObject.put(Constant.data, null);
-                jsonObject.put(Constant.msg, "操作成功");
-            } else {
-                jsonObject.put(Constant.code, 200);
-                jsonObject.put(Constant.success, false);
-                jsonObject.put(Constant.data, null);
-                jsonObject.put(Constant.msg, "更新用户失败");
+            if(bindApplyDB.getUserId() != 0)  {
+                // 更新User表，绑定openId
+                UserInfo userInfo = new UserInfo();
+                userInfo.setId(bindApplyDB.getUserId());
+                userInfo.setOpenId(bindApplyDB.getOpenId());
+                userInfo.setWxNickname(bindApplyDB.getWxNickname());
+                int resultUpdateUser = userInfoService.updateOpenIdAndNickName(userInfo);
+                logger.info("resultUpdateUser:" + resultUpdateUser);
+                if(resultUpdateUser == 1) {
+                    jsonObject.put(Constant.code, 200);
+                    jsonObject.put(Constant.success, true);
+                    jsonObject.put(Constant.data, null);
+                    jsonObject.put(Constant.msg, "操作成功");
+                } else {
+                    jsonObject.put(Constant.code, 200);
+                    jsonObject.put(Constant.success, false);
+                    jsonObject.put(Constant.data, null);
+                    jsonObject.put(Constant.msg, "更新用户失败");
+                }
+            }
+            // 服务器还没登记还用户信息，则新建该用户
+            else {
+                UserInfo userInfoArgs = new UserInfo();
+                userInfoArgs.setServerId(bindApplyDB.getServerId());
+                userInfoArgs.setUserId(bindApplyDB.getUserCode());
+                userInfoArgs.setOpenId(bindApplyDB.getOpenId());
+                userInfoArgs.setWxNickname(bindApplyDB.getWxNickname());
+                result = userInfoService.add(userInfoArgs);
+                if(result == 1) {
+                    jsonObject.put(Constant.code, 200);
+                    jsonObject.put(Constant.success, true);
+                    jsonObject.put(Constant.data, null);
+                    jsonObject.put(Constant.msg, "操作成功");
+                } else {
+                    jsonObject.put(Constant.code, 200);
+                    jsonObject.put(Constant.success, false);
+                    jsonObject.put(Constant.data, null);
+                    jsonObject.put(Constant.msg, "添加用户失败");
+                }
             }
         } else {
             jsonObject.put(Constant.code, 200);
@@ -91,6 +114,61 @@ public class BindApplyController {
         return "success";
     }
 
-
+    @PostMapping("/reBind")
+    public String reBind(@RequestBody BindApply bindApply) throws Exception {
+        logger.info(bindApply);
+        JSONObject jsonObject = new JSONObject();
+        if(bindApply.getId() == 0 || bindApply.getServerId() == 0 || StringUtil.isEmpty(bindApply.getUserCode())) {
+            logger.error("参数错误");
+            jsonObject.put(Constant.code, 200);
+            jsonObject.put(Constant.success, false);
+            jsonObject.put(Constant.data, null);
+            jsonObject.put(Constant.msg, "参数错误");
+            return jsonObject.toString();
+        }
+        BindApply bindApplyDB = bindApplyService.get(bindApply.getId());
+        if(bindApplyDB == null) {
+            logger.error("根据Id查找绑定信息失败,id = " + bindApplyDB.getId());
+            jsonObject.put(Constant.code, 200);
+            jsonObject.put(Constant.success, false);
+            jsonObject.put(Constant.data, null);
+            jsonObject.put(Constant.msg, "找不到对应的绑定申请信息");
+            return jsonObject.toString();
+        }
+        UserInfo userInfoArgs = new UserInfo();
+        userInfoArgs.setServerId(bindApply.getServerId());
+        userInfoArgs.setUserId(bindApply.getUserCode());
+        UserInfo userInfoDB = userInfoService.getUserInfoByServerIdAndUserId(userInfoArgs);
+        userInfoDB.setWxNickname(bindApplyDB.getWxNickname());
+        userInfoDB.setOpenId(bindApplyDB.getOpenId());
+        int result = userInfoService.updateOpenIdAndNickName(userInfoDB);
+        if(result == 0) {
+            logger.error("更新用户的微信昵称和openId失败,用户id = " + userInfoDB.getId());
+            jsonObject.put(Constant.code, 200);
+            jsonObject.put(Constant.success, false);
+            jsonObject.put(Constant.data, null);
+            jsonObject.put(Constant.msg, "更新用户的微信昵称和openId失败");
+            return jsonObject.toString();
+        }
+//        更新BindApply表
+        BindApply bindApplyArgs = new BindApply();
+        bindApplyArgs.setId(bindApply.getId());
+        bindApplyArgs.setUserId(userInfoDB.getId());
+        bindApplyArgs.setUserCode(userInfoDB.getUserId());
+        result = bindApplyService.reBindByServerIdAndUserId(bindApplyArgs);
+        if(result == 0) {
+            logger.error("更新绑定申请信息失败：" + bindApplyArgs);
+            jsonObject.put(Constant.code, 200);
+            jsonObject.put(Constant.success, false);
+            jsonObject.put(Constant.data, null);
+            jsonObject.put(Constant.msg, "更新绑定申请信息失败");
+            return jsonObject.toString();
+        }
+        jsonObject.put(Constant.code, 200);
+        jsonObject.put(Constant.success, true);
+        jsonObject.put(Constant.data, null);
+        jsonObject.put(Constant.msg, "操作成功");
+        return jsonObject.toString();
+    }
 }
 

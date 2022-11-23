@@ -16,4 +16,5 @@ public interface UserInfoMapper {
 
     public UserInfo get(int id);
 
+    public int add(UserInfo userInfo);
 }

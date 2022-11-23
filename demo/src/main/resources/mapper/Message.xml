@@ -20,11 +20,25 @@
     </update>
 
     <select id="list" resultType="Message">
-        select message.*, userInfo.userName from `PMS_Message` message, `PMS_UserInfo` userInfo
+        select message.*, userInfo.userName, userInfo.wxNickname from `PMS_Message` message, `PMS_UserInfo` userInfo
         where message.userId = userInfo.id
     </select>
 
     <update id="updateStatus" parameterType="Message" >
         update `PMS_Message` set status = #{status} where id=#{id}
     </update>
+
+    <select id="listCondition" resultType="Message" parameterType="Message">
+        select message.*, userInfo.userName, userInfo.wxNickname from `PMS_Message` message, `PMS_UserInfo` userInfo
+        where message.userId = userInfo.id
+        <if test="message!=null">
+<!--            <if test="userInfo.uname!=null and userInfo.uname!='' ">-->
+<!--                and uname like '%' #{userInfo.uname} '%'-->
+<!--            </if>-->
+
+            <if test="message.status!=-1">
+                and status = #{message.status}
+            </if>
+        </if>
+    </select>
 </mapper>

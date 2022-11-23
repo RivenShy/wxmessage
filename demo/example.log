@@ -1,389 +1,178 @@
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-WARN scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 警告信息
-ERROR scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 错误信息
-FATAL scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 致命信息
-DEBUG scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 调试信息
-INFO scheduling-1 com.example.demo.scheduletask.SendMessageScheduleTask - 输出信息
-INFO http-nio-80-exec-5 com.example.demo.controller.BindApplyController - id:4
-INFO http-nio-80-exec-5 com.example.demo.controller.BindApplyController - result:1
-INFO http-nio-80-exec-5 com.example.demo.controller.BindApplyController - resultUpdateUser:1
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - getQRcode
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - jsonObject:{"action_info":{"scene":{"scene_str":"id=1"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - ticket:gQHJ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTG1leFFLSHBlVUMxcmlaTTF6Y1YAAgRSg2djAwSAOgkA
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - expire_seconds:604800
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - url:http://weixin.qq.com/q/02LmexQKHpeUC1riZM1zcV
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHJ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTG1leFFLSHBlVUMxcmlaTTF6Y1YAAgRSg2djAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - getQRcode
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - jsonObject:{"action_info":{"scene":{"scene_str":"1"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - ticket:gQG78DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyblk4T1FNSHBlVUMxb2EtTWh6Y3MAAgSKg2djAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - expire_seconds:604800
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - url:http://weixin.qq.com/q/02nY8OQMHpeUC1oa-Mhzcs
-INFO http-nio-80-exec-2 com.example.demo.controller.WxOfficialAccountController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQG78DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyblk4T1FNSHBlVUMxb2EtTWh6Y3MAAgSKg2djAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - getQRcode
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - jsonObject:{"action_info":{"scene":{"scene_str":"1"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - ticket:gQEw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUS1NZFEySHBlVUMxcklwTk56Y2QAAgRsX2hjAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - expire_seconds:604800
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - url:http://weixin.qq.com/q/02Q-MdQ2HpeUC1rIpNNzcd
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyUS1NZFEySHBlVUMxcklwTk56Y2QAAgRsX2hjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - getQRcode
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - jsonObject:{"action_info":{"scene":{"scene_str":"1"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - ticket:gQHq7jwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY3I5NVE1SHBlVUMxckRRTnh6Y3cAAgRnemhjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - expire_seconds:604800
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - url:http://weixin.qq.com/q/02cr95Q5HpeUC1rDQNxzcw
-INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHq7jwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyY3I5NVE1SHBlVUMxckRRTnh6Y3cAAgRnemhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - ticket:gQFw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZnpqUFFxSHBlVUMxdU96Tnh6Yy0AAgQyqWhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02fzjPQqHpeUC1uOzNxzc-
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFw7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZnpqUFFxSHBlVUMxdU96Tnh6Yy0AAgQyqWhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - ticket:gQGj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYk1uS1F5SHBlVUMxdkZBTk56Y1cAAgRpqmhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02bMnKQyHpeUC1vFANNzcW
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGj7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYk1uS1F5SHBlVUMxdkZBTk56Y1cAAgRpqmhjAwSAOgkA
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - ticket:gQHc8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWDk1NVJHSHBlVUMxdGdCTk56YzUAAgTQqmhjAwSAOgkA
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02X955RGHpeUC1tgBNNzc5
-INFO http-nio-80-exec-9 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHc8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWDk1NVJHSHBlVUMxdGdCTk56YzUAAgTQqmhjAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - ticket:gQGQ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycVVqdVEySHBlVUMxdkVCTk56Y3QAAgRoq2hjAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02qUjuQ2HpeUC1vEBNNzct
-INFO http-nio-80-exec-2 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGQ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycVVqdVEySHBlVUMxdkVCTk56Y3QAAgRoq2hjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - ticket:gQH87zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySTU0b1F3SHBlVUMxdU9DTnh6Y0gAAgQyrGhjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02I54oQwHpeUC1uOCNxzcH
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQH87zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAySTU0b1F3SHBlVUMxdU9DTnh6Y0gAAgQyrGhjAwSAOgkA
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - ticket:gQGZ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWFdjQVFfSHBlVUMxdlNDTnh6Y0gAAgR2rGhjAwSAOgkA
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02XWcAQ_HpeUC1vSCNxzcH
-INFO http-nio-80-exec-1 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGZ7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWFdjQVFfSHBlVUMxdlNDTnh6Y0gAAgR2rGhjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zhunb1', KeyID='null', Pswd='null', MDPswd='null', Description='朱南菠'}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zhunb1_朱南菠"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - ticket:gQHK7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydnp0UFFYSHBlVUMxdTdETnh6Y0cAAgQHrWhjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02vztPQXHpeUC1u7DNxzcG
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHK7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydnp0UFFYSHBlVUMxdTdETnh6Y0cAAgQHrWhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zhunb1', KeyID='null', Pswd='null', MDPswd='null', Description='朱南菠'}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zhunb1_朱南菠"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - ticket:gQFB8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZ3psRlJhSHBlVUMxdGpGTjF6Yy0AAgTTrmhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02gzlFRaHpeUC1tjFN1zc-
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFB8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZ3psRlJhSHBlVUMxdGpGTjF6Yy0AAgTTrmhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='zouzy1', KeyID='null', Pswd='null', MDPswd='null', Description='邹志勇'}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"zouzy1_邹志勇"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - ticket:gQE98DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRUFVLVFHSHBlVUMxdUJGTmh6Y3QAAgQlr2hjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02EAU-QGHpeUC1uBFNhzct
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE98DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyRUFVLVFHSHBlVUMxdUJGTmh6Y3QAAgQlr2hjAwSAOgkA
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='AD01', KeyID='null', Pswd='null', MDPswd='null', Description='业务员'}
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"AD01"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - ticket:gQFM8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWksxQlIxSHBlVUMxdHlPTnh6Y1YAAgTit2hjAwSAOgkA
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02ZK1BR1HpeUC1tyONxzcV
-INFO http-nio-80-exec-7 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFM8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyWksxQlIxSHBlVUMxdHlPTnh6Y1YAAgTit2hjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='AD01', KeyID='null', Pswd='null', MDPswd='null', Description='业务员'}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"AD01"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - ticket:gQFs7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYlZ4a1FjSHBlVUMxdjNRTmh6Y3AAAgRDumhjAwSAOgkA
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02bVxkQcHpeUC1v3QNhzcp
-INFO http-nio-80-exec-4 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFs7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyYlZ4a1FjSHBlVUMxdjNRTmh6Y3AAAgRDumhjAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='AD01', KeyID='null', Pswd='null', MDPswd='null', Description='业务员'}
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"AD01"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - ticket:gQHJ8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMUFXV1JJSHBlVUMxc1NUTjF6Y0kAAgS2vGhjAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/021AWWRIHpeUC1sSTN1zcI
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHJ8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMUFXV1JJSHBlVUMxc1NUTjF6Y0kAAgS2vGhjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='AD02', KeyID='null', Pswd='null', MDPswd='null', Description='投标工程师'}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"AD02"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - ticket:gQHB7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaFBHTVJTSHBlVUMxak00T2h6Y0oAAgRwymhjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02hPGMRSHpeUC1jM4OhzcJ
-INFO http-nio-80-exec-8 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHB7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyaFBHTVJTSHBlVUMxak00T2h6Y0oAAgRwymhjAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='AD03', KeyID='null', Pswd='null', MDPswd='null', Description='拓展部门文员'}
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"AD03"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - ticket:gQHK7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycTgzSFJmSHBlVUMxaVI3T3h6Y3cAAgQ1zWhjAwSAOgkA
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02q83HRfHpeUC1iR7Oxzcw
-INFO http-nio-80-exec-5 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQHK7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAycTgzSFJmSHBlVUMxaVI3T3h6Y3cAAgQ1zWhjAwSAOgkA
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='admin2', KeyID='null', Pswd='null', MDPswd='null', Description='管理员2'}
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"admin2"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - ticket:gQGR8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyby1aaVFaSHBlVUMxZzA4T2h6Y2oAAgSAzWhjAwSAOgkA
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02o-ZiQZHpeUC1g08Ohzcj
-INFO http-nio-80-exec-3 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQGR8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyby1aaVFaSHBlVUMxZzA4T2h6Y2oAAgSAzWhjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - getQRcode
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - UserDepm{DefaultDBName='null', UserName='admin2', KeyID='null', Pswd='null', MDPswd='null', Description='管理员2'}
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - jsonObject:{"action_info":{"scene":{"scene_str":"admin2"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - ticket:gQEq8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZmRFX1FQSHBlVUMxZ0xhT056Y3AAAgSvz2hjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - expire_seconds:604800
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - url:http://weixin.qq.com/q/02fdE_QPHpeUC1gLaONzcp
-INFO http-nio-80-exec-6 com.example.demo.controller.UserDepmController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQEq8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZmRFX1FQSHBlVUMxZ0xhT056Y3AAAgSvz2hjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - jsonObject:{"action_info":{"scene":{"scene_str":"1_10093"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - ticket:gQFF8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTEZKUFJtSHBlVUMxazZpUGh6Y0cAAgSGF2pjAwSAOgkA
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - expire_seconds:604800
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - url:http://weixin.qq.com/q/02LFJPRmHpeUC1k6iPhzcG
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFF8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTEZKUFJtSHBlVUMxazZpUGh6Y0cAAgSGF2pjAwSAOgkA
-INFO http-nio-80-exec-9 com.example.demo.controller.WxOfficialAccountController - 用户id为10086的用户已经申请过，并且正在审核中
-INFO http-nio-80-exec-5 com.example.demo.controller.WxOfficialAccountController - 用户id为10086的用户已经申请过，并且正在审核中
-ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.MyJob - 根据id查询用户信息失败：UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_wUbPlWUG0gREvRtvh17Kcii_a3-0mPAUWNT0ukHqMWsF7IGJKo8-HmnqrMOSYSae8oNYS8Q_AVSCY1uCblJIA7qhta-w0z4H6UXOhi-khvZaHdBAmWREGUo-isia8uh2sWfU18aRwoeQT_7oPITcABAXQB
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"点击进入页面进行绑定"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://weixin.qq.com/download"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2656969302826614788
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_kWTR85mufY0tG52h91Esc83VeT6i2bqRolIehNzdyqMr1_TTpVjNUUOh4kmoH9by_XR0eEBCZM_DF64evhS4EqUAfVQLb0NXS9h8p7S3Tp8AwSaGIQMiqFLzkZTK-r0dX7LcQ926mToIaPPuUIEcAEAPDZ
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"点击进入页面进行绑定"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://weixin.qq.com/download"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657012564622901250
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_gblSQ5RZukGv197W74II1vF7O26msuYeHaFGcl4AZN382uu9NPFDUfm8h6kxgSxsx5VemvqFGZWCklSDKvOD7RU7V3pCExuZQpGEEJcQDl5O3LcpayomXFq62UHoYbF9ELOzZMUyZuKSYiqyQGOiAIAZPX
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"点击进入页面进行绑定"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://weixin.qq.com/download"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657015583213158400
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_xva6AlgBgIQ2BNbHnLoLWkKI1iJ52z1LieJsx52P0KhHil_e-kHfOl_WLTGJXQA8hLYNi1Q27i8MC7w5LsiTxzFlvW4sfzlXdJ7NXY4hrEYZSC1QfSSDWeVYa9indD0Jt8QyL9tXHBFRNx0GQDPcAGAWJV
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"点击进入页面进行绑定"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://weixin.qq.com/download"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657018602759716865
-ERROR http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间失败
-INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
-INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_Cu7P-x_rKPlK9GJIvzSNE76WQ3dG_SRUIDWn5f-AEONYwdQ35USHZ6MI-WxusreuY6chxbdjOJQYSr3cZvq74wWxOqJOjyuWgNk-Ywa-_L-a_IIzf17atZHAy1qG_nR0LqnLud3_Rer5VyzmCVUeACAHAZ
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/1"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657040752795254784
-ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息失败
-INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_Cu7P-x_rKPlK9GJIvzSNE76WQ3dG_SRUIDWn5f-AEONYwdQ35USHZ6MI-WxusreuY6chxbdjOJQYSr3cZvq74wWxOqJOjyuWgNk-Ywa-_L-a_IIzf17atZHAy1qG_nR0LqnLud3_Rer5VyzmCVUeACAHAZ
-INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/2"}
-INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657041709583106050
-ERROR DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息失败
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_WUN1EOPIKqUZzIMXCs7w-Kh-ejj9vuZJCJXPQXDOWrdT5Dfs6sVhnsh2rA__EZ_UFQgOGcTfijF0wZMw_COOFArJQzHZzEW9iOG2iq-IcYscc9Z_C7FTyT5xWr1guL8hP8LVU5wfzkVfATV3DKTjAAAXEN
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/1"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657238061361463297
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - jsonObject:{"action_info":{"scene":{"scene_str":"1_10093"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - jsonObject:{"action_info":{"scene":{"scene_str":"1_10093"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - getQRcode
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=0, serverId=1, userId=10093, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - jsonObject:{"action_info":{"scene":{"scene_str":"1_10093"}},"action_name":"QR_STR_SCENE","expire_seconds":604800}
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - ticket:gQFO7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZ2dWVFE2SHBlVUMxcUZ5UTF6Y0UAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - expire_seconds:604800
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - url:http://weixin.qq.com/q/02ggVTQ6HpeUC1qFyQ1zcE
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQFO7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZ2dWVFE2SHBlVUMxcUZ5UTF6Y0UAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - ticket:gQE_7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyNkcwaFJ2SHBlVUMxcUZ5UU56Y1oAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - expire_seconds:604800
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - url:http://weixin.qq.com/q/026G0hRvHpeUC1qFyQNzcZ
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQE_7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyNkcwaFJ2SHBlVUMxcUZ5UU56Y1oAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - ticket:gQF-7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTVE0OFJFSHBlVUMxcUZ5UU56Y1UAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - expire_seconds:604800
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - url:http://weixin.qq.com/q/02MQ48REHpeUC1qFyQNzcU
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - getQRcodeUrl:https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=gQF-7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyTVE0OFJFSHBlVUMxcUZ5UU56Y1UAAgQpaGtjAwSAOgkA
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - UserInfo(id=8, serverId=1, userId=10093, userName=ZL, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_y_uEn7eR5-Dv5weco8wdHU0hMAVpoOF25ayNzzgH1_zU2_8YSSNF1wZ8Wam_D2dKAPUZbzwY9q7QVRIxAuynl16t8okYmyY7CXnkJ_7sIYdRuFfomSrOhZmN471ikyaryBHQRzVTfceyKcKbPBZcAFAWIG
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/1"}
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657465517343309826
-INFO main com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_eX5PflcsN--OhW6G9oj8GXDEuoZ0qCV3xMIbNqFYMxa4KtBWAtXuA-OhyMabRwvFCA-79ltBHE3wzI4pSzjHxg_VQQaZBSduHzFLkogo5945wrAV48KYBlkjN3x1s8ht2l_gVTZonWQAHbEsVAHfADAYDK
-INFO main com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/1"}
-INFO main com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657508085686927360
-INFO main com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_w6NonvSEosz6RAPxZ5Uk3Aa_32l_pYBErGlG-STYDwUD24a3t_En3UB50ekyf5Gf2fg5ChgADemXSVXyLbbdasahA5qkjR3wx5dhokMV1Xp_rpPhmYFd7RQmcpWwTYDPQO3jIiRl_QvRHpNpHXPdAJAOEW
-INFO main com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"xxxxxx"},"keyword4":{"color":"#173177","value":"xxxxxx"},"keyword1":{"color":"#173177","value":"xxxxxx"},"keyword2":{"color":"#173177","value":1667992215292},"remark":{"color":"#173177","value":"如非本人操作，请立即修改密码！"},"first":{"color":"#173177","value":"您好，您的账号在异地登录"}},"template_id":"bfH3N31WUbpN04Phq-87hfqvHe4rFeZTjxvN8-JBb4o","url":"http://www.szwd.online/userInfo/userClickWxMessage/1"}
-INFO main com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2657510107526004740
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒,异地登录提醒
-ERROR http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 没找到该消息模板，请检查是否已申请并添加到enum枚举类
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒,异地登录提醒
-ERROR http-nio-80-exec-7 com.example.demo.controller.UserInfoController - 没找到该消息模板，请检查是否已申请并添加到enum枚举类
-INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:异地登录提醒
-ERROR http-nio-80-exec-6 com.example.demo.controller.UserInfoController - 没找到该消息模板，请检查是否已申请并添加到enum枚举类
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:异地登录提醒
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-5 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_21SP2xDVRwMFnHPngjZXTiLo27sBZ3A3bhYbpxvYO2mRIctCbtEk74XMYRB3y9pw2ZfAcx8IX2US8WbSSfaR_y297YwlQ8nGRD7q9KUV2snT4XiIieLAZYzzeMmdXN9Z7ILjpYSQmvfrEfU0OEReAJAEUH
-INFO http-nio-80-exec-5 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"xxxxxx"},"keyword4":{"color":"#173177","value":"xxxxxx"},"keyword1":{"color":"#173177","value":"xxxxxx"},"keyword2":{"color":"#173177","value":1668046718870},"remark":{"color":"#173177","value":"如非本人操作，请立即修改密码！"},"first":{"color":"#173177","value":"您好，您的账号在异地登录"}},"template_id":"bfH3N31WUbpN04Phq-87hfqvHe4rFeZTjxvN8-JBb4o","url":"http://www.szwd.online/userInfo/userClickWxMessage/2"}
-INFO http-nio-80-exec-5 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658424516062543873
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒
-INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-10 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_21SP2xDVRwMFnHPngjZXTiLo27sBZ3A3bhYbpxvYO2mRIctCbtEk74XMYRB3y9pw2ZfAcx8IX2US8WbSSfaR_y297YwlQ8nGRD7q9KUV2snT4XiIieLAZYzzeMmdXN9Z7ILjpYSQmvfrEfU0OEReAJAEUH
-INFO http-nio-80-exec-10 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/3"}
-INFO http-nio-80-exec-10 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658424737169473539
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:异地登录提醒
-INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-3 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_71s_366npovtXj7BsIPZqriihFtC_uDgDqWy48gExAlmspdCRjEQCCcSGPoubCEqoswZVilIpSVomA8cW5eWUmlpW3w01FFZ1IuihE0Vf9nAZrTlXcBN3jwUVJb23OoZ0D74tUTF-Awrx9U7RTRdAGANPN
-INFO http-nio-80-exec-3 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"xxxxxx"},"keyword4":{"color":"#173177","value":"xxxxxx"},"keyword1":{"color":"#173177","value":"xxxxxx"},"keyword2":{"color":"#173177","value":1668048541954},"remark":{"color":"#173177","value":"如非本人操作，请立即修改密码！"},"first":{"color":"#173177","value":"您好，您的账号在异地登录"}},"template_id":"bfH3N31WUbpN04Phq-87hfqvHe4rFeZTjxvN8-JBb4o","url":"http://www.szwd.online/userInfo/userClickWxMessage/4"}
-INFO http-nio-80-exec-3 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658455085878149122
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_71s_366npovtXj7BsIPZqriihFtC_uDgDqWy48gExAlmspdCRjEQCCcSGPoubCEqoswZVilIpSVomA8cW5eWUmlpW3w01FFZ1IuihE0Vf9nAZrTlXcBN3jwUVJb23OoZ0D74tUTF-Awrx9U7RTRdAGANPN
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/5"}
-INFO http-nio-80-exec-8 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658455287590617091
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - UserInfo(id=5, serverId=1, userId=10090, userName=ZS, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 添加消息成功
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_Xilgce2Y2K10i5JGnC_oZ8Ym8SmajaVSFzNT6Mr68oMSzYeAXWqk8urPAAzgNzpdDUUAA-pNjRaTBSlGQ1ZT1ZTom1coe2dT7Yl-7AszoEkwAenVpj4nPfep1gCGOUrTzBapear0P7MPbS69PWRaAHADKF
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/6"}
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658490327712202754
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
-INFO DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 更新消息状态成功
-INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=5, serverId=1, userId=10090, userName=ZS, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=8, serverId=1, userId=10093, userName=ZL, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=5, serverId=1, userId=10090, userName=ZS, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=5, serverId=1, userId=10090, userName=ZS, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-8 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - UserInfo(id=4, serverId=1, userId=10089, userName=赵六, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - UserInfo(id=1, serverId=1, userId=10086, userName=张三, phone=null, wxNickname=null, openId=oa9m45sEj_dDR9FGoeoGmx7_M21o, wxNickname2=null, openId2=null)
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - userId = 1, templeMsgName:流程待审批提醒
-INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - result = 1
-INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_ZLXbMnFK1OYjuLLDn-8zhpRMCHUqEr8Uf4MpHmyOqkHGdImnq0nhIloRlKjNt5U9D5XcjRPMQK-ZunahvCiPLPKCGFXDx3wE2EX6vKG2LHmblk2UXmzNhowJZkzleODYYIuAE4rCvBp_XNeCYVBhAFAURX
-INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword5":{"color":"#173177","value":"申请一部笔记本电脑"},"keyword3":{"color":"#173177","value":"张三"},"keyword4":{"color":"#173177","value":"财务部"},"keyword1":{"color":"#173177","value":"JP1409010001"},"keyword2":{"color":"#173177","value":"2014-09-01"},"remark":{"color":"#173177","value":"请点击查看详情"},"first":{"color":"#173177","value":"微信绑定公众号提醒"}},"template_id":"Co1-n9VISkwCUjCLjn34am3QCBSqY2SqIWCYzWHVJlE","url":"http://www.szwd.online/userInfo/userClickWxMessage/7"}
-INFO http-nio-80-exec-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2658513696830586883
+2022-11-18 14:26:00,887 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 查询用户信息失败，UserInfo(id=0, serverId=1, userId=yanghm, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null, serverName=null, customerName=null, serverIp=null, sign=null)
+2022-11-18 14:26:00,889 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 查询用户信息失败，UserInfo(id=0, serverId=1, userId=yaoxw, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null, serverName=null, customerName=null, serverIp=null, sign=null)
+2022-11-18 14:26:00,891 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 查询用户信息失败，UserInfo(id=0, serverId=1, userId=zhouhm5, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null, serverName=null, customerName=null, serverIp=null, sign=null)
+2022-11-18 14:27:04,667 INFO http-nio-80-exec-7 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 7
+2022-11-18 14:27:57,307 INFO http-nio-80-exec-9 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 7
+2022-11-18 14:28:00,043 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/list
+2022-11-18 14:28:01,359 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:01,360 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:00"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：1"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，CAOP，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/73"}
+2022-11-18 14:28:01,910 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271893874475010
+2022-11-18 14:28:01,910 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:02,107 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:02,140 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:02,140 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:02"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：4"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，CHENR23，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/74"}
+2022-11-18 14:28:02,525 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271904813219840
+2022-11-18 14:28:02,526 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:02,628 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:02,630 ERROR DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 查询用户信息失败，UserInfo(id=0, serverId=2, userId=lib43, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null, serverName=null, customerName=null, serverIp=null, sign=null)
+2022-11-18 14:28:02,755 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:02,756 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:02"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：1"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，linjx91，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/75"}
+2022-11-18 14:28:03,311 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271917161250817
+2022-11-18 14:28:03,311 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:03,351 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:03,385 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:03,385 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:03"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：6"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，pang，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/76"}
+2022-11-18 14:28:03,791 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271925952512000
+2022-11-18 14:28:03,791 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:03,824 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:03,851 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:03,852 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:03"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：2"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，wangar1，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/77"}
+2022-11-18 14:28:04,340 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271934726995968
+2022-11-18 14:28:04,341 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:04,384 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:04,385 ERROR DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 查询用户信息失败，UserInfo(id=0, serverId=2, userId=wujs1, userName=null, phone=null, wxNickname=null, openId=null, wxNickname2=null, openId2=null, serverName=null, customerName=null, serverIp=null, sign=null)
+2022-11-18 14:28:04,418 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:04,418 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:04"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：4"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，yanghm，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/78"}
+2022-11-18 14:28:04,841 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271943384039425
+2022-11-18 14:28:04,841 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:04,895 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:04,929 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:04,930 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:04"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：2"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，yaoxw，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/79"}
+2022-11-18 14:28:05,380 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271952661839874
+2022-11-18 14:28:05,381 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:05,439 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 14:28:05,496 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - sendMsgUrl:https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=62_mVoEL71SbeUKURArWlqOUpxXJFQmlywK6kHGAF-bqsiWhtrc0ImaOt1CQgHsNpjRQuozxWs6RuFRbffenknKnR1-pxmt2nivCpv-1a1_C5jiLrdchQZKmHGzOkkYNOfACADST
+2022-11-18 14:28:05,497 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - jsonObject:{"touser":"oa9m45sEj_dDR9FGoeoGmx7_M21o","data":{"keyword3":{"color":"#173177","value":"2022-11-18 14:28:05"},"keyword1":{"color":"#173177","value":"今日已审核数：0\n待审/未审核数：1"},"keyword2":{"color":"#173177","value":"龙运"},"remark":{"color":"#173177","value":"点击查看详情信息"},"first":{"color":"#173177","value":"您好，zhouhm5，今天您完成审批的单据汇总信息如下"}},"template_id":"4UcxRmSUWuTDx7e2U1GlyH5t6GnPIuDO-HdAQjh69mQ","url":"http://www.szwd.online/userInfo/userClickWxMessage/80"}
+2022-11-18 14:28:05,902 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.util.WxUtil - errcode:0, errmsg:ok, msgid:2670271961268551682
+2022-11-18 14:28:05,902 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 发送流程待审批提醒消息成功
+2022-11-18 14:28:05,940 INFO DefaultQuartzScheduler_Worker-2 com.example.demo.entity.ScheduleJob - 更新消息状态成功
+2022-11-18 15:28:15,320 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - messageId=7
+2022-11-18 15:28:15,367 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-18 15:46:51,859 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=7
+2022-11-18 15:46:51,912 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-19 22:37:50,784 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - BindApply(id=0, serverId=0, userId=0, wxNickname=wxNickName1119, openId=openId1119, status=0, operator=null, applyDate=null, reviewDate=null, userCode=userCode1119, serverName=null, customerName=null, serverIp=99.106.188.98)
+2022-11-19 22:37:50,915 ERROR http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - 根据用户Id、服务器Id查询用户信息失败，userId:userCode1119serverId:9
+2022-11-19 22:37:51,093 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - result:1
+2022-11-19 22:40:07,339 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - BindApply(id=0, serverId=0, userId=0, wxNickname=wxNickName1119, openId=openId1119, status=0, operator=null, applyDate=null, reviewDate=null, userCode=userCode1119, serverName=null, customerName=null, serverIp=99.106.188.98)
+2022-11-19 22:40:07,380 ERROR http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - 根据用户Id、服务器Id查询用户信息失败，userId:userCode1119serverId:9
+2022-11-19 22:40:07,495 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - result:1
+2022-11-19 22:40:51,394 INFO http-nio-80-exec-3 com.example.demo.controller.WxOfficialAccountController - BindApply(id=0, serverId=0, userId=0, wxNickname=wxNickName1119, openId=openId1119, status=0, operator=null, applyDate=null, reviewDate=null, userCode=userCode1119, serverName=null, customerName=null, serverIp=99.106.188.98)
+2022-11-19 22:40:51,402 ERROR http-nio-80-exec-3 com.example.demo.controller.WxOfficialAccountController - 根据用户Id、服务器Id查询用户信息失败，userId:userCode1119serverId:9
+2022-11-19 22:40:51,406 INFO http-nio-80-exec-3 com.example.demo.controller.WxOfficialAccountController - 用户id为userCode1119的用户已经申请过
+2022-11-19 22:41:11,352 INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - BindApply(id=0, serverId=0, userId=0, wxNickname=wxNickName1119, openId=openId1119, status=0, operator=null, applyDate=null, reviewDate=null, userCode=userCode1119, serverName=null, customerName=null, serverIp=99.106.188.98)
+2022-11-19 22:41:11,356 ERROR http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - 根据用户Id、服务器Id查询用户信息失败，userId:userCode1119serverId:9
+2022-11-19 22:41:11,360 INFO http-nio-80-exec-6 com.example.demo.controller.WxOfficialAccountController - 用户id为userCode1119的用户已经申请过
+2022-11-19 22:44:21,343 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - BindApply(id=0, serverId=0, userId=0, wxNickname=wxNickName1119, openId=openId1120, status=0, operator=null, applyDate=null, reviewDate=null, userCode=userCode1119, serverName=null, customerName=null, serverIp=99.106.188.98)
+2022-11-19 22:44:21,397 ERROR http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - 根据用户Id、服务器Id查询用户信息失败，userId:userCode1119serverId:9
+2022-11-19 22:44:21,406 INFO http-nio-80-exec-1 com.example.demo.controller.WxOfficialAccountController - 用户id为userCode1119的用户已经申请过
+2022-11-20 00:00:36,642 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - messageId=9
+2022-11-20 00:00:36,815 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:06:15,958 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:06:16,087 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:10:57,662 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:10:57,768 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:11:30,295 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:11:34,982 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:12:18,430 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:12:23,539 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:20:51,216 INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:20:56,566 INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:20:58,920 ERROR http-nio-80-exec-9 com.example.demo.util.OkHttpUtil - 请求失败， url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:20:58,921 ERROR http-nio-80-exec-9 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:20:58,922 ERROR http-nio-80-exec-9 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:22:31,584 INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:22:31,676 INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:22:33,731 ERROR http-nio-80-exec-10 com.example.demo.util.OkHttpUtil - 请求失败， url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:22:33,732 ERROR http-nio-80-exec-10 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:22:33,732 ERROR http-nio-80-exec-10 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:24:53,339 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:24:53,482 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:24:54,454 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求失败， code = 404,url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:24:54,455 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:24:54,456 ERROR http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:27:13,380 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:27:13,426 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:28:17,610 ERROR http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求失败， code = 404,url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:28:17,616 ERROR http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:28:17,617 ERROR http-nio-80-exec-6 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:33:57,662 INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:33:57,750 INFO http-nio-80-exec-10 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:33:57,847 ERROR http-nio-80-exec-10 com.example.demo.util.OkHttpUtil - 请求失败， code = 404,url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:33:57,849 ERROR http-nio-80-exec-10 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:33:57,850 ERROR http-nio-80-exec-10 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:34:20,999 INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:34:21,053 INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:34:21,076 ERROR http-nio-80-exec-5 com.example.demo.util.OkHttpUtil - 请求失败， code = 404,url = http://localhost:8111/pendingApprovalDetail/listByUserCode?userCode=zhouhm5
+2022-11-20 00:34:21,077 ERROR http-nio-80-exec-5 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-20 00:34:21,077 ERROR http-nio-80-exec-5 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-20 00:36:53,535 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:36:53,663 INFO http-nio-80-exec-3 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:36:53,847 INFO http-nio-80-exec-3 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApprovalDetail/listByUserCode/zhouhm5
+2022-11-20 00:38:23,331 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:38:23,423 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:38:23,441 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApprovalDetail/listByUserCode/zhouhm5
+2022-11-20 00:41:39,670 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-20 00:41:39,768 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:41:39,919 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApprovalDetail/listByUserCode/zhouhm5
+2022-11-20 00:43:33,495 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:43:33,558 INFO http-nio-80-exec-4 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:43:33,591 INFO http-nio-80-exec-4 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:43:33,632 INFO http-nio-80-exec-4 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:43:33,642 INFO http-nio-80-exec-4 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:44:51,764 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:44:51,857 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:44:51,867 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:44:51,876 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:45:47,887 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:47:21,269 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:47:21,351 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:47:21,551 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:47:21,655 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:47:53,396 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:51:52,376 INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:51:52,431 INFO http-nio-80-exec-7 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:51:53,327 INFO http-nio-80-exec-7 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:51:53,339 INFO http-nio-80-exec-7 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:51:53,352 INFO http-nio-80-exec-7 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:52:15,661 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:52:15,710 INFO http-nio-80-exec-6 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:52:15,723 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:52:15,735 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:52:15,744 INFO http-nio-80-exec-6 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:52:50,412 INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:52:50,517 INFO http-nio-80-exec-5 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:52:50,530 INFO http-nio-80-exec-5 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:52:50,538 INFO http-nio-80-exec-5 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:52:50,544 INFO http-nio-80-exec-5 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:54:06,884 INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:54:06,978 INFO http-nio-80-exec-9 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:54:06,991 INFO http-nio-80-exec-9 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:54:07,002 INFO http-nio-80-exec-9 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:54:07,010 INFO http-nio-80-exec-9 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:54:15,201 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:54:15,241 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:54:15,258 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:54:15,269 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:54:15,275 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:54:50,827 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:54:50,889 INFO http-nio-80-exec-2 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:54:50,902 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:54:59,996 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:55:56,534 INFO http-nio-80-exec-2 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:57:09,835 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:57:09,950 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:57:10,127 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:57:10,275 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:57:10,295 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-20 00:58:08,101 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=80,userCode=zhouhm5
+2022-11-20 00:58:08,225 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-20 00:58:08,449 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAdTototalCountByUserCode/zhouhm5
+2022-11-20 00:58:08,563 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getAverageTimeByUserCode/zhouhm5
+2022-11-20 00:58:08,577 INFO http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求远程接口成功，url = http://localhost:8111/pendingApproval/getTotalApprovalRank
+2022-11-22 12:06:59,037 ERROR http-nio-80-exec-3 com.example.demo.controller.MessageTypeController - status为0，定时任务在运行中
+2022-11-22 14:04:47,478 INFO http-nio-80-exec-4 com.example.demo.controller.BindApplyController - BindApply(id=1, serverId=1, userId=0, wxNickname=null, openId=null, status=0, operator=null, applyDate=null, reviewDate=null, userCode=10086, serverName=null, customerName=null, serverIp=null)
+2022-11-22 18:11:51,873 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - messageId=9,userCode=zhouhm5
+2022-11-22 18:11:52,049 INFO http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 更新消息点击时间成功
+2022-11-22 18:11:54,800 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求失败， url = http://localhost:8111/pendingApprovalDetail/listByUserCode/zhouhm5
+2022-11-22 18:11:54,801 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-22 18:11:54,801 ERROR http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 查询待审批详情失败

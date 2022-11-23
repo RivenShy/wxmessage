@@ -8,5 +8,7 @@ public class Customer {
 
     private int id;
 
+    private String customerCode;
+
     private String customerName;
 }

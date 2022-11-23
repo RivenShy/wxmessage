@@ -3,8 +3,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>用户列表</title>
+    <title>给用户发送微信推送消息页面：</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/vue.min.js"></script>
     <script src="/js/axios.min.js"></script>
@@ -19,7 +20,7 @@
       
         div#app{
             margin:20px auto;
-            width:800px;
+            width:1100px;
             padding:20px;
 
         }      
@@ -44,6 +45,10 @@
             padding: 9px 0px;
             text-align: left;
         }
+        .showMsgForm {
+            width:800px;
+            margin:50px auto;
+        }
     </style>
     <script>
 	    $(function(){
@@ -57,13 +62,13 @@
 
 <body>
 <div id="app">
-    用户列表页面：
+    用户列表页面(查询单个用户审批数据的sql暂时没有)：
     <table id="bindApplyListTable" class="layui-table" lay-even>
-
         <thead>
         <tr>
-            <td>服务器Id</td>
-            <td>用户Id</td>
+            <td>用户id</td>
+            <td>所在服务器名称</td>
+            <td>用户代码</td>
             <td>用户名称</td>
             <td>手机号</td>
             <td>微信昵称</td>
@@ -74,7 +79,8 @@
         </tr>
         </thead>
         <tr v-for="userInfo in userInfos">
-            <td>{{userInfo.serverId}}</td>
+            <td>{{userInfo.id}}</td>
+            <td>{{userInfo.serverName}}</td>
             <td>{{userInfo.userId}}</td>
             <td>{{userInfo.userName}}</td>
             <td>{{userInfo.phone}}</td>
@@ -82,18 +88,13 @@
             <td>{{userInfo.openId}}</td>
             <td>{{userInfo.wxNickname2}}</td>
             <td>{{userInfo.openId2}}</td>
-<!--            <td>{{bindApply.userOpenid}}</td>-->
-<!--            <td v-html="bindApply.status==0?'未审核':'已审核'">{{bindApply.status}}</td>-->
             <td>
-<!--                <button type="button" v-if="bindApply.status==0" @click="review(bindApply.id)" class="layui-btn layui-btn-sm">审核</button>-->
-<!--                <span v-else>已审核</span>-->
-                <button type="button"  @click="sendMsgToUser(userInfo.id)" class="layui-btn layui-btn-sm">发送消息</button>
-<!--                <span v-else>已审核</span>-->
+                <button type="button"  @click="sendMsgToUser(userInfo.id)" class="layui-btn layui-btn-sm layui-btn-disabled">发送消息</button>
             </td>
         </tr>
 
         <tr>
-            <td colspan="9">
+            <td colspan="10">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
@@ -110,74 +111,112 @@
         </tr>
 
     </table>
-<!--    <img v-bind:src="qrCode">-->
-    <div id="sendMsg" v-show='showMsgForm'>
-<!--        id:-->
-        <input type="hidden" v-model="hero4Update.id" />
-        <br>
-<!--        服务器Id：-->
-        <input type="hidden" v-model="hero4Update.serverId" class="layui-input" readonly/>
-        <br>
-<!--        用户Id:-->
-<!--        <input type="number" v-model="hero4Update.userId" class="layui-input" readonly/>-->
-<!--        <br>-->
+
+    <!--    <div id="sendMsg" v-show='showMsgForm'>-->
+    <!--&lt;!&ndash;        id:&ndash;&gt;-->
+    <!--        <input type="hidden" v-model="hero4Update.id" />-->
+    <!--        <br>-->
+    <!--&lt;!&ndash;        服务器Id：&ndash;&gt;-->
+    <!--        <input type="hidden" v-model="hero4Update.serverId" class="layui-input" readonly/>-->
+    <!--        <br>-->
+    <!--        <div class="layui-form-item">-->
+    <!--            <label class="layui-form-label">用户代码:</label>-->
+    <!--            <div class="layui-input-block">-->
+    <!--                <input v-model="hero4Update.userId" type="text" autocomplete="off" class="layui-input" readonly>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="layui-form-item">-->
+    <!--            <label class="layui-form-label">用户名称:</label>-->
+    <!--            <div class="layui-input-block">-->
+    <!--                <input v-model="hero4Update.userName" type="text" class="layui-input" readonly>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <div class="layui-form-item">-->
+    <!--            <label class="layui-form-label">用户openId:</label>-->
+    <!--            <div class="layui-input-block">-->
+    <!--                <input v-model="hero4Update.openId" type="text" class="layui-input" readonly>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--        <select name="messageName" v-model="messageName" class="layui-input">-->
+    <!--            <option value="" class="layui-input layui-unselect" placeholder="请选择一个消息模板" readonly>请选择一个消息模板</option>-->
+    <!--            <option value="流程待审批提醒">流程待审批提醒</option>-->
+    <!--            <option value="异地登录提醒">异地登录提醒</option>-->
+    <!--        </select>-->
+    <!--        <button type="button" @click="confirmSend" class="layui-btn layui-btn-sm" style="margin:20px 220px;">确认发送</button>-->
+    <!--    </div>-->
+
+    <div class="layui-form showMsgForm" v-show='showMsgForm'>
         <div class="layui-form-item">
-            <label class="layui-form-label">用户代码:</label>
+            <label class="layui-form-label">用户Id</label>
             <div class="layui-input-block">
-                <input v-model="hero4Update.userId" type="text" autocomplete="off" class="layui-input" readonly>
+                <input v-model="hero4Update.id" style="background-color:rgb(250,250,250);" disabled="disabled" readonly type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input layui-disabled">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">用户名称:</label>
+            <label class="layui-form-label">所在服务器名称</label>
             <div class="layui-input-block">
-                <input v-model="hero4Update.userName" type="text" class="layui-input" readonly>
+                <input v-model="hero4Update.serverName" style="background-color:rgb(250,250,250);" disabled="disabled" readonly type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input layui-disabled">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">用户openId:</label>
+            <label class="layui-form-label">用户代码</label>
             <div class="layui-input-block">
-                <input v-model="hero4Update.openId" type="text" class="layui-input" readonly>
+                <input v-model="hero4Update.userId" style="background-color:rgb(250,250,250);" disabled="disabled" readonly  type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input layui-disabled">
             </div>
         </div>
-<!--        用户名称:-->
-<!--        <input type="text" v-model="hero4Update.userName" class="layui-input" readonly/>-->
-<!--        <br>-->
-<!--        用户openId:-->
-<!--        <input type="text" v-model="hero4Update.openId" class="layui-input" readonly/>-->
-<!--        <br>-->
-<!--        <div class="layui-form-item">-->
-<!--            <label class="layui-form-label">请选择一个消息模板</label>-->
-<!--            <div class="layui-input-block">-->
-<!--                <select name="messageName" v-model="messageName">-->
-<!--                    <option value="流程待审批提醒">流程待审批提醒</option>-->
-<!--                    <option value="异地登录提醒">异地登录提醒</option>-->
-<!--                </select>-->
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名称</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.userName" style="background-color:rgb(250,250,250);" disabled="disabled" readonly type="text" name="title"  autocomplete="off" class="layui-input layui-disabled">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户微信昵称</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.wxNickname" style="background-color:rgb(250,250,250);" disabled="disabled" readonly type="text" name="title"  autocomplete="off" class="layui-input layui-disabled">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户openId</label>
+            <div class="layui-input-block">
+                <input v-model="hero4Update.openId" style="background-color:rgb(250,250,250);" disabled="disabled" readonly type="text" name="title" required  lay-verify="required" autocomplete="off" class="layui-input layui-disabled">
+            </div>
+        </div>
+<!--            <div class="layui-form-item">-->
+<!--                <label class="layui-form-label">密码框</label>-->
+<!--                <div class="layui-input-inline">-->
+<!--                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">-->
+<!--                </div>-->
+<!--                <div class="layui-form-mid layui-word-aux">辅助文字</div>-->
 <!--            </div>-->
-<!--        </div>-->
-
-            <select name="messageName" v-model="messageName" class="layui-input">
-                <option value="" class="layui-input layui-unselect" placeholder="请选择一个消息模板" readonly>请选择一个消息模板</option>
-                <option value="流程待审批提醒">流程待审批提醒</option>
-                <option value="异地登录提醒">异地登录提醒</option>
-            </select>
-
-<!--        <br>-->
-        <button type="button" @click="confirmSend" class="layui-btn layui-btn-sm" style="margin:20px 220px;">确认发送</button>
-<!--        <button type="button"  v-on:click="cancel">取消-->
-
+        <div class="layui-form-item">
+            <label class="layui-form-label">请选择一个消息模板</label>
+            <div class="layui-input-block">
+                    <select v-model="messageName" lay-filter="form_select_templateName">
+                    <option value=""></option>
+                    <option value="流程待审批提醒">流程待审批提醒</option>
+                    <option value="异地登录提醒">异地登录提醒</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" @click="confirmSend">发送</button>
+                <button class="layui-btn layui-btn-primary" @click="cancelSend">取消发送</button>
+            </div>
+        </div>
     </div>
 </div>
 
+
 <script type="text/javascript">
     var data4Vue = {
-            userInfos: [],
-            hero4Update: { id: 0, serverId: 0, userId: 0, userName: '', openId: ''},
-<!--            hero4Add: { userName: '', description: ''},-->
-            pagination:{},
-            messages: ['流程待审批提醒','异地登录提醒'],
-            messageName: '',
-            showMsgForm: false,
-<!--            qrCode: '',-->
+        userInfos: [],
+        hero4Update: { id: 0, serverName: '', userId: 0, userName: '', wxNickname: '', openId: ''},
+        pagination:{},
+        messages: ['流程待审批提醒','异地登录提醒'],
+        messageName: '',
+        showMsgForm: false,
 	};
 
     //ViewModel
@@ -202,7 +241,6 @@
                     console.log(response);
                     if(response.data.code == 200) {
                         if(response.data.success == true) {
-<!--                            alert(response.data.msg);-->
                             vue.hero4Update = response.data.data;
                             vue.showMsgForm = true;
                         } else{
@@ -211,29 +249,35 @@
                     } else{
                         alert("请求失败");
                     }
-<!--                    vue.list(1);-->
                 });
             },
             confirmSend: function(event) {
-<!--                alert(vue.messageName);-->
                 if(vue.messageName == '') {
-                    alert("请选择一个消息模板");
+                    layer.alert("请选择一个消息模板", {icon: 6});
                     return;
                 }
-                var url = "/userInfo/sendWxMsgToUser/" + vue.hero4Update.id + "/" + vue.messageName;
-                axios.get(url).then(function(response){
-                    console.log(response);
-                    if(response.data.code == 200) {
-                        if(response.data.success == true) {
-                            alert(response.data.msg);
-<!--                            vue.hero4Update = response.data.data;-->
+                layer.confirm('确定发送吗？', { icon: 3, title: '提示' }, function (index, layero) {
+                    layer.close(index);
+                    var url = "/userInfo/sendWxMsgToUser/" + vue.hero4Update.id + "/" + vue.messageName;
+                    axios.get(url).then(function(response){
+                        console.log(response);
+                        if(response.data.code == 200) {
+                            if(response.data.success == true) {
+                                layer.alert(response.data.msg, {icon: 1});
+                            } else{
+                                layer.alert(response.data.msg, {icon: 5});
+                            }
                         } else{
-                            alert(response.data.msg);
+                            layer.alert("请求失败", {icon: 5});
                         }
-                    } else{
-                        alert("请求失败");
-                    }
+                    });
+                }, function (index, layero) {
+                    layer.close(index);
                 });
+
+            },
+            cancelSend: function() {
+                 vue.showMsgForm = false;
             },
             jump: function(page){
 				if('first'== page && 1!=vue.pagination.pageNum)
@@ -255,6 +299,12 @@
             }
         }
     });
+
+     layui.use(['form'], function () {
+        layui.form.on('select(form_select_templateName)', function (data) {
+            vue.messageName = data.value
+        })
+     });
     </script>
 </body>
 </html>

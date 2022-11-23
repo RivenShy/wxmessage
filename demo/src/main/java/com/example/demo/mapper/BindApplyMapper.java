@@ -13,11 +13,15 @@ public interface BindApplyMapper {
 
     public BindApply get(int id);
 
-    public List<BindApply> getUnRevewByServerIdAndUserId(BindApply bindApply);
+    public BindApply getUnRevewByServerIdAndUserId(BindApply bindApply);
 
 //    public int update(BindApply bindApply);
 
     public int review(int id);
 
     public List<BindApply> list();
+
+    public int deleteByServerIdAndUserCode(BindApply bindApplyArgs);
+
+    public int reBindByServerIdAndUserId(BindApply bindApplyArgs);
 }

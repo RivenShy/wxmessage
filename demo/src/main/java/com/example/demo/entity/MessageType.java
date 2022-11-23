@@ -15,7 +15,23 @@ public class MessageType {
 
     private int userId;
 
+    private String description;
+
+    private int status;
+
+    private String messageTime;
+
+    // 非数据库字段
     private String userName;
+
+    private String userCode;
+
+    private String wxNickname;
+
+    private String serverName;
+
+    private String customerName;
+
 
     public enum enumMessageType {
 

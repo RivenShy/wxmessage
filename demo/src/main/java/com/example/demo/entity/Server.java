@@ -7,7 +7,11 @@ public class Server {
 
     private int id;
 
-    private String serviceName;
+    private String serverName;
 
     private int customerId;
+
+    private String serverUrl;
+
+    private String serverIp;
 }

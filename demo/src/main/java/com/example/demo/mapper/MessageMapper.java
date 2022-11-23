@@ -2,6 +2,7 @@ package com.example.demo.mapper;
 
 import com.example.demo.entity.Message;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface MessageMapper {
     public List<Message> list();
 
     public int updateStatus(Message message);
+
+    List<Message> listCondition(@Param("message") Message message);
 }

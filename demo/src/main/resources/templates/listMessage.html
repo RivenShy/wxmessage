@@ -19,7 +19,7 @@
       
         div#app{
             margin:20px auto;
-            width:800px;
+            width:900px;
             padding:20px;
 
         }      
@@ -59,6 +59,7 @@
             <td>状态</td>
             <td>发送时间</td>
             <td>用户Id</td>
+            <td>微信昵称</td>
             <td>用户名称</td>
             <td>点击时间</td>
         </tr>
@@ -69,12 +70,13 @@
             <td v-html="message.status==0?'发送成功':'发送失败'">{{message.status}}</td>
             <td>{{message.sendTime}}</td>
             <td>{{message.userId}}</td>
+            <td>{{message.wxNickname}}</td>
             <td>{{message.userName}}</td>
             <td>{{message.clickTime}}</td>
         </tr>
 
         <tr>
-            <td colspan="7">
+            <td colspan="8">
                 <div id="pagination" >
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
                     <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>

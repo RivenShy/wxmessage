@@ -10,4 +10,10 @@ import java.util.List;
 public interface MessageTypeService {
 
     public List<MessageType> list();
+
+    public MessageType get(int id);
+
+    public int updateStatus(MessageType messageType);
+
+    public int updateScheduleTimeById(MessageType messageTypeArgs);
 }

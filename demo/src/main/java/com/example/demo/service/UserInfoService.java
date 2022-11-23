@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface UserInfoService {
-//    public int add(BindApply bindApply);
+    public int add(UserInfo userInfo);
 //
 //    public void delete(int id);
 //

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>授权成功</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+<!--    <script src="/js/axios.min.js"></script>-->
+    <style type="text/css">
+        .success {
+            margin:100px auto;
+<!--            color:green;-->
+            font-weight:700;
+            width:800px;
+<!--            height:200px;-->
+            border:1px solid grey;
+            text-align: left;
+<!--            line-height: 200px;-->
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="success">
+<!--        您好，您已完成授权绑定申请，请等待系统审核！<br/>-->
+<!--        您的微信昵称: <span readonly="true" style="color:green;">{{ userInfo.nickname }}</span> <br/>-->
+<!--        您的微信头像: <br/>-->
+<!--        <img v-bind:src="userInfo.headimgurl"><br/>-->
+<!--        系统图标：<br/>-->
+<!--        <img src="#"> <br/>-->
+        <table class="layui-table">
+<!--            <colgroup>-->
+<!--                <col width="150">-->
+<!--                <col width="200">-->
+<!--                <col>-->
+<!--            </colgroup>-->
+            <thead>
+            <tr>
+                <th>您的微信昵称</th>
+                <th>您的微信头像</th>
+                <th>系统图标</th>
+                <th>授权结果</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ userInfo.nickname }}</td>
+                <td><img v-bind:src="userInfo.headimgurl"></td>
+                <td><img src="#"></td>
+                <td>{{ userInfo.msg }}</td>
+            </tr>
+            </tbody>
+        </table>
+<!--        <div class="layui-card">-->
+<!--            <div class="layui-card-header">您的微信昵称</div>-->
+<!--            <div class="layui-card-body">-->
+<!--                <span readonly="true" style="color:green;">{{ userInfo.nickname }}</span> <br/>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-card">-->
+<!--            <div class="layui-card-header">您的微信头像</div>-->
+<!--            <div class="layui-card-body">-->
+<!--                <img v-bind:src="userInfo.headimgurl">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-card">-->
+<!--            <div class="layui-card-header">系统图标</div>-->
+<!--            <div class="layui-card-body">-->
+<!--                <img src="#">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="layui-card">-->
+<!--            <div class="layui-card-header">授权提示</div>-->
+<!--            <div class="layui-card-body">-->
+<!--                您好，您已完成授权绑定申请，请等待系统审核！-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+
+<script type="text/javascript">
+    var data4Vue ={
+        userInfo: {nickname: '[[${nickname}]]', headimgurl: '[[${headimgurl}]]', msg: '[[${msg}]]'},
+    };
+
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted: function(){
+        },
+        methods: {
+<!--            confirmBind: function(event){-->
+<!--                alert("确定绑定吗？");-->
+<!--                var url = "/bindApply/add";-->
+<!--                axios.post(url, this.hero4Add).then(function(response){-->
+<!--                    console.log(response);-->
+<!--                });-->
+<!--            }-->
+        },
+    });
+</script>
+</body>
+</html>

@@ -5,8 +5,8 @@
 
 <mapper namespace="com.example.demo.mapper.BindApplyMapper">
     <insert id="add" parameterType="BindApply" >
-        insert into `PMS_BindApply` (serverId, userId, wxNickname, openId, status, operator, applyDate, reviewDate)
-        values (#{serverId}, #{userId}, #{wxNickname}, #{openId}, #{status}, #{operator}, #{applyDate}, #{reviewDate})
+        insert into `PMS_BindApply` (serverId, userId, wxNickname, openId, status, operator, applyDate, reviewDate, userCode)
+        values (#{serverId}, #{userId}, #{wxNickname}, #{openId}, #{status}, #{operator}, #{applyDate}, #{reviewDate}, #{userCode})
 
     </insert>
 
@@ -19,18 +19,30 @@
     </select>
 
     <select id="getUnRevewByServerIdAndUserId" parameterType="BindApply" resultType="BindApply">
-        select * from `PMS_BindApply` where serverId = #{serverId} and userId = #{userId} and status = 0;
+        select * from `PMS_BindApply` where serverId = #{serverId} and userCode = #{userCode} and status != 3;
     </select>
 
 <!--    <update id="update" parameterType="Hero" >-->
 <!--        update hero set name=#{name}, hp = #{hp} where id=#{id}-->
 <!--    </update>-->
     <update id="review" parameterType="_int" >
-        update `PMS_BindApply` set status = 1 where id=#{id}
+        update `PMS_BindApply` set status = 1, reviewDate = now() where id=#{id}
     </update>
     <select id="list" resultType="BindApply">
-<!--        select b.*, u.name as userName-->
-<!--        from bind_apply b, userInfo u where u.id = b.userid-->
-        select * from `PMS_BindApply`
+        select bindApply.*, userInfo.userId as userCode, server.serverName, customer.customerName
+        from `PMS_BindApply` bindApply
+        left join `PMS_Server` server on bindApply.serverId = server.id
+        left join `PMS_Customer` customer on server.customerId = customer.id
+        left join  `PMS_UserInfo` userInfo on bindApply.userId = userInfo.id
     </select>
+
+    <update id="deleteByServerIdAndUserCode" parameterType="BindApply" >
+<!--        update `PMS_BindApply` set status = 3, userId = 0, userCode = null where serverId=#{serverId} and userCode=#{userCode}-->
+        update `PMS_BindApply` set status = 3 where serverId=#{serverId} and userCode=#{userCode}
+
+    </update>
+
+    <update id="reBindByServerIdAndUserId" parameterType="BindApply" >
+        update `PMS_BindApply` set status = 1, reviewDate = now(), userId = #{userId}, userCode = #{userCode} where id=#{id}
+    </update>
 </mapper>

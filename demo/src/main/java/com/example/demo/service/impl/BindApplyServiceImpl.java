@@ -30,7 +30,7 @@ public class BindApplyServiceImpl implements BindApplyService {
     }
 
     @Override
-    public List<BindApply> getUnRevewByServerIdAndUserId(BindApply bindApply) {
+    public BindApply getUnRevewByServerIdAndUserId(BindApply bindApply) {
         return bindApplyMapper.getUnRevewByServerIdAndUserId(bindApply);
     }
 //
@@ -47,5 +47,15 @@ public class BindApplyServiceImpl implements BindApplyService {
     @Override
     public List<BindApply> list() {
         return bindApplyMapper.list();
+    }
+
+    @Override
+    public int deleteByServerIdAndUserCode(BindApply bindApplyArgs) {
+        return bindApplyMapper.deleteByServerIdAndUserCode(bindApplyArgs);
+    }
+
+    @Override
+    public int reBindByServerIdAndUserId(BindApply bindApplyArgs) {
+        return bindApplyMapper.reBindByServerIdAndUserId(bindApplyArgs);
     }
 }

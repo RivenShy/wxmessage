@@ -23,4 +23,10 @@ public class Message {
     private Date clickTime;
 
     private String userName;
+
+    private String wxNickname;
+
+    // 分页条件查询
+    public Integer pageNum;
+    public Integer pageSize;
 }
