@@ -15,4 +15,6 @@ public interface MessageTypeMapper {
     public int updateStatus(MessageType messageType);
 
     public int updateScheduleTimeById(MessageType messageTypeArgs);
+
+    public int add(MessageType messageTypeArgs);
 }

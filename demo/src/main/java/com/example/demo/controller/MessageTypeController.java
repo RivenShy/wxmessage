@@ -2,10 +2,14 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.config.ScheduleConfig;
+import com.example.demo.entity.Customer;
 import com.example.demo.entity.Message;
 import com.example.demo.entity.MessageType;
+import com.example.demo.entity.Server;
+import com.example.demo.service.CustomerService;
 import com.example.demo.service.MessageService;
 import com.example.demo.service.MessageTypeService;
+import com.example.demo.service.ServerService;
 import com.example.demo.util.Constant;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -21,6 +25,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/messageType")
 public class MessageTypeController {
+
+    @Autowired
+    private CustomerService customerService;
+
+    @Autowired
+    private ServerService serverService;
 
     private static Logger logger = Logger.getLogger(MessageTypeController.class);
 
@@ -179,4 +189,82 @@ public class MessageTypeController {
         return jsonObjectReturn.toString();
     }
 
+    @PostMapping("/add")
+    public String add(@RequestBody MessageType messageType) {
+//        String messageName = messageType.getMessageName();
+        String scheduleTime = messageType.getScheduleTime();
+        String messageTime = messageType.getMessageTime();
+        JSONObject jsonObjectReturn = new JSONObject();
+//        if(!messageName.equals(MessageType.enumMessageType.EMT_ProcessToApprove.getName())) {
+//            logger.error("不存在该消息模板名称");
+//            jsonObjectReturn.put(Constant.code, 200);
+//            jsonObjectReturn.put(Constant.success, false);
+//            jsonObjectReturn.put(Constant.data, null);
+//            jsonObjectReturn.put(Constant.msg, "不存在该消息模板名称");
+//            return jsonObjectReturn.toString();
+//        }
+        // 目前只有流程待审批消息模板
+        String messageName = MessageType.enumMessageType.EMT_ProcessToApprove.getName();
+        if(StringUtil.isEmpty(messageTime) || !(messageTime.equals("早上") || messageTime.equals("晚上"))) {
+            logger.error("messageTime时间段不正确");
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, false);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "messageTime时间段不正确");
+            return jsonObjectReturn.toString();
+        }
+        if(StringUtil.isEmpty(scheduleTime)) {
+            logger.error("scheduleTime不能为空");
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, false);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "scheduleTime不能为空");
+            return jsonObjectReturn.toString();
+        }
+        int serverId = messageType.getServerId();
+        Server server = serverService.get(serverId);
+        if(server == null) {
+            logger.error("找不到服务器信息,serverId=" + serverId);
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, false);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "找不到服务器信息,serverId=" + serverId);
+            return jsonObjectReturn.toString();
+        }
+//        Customer customer = customerService.get(server.getCustomerId());
+//        if(customer == null) {
+//            logger.error("找不到客户信息,customerId=" + server.getCustomerId());
+//            jsonObjectReturn.put(Constant.code, 200);
+//            jsonObjectReturn.put(Constant.success, false);
+//            jsonObjectReturn.put(Constant.data, null);
+//            jsonObjectReturn.put(Constant.msg, "找不到客户信息,customerId=" + server.getCustomerId());
+//            return jsonObjectReturn.toString();
+//        }
+
+        MessageType messageTypeArgs = new MessageType();
+        messageTypeArgs.setMessageName(messageName);
+        messageTypeArgs.setScheduleTime(scheduleTime);
+        messageTypeArgs.setServerId(serverId);
+        // 目前都是针对客户的所有用户，有待审核数据的用户，所以userId为-1
+        messageTypeArgs.setUserId(-1);
+        messageTypeArgs.setDescription(messageType.getDescription());
+        messageTypeArgs.setMessageTime(messageTime);
+        // 新建默认是停用状态
+        messageTypeArgs.setStatus(1);
+        int result = messageTypeService.add(messageTypeArgs);
+        if(result == 1) {
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, true);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "操作成功");
+            return jsonObjectReturn.toString();
+        } else {
+            logger.error("增加消息类型失败" + messageTypeArgs);
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, false);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "增加消息类型失败");
+            return jsonObjectReturn.toString();
+        }
+    }
 }

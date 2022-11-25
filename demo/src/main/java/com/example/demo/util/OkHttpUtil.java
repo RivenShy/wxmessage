@@ -233,10 +233,15 @@ public class OkHttpUtil {
         List<PendingApproval> pendingApprovalList = new ArrayList<>();
         for(int i = 0; i < jsonArrayData.size(); i++) {
             JSONObject jsonObjectPendingApproval = (JSONObject) jsonArrayData.get(i);
+            // 今日审核数目为0的用户不参与排行
+            int totalCount = jsonObjectPendingApproval.getInteger("totalCount");
+            if(totalCount == 0) {
+                continue;
+            }
             PendingApproval pendingApproval = new PendingApproval();
             pendingApproval.setJobuser(jsonObjectPendingApproval.getString("jobuser"));
-            pendingApproval.setAdcount(jsonObjectPendingApproval.getInteger("adcount"));
-            pendingApproval.setTotalCount(jsonObjectPendingApproval.getInteger("totalCount"));
+//            pendingApproval.setAdcount(jsonObjectPendingApproval.getInteger("adcount"));
+            pendingApproval.setTotalCount(totalCount);
             pendingApprovalList.add(pendingApproval);
         }
         return pendingApprovalList;

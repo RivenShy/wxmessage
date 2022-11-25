@@ -13,4 +13,6 @@ public interface CustomerService {
     public int add(Customer customer);
 
     public int update(Customer customer);
+
+    public int updateLogoPathById(Customer customer);
 }

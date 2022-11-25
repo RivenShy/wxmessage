@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import com.example.demo.controller.CustomerController;
 import com.example.demo.handler.MyAccessDeniedHandler;
 import com.example.demo.handler.MyAuthenticationEntryPoint;
 import com.example.demo.handler.MyLogoutSuccessHandler;
@@ -52,7 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureHandler(myAuthenticationFailureHandler)
                 .and().logout().logoutUrl("/sys/logout").logoutSuccessUrl("/login.html").logoutSuccessHandler(myLogoutSuccessHandler)
                 // 还需要设置微信回调接口的permit
-                .and().authorizeRequests().antMatchers("/login.html", "/login","/wx/**","/userInfo/outhPage","/userInfo/getQRcode", "/userInfo/getMessageInfo/**").permitAll()
+                .and().authorizeRequests().antMatchers("/login.html", "/login","/wx/**","/userInfo/outhPage",
+                "/userInfo/getQRcode", "/userInfo/getMessageInfo/**","/changeBindApply/add", CustomerController.logoLogicPath + "**").permitAll()
 //                .anyRequest().mvcMatchers(HttpMethod.POST,"/sys/login").permitAll()
 
                 // myAccessDecisionService.hasPermission为true，任何用户都可以访问

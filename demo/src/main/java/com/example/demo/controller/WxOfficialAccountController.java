@@ -5,13 +5,16 @@ import com.example.demo.entity.BindApply;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Server;
 import com.example.demo.entity.UserInfo;
+import com.example.demo.entity.wx.TextReplyService;
 import com.example.demo.service.BindApplyService;
 import com.example.demo.service.CustomerService;
 import com.example.demo.service.ServerService;
 import com.example.demo.service.UserInfoService;
 import com.example.demo.util.Constant;
+import com.example.demo.util.WechatMessageUtils;
 import com.example.demo.util.WxUtil;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -24,10 +27,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/wx")
@@ -53,41 +56,41 @@ public class WxOfficialAccountController {
     @Autowired
     CustomerService customerService;
     /**
-     * 验证消息的确来自微信服务器
+     * 验证消息的确来自微信服务器，此接口用于微信公众号后台服务器认证使用，GET请求
      * @param request
      * @param response
      */
-//    @GetMapping("/validate")
-//    public void validateMessageFromWxServer(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
-//        System.out.println("进来了wx/validate");
-//        String signature = request.getParameter("signature");
-//        String timestamp = request.getParameter("timestamp");
-//        String nonce = request.getParameter("nonce");
-//        String echostr = request.getParameter("echostr");
-//        if(signature == null || timestamp == null || nonce == null || echostr == null) {
-//            System.out.println("请求参数有误");
-//            return;
-//        }
-////        1）将token、timestamp、nonce三个参数进行字典序排序
-//        String[] strArray = {TOKEN, timestamp, nonce};
-//        Arrays.sort(strArray);
-////        2）将三个参数字符串拼接成一个字符串进行sha1加密
-//        StringBuilder stringBuilder = new StringBuilder();
-//        for(String str : strArray) {
-//            stringBuilder.append(str);
-//        }
-//        String encryption = WxUtil.getSha1(stringBuilder.toString());
-////        3）开发者获得加密后的字符串可与 signature 对比，标识该请求来源于微信
-//        if(encryption.equals(signature)) {
-//            out.print(echostr);
-//            out.flush();
-//            out.close();
-//        }
-//    }
+    @GetMapping("/validate")
+    public void validateMessageFromWxServer(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        System.out.println("进来了wx/validate");
+        String signature = request.getParameter("signature");
+        String timestamp = request.getParameter("timestamp");
+        String nonce = request.getParameter("nonce");
+        String echostr = request.getParameter("echostr");
+        if(signature == null || timestamp == null || nonce == null || echostr == null) {
+            System.out.println("请求参数有误");
+            return;
+        }
+//        1）将token、timestamp、nonce三个参数进行字典序排序
+        String[] strArray = {TOKEN, timestamp, nonce};
+        Arrays.sort(strArray);
+//        2）将三个参数字符串拼接成一个字符串进行sha1加密
+        StringBuilder stringBuilder = new StringBuilder();
+        for(String str : strArray) {
+            stringBuilder.append(str);
+        }
+        String encryption = WxUtil.getSha1(stringBuilder.toString());
+//        3）开发者获得加密后的字符串可与 signature 对比，标识该请求来源于微信
+        if(encryption.equals(signature)) {
+            out.print(echostr);
+            out.flush();
+            out.close();
+        }
+    }
 
 
     @PostMapping("/validate")
-    public void handlerWechatEvent(HttpServletRequest request, HttpServletResponse response, @RequestBody String xmlData) throws DocumentException {
+    public void handlerWechatEvent(HttpServletRequest request, HttpServletResponse response, @RequestBody String xmlData) throws Exception {
         if(xmlData != null) {
             logger.info("xmlData:" + xmlData);
             Document doc = DocumentHelper.parseText(xmlData);
@@ -136,6 +139,26 @@ public class WxOfficialAccountController {
                         sendBindApplyWxMessageToUser(serverIp, userId, openId);
                     }
                 }
+            } else if(MsgType.equals("text")) {
+                // 文本消息处理
+//                Map<String, String> requestMap = WechatMessageUtils.parseXml(request);
+//                return textReplyService.reply(requestMap);
+                String ToUserName = root.elementText("ToUserName");
+                String FromUserName = root.elementText("FromUserName");
+                String Content = root.elementText("Content");
+                Map<String, String> requestMap = new HashMap<>();
+                requestMap.put(TextReplyService.FROM_USER_NAME, FromUserName);
+                requestMap.put(TextReplyService.TO_USER_NAME, ToUserName);
+                requestMap.put(TextReplyService.CONTENT, Content);
+                String respMessage = new TextReplyService().reply(requestMap);
+                if (StringUtils.isBlank(respMessage)) {
+                    logger.info("不回复消息");
+                    return;
+                }
+                PrintWriter out = null;
+                response.setCharacterEncoding("UTF-8");
+                out = response.getWriter();
+                out.write(respMessage);
             }
         } else {
             logger.info("XML 数据包为null");
@@ -383,28 +406,46 @@ public class WxOfficialAccountController {
                 logger.info("headimgurl:" + headimgurl);
                 Customer customer = customerService.get(server.getId());
                 String userName = null;
+                // 查看当前账号是否已经绑定正在申请绑定的微信
+                if(userInfo != null) {
+                    if(openid.equals(userInfo.getOpenId())) {
+                        String msg = "您好， <span style=\"color: #820000;\">" + nickname + "</span>，您已经成功与账号<span style=\"color: #820000;\">" + userId + "（" + customer.getCustomerName() +  ")</span>" + "绑定！绑定后享有以下权利：";
+                        String suffix = "code=200&success=true&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s&customerLogo=%s";
+                        suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(userId,"UTF-8"), URLEncoder.encode(customer.getCustomerName(),"UTF-8"), URLEncoder.encode(nickname,"UTF-8"), headimgurl, customer.getLogoPath());
+                        response.sendRedirect(redirectUrl + suffix);
+                        return;
+                    }
+                }
                 // 查看是否已经申请过，并且正在审核中
                 BindApply bindApplyCondition = new BindApply();
                 bindApplyCondition.setServerId(server.getId());
                 bindApplyCondition.setUserCode(userId);
                 BindApply bindApplyDB = bindApplyService.getUnRevewByServerIdAndUserId(bindApplyCondition);
+//                String suffix = "code=200&success=false&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s&customerLogo=%s";
+                String suffix = "code=200&success=review&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s&customerLogo=%s";
                 if(bindApplyDB != null) {
                     logger.info("用户id为" + userId + "的用户已经申请过");
                     // 同一微信重复绑定情况处理(后台未审核，后台已审核)
                     String msg = "";
                     if(nickname.equals(bindApplyDB.getWxNickname())) {
                         if(bindApplyDB.getStatus() == 0) {
-                            msg = "您已经申请过绑定，请等待系统审核。";
+                            msg = "您好，<span style=\"color: #820000;\">" + nickname + "</span>，您已申请绑定账号<span style=\"color: #820000;\">" + userId + "（" + customer.getCustomerName() +  ")</span>，申请正在审核中，预计一个工作日内完成。";
                         } else {
                             msg = "您已经申请过绑定，系统已审核通过。";
+                            logger.error("审核绑定申请，应该已经绑定成功");
                         }
+                        suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(bindApplyDB.getUserCode(),"UTF-8"),
+                                URLEncoder.encode(customer.getCustomerName(),"UTF-8") , URLEncoder.encode(nickname,"UTF-8"), headimgurl, customer.getLogoPath());
                     } else {
-                        msg = "用户“" + bindApplyDB.getUserCode() + "“" + "已与“" + bindApplyDB.getWxNickname() + "”微信绑定，请先联系管理员解除绑定后，再执行此操作。";
+//                        msg = "用户“" + bindApplyDB.getUserCode() + "“" + "已与“" + bindApplyDB.getWxNickname() + "”微信绑定，请先联系管理员解除绑定后，再执行此操作。";
+                        msg = "您扫描的账号<span style=\"color: #820000;\">" + bindApplyDB.getUserCode() + "</span>隶属于<span style=\"color: #820000;\">" + customer.getCustomerName() + "</span>。此账号已与微信<span style=\"color: #820000;\">" + bindApplyDB.getWxNickname() + "</span>绑定。请联系软件系统管理员解除绑定，再重新扫码。";
+//                        suffix = "code=200&success=false&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s&serverId=%s&openId=%s&customerLogo=%s";
+                        suffix = "code=200&success=false&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s&serverId=%s&openId=%s&customerLogo=%s";
+                        suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(bindApplyDB.getUserCode(),"UTF-8"),
+                                URLEncoder.encode(customer.getCustomerName(),"UTF-8") , URLEncoder.encode(nickname,"UTF-8"), headimgurl, server.getId(), openid, customer.getLogoPath());
                         // 显示已申请绑定的微信昵称
-                        nickname = bindApplyDB.getWxNickname();
+//                        nickname = bindApplyDB.getWxNickname();
                     }
-                    String suffix = "code=200&success=false&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s";
-                    suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(bindApplyDB.getUserCode(),"UTF-8"),URLEncoder.encode(customer.getCustomerName(),"UTF-8") , URLEncoder.encode(nickname,"UTF-8"), headimgurl);
                     response.sendRedirect(redirectUrl + suffix);
                     return;
                 }
@@ -421,15 +462,14 @@ public class WxOfficialAccountController {
                 int result = bindApplyService.add(bindApply);
                 logger.info("result:" + result);
                 if(result == 1) {
-                    String msg = "您已授权申请绑定成功，请等待系统审核！";
-                    String suffix = "code=200&success=true&msg=%s&userCode=%s&customerName=%s&nickname=%s&headimgurl=%s";
-                    suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(userId,"UTF-8"), URLEncoder.encode(customer.getCustomerName(),"UTF-8"), URLEncoder.encode(nickname,"UTF-8"), headimgurl);
+                    String msg = "您好，<span style=\"color: #820000;\">" + nickname + "</span>，您已申请绑定账号<span style=\"color: #820000;\">" + userId + "（" + customer.getCustomerName() +  ")</span>，申请正在审核中，预计一个工作日内完成。";
+                    suffix = String.format(suffix, URLEncoder.encode(msg,"UTF-8"), URLEncoder.encode(userId,"UTF-8"), URLEncoder.encode(customer.getCustomerName(),"UTF-8"), URLEncoder.encode(nickname,"UTF-8"), headimgurl, customer.getLogoPath());
                     response.sendRedirect(redirectUrl + suffix);
                     return;
                 } else {
                     logger.error("添加绑定申请失败,result=" + result);
-                    String suffix = "code=200&success=false&msg=" + URLEncoder.encode("添加绑定申请失败","UTF-8");
-                    response.sendRedirect(redirectUrl + suffix);
+                    String suffixErr = "code=200&success=false&msg=" + URLEncoder.encode("添加绑定申请失败,服务器错误","UTF-8");
+                    response.sendRedirect(redirectUrl + suffixErr);
                     return;
                 }
             }

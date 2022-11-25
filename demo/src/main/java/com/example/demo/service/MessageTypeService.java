@@ -16,4 +16,6 @@ public interface MessageTypeService {
     public int updateStatus(MessageType messageType);
 
     public int updateScheduleTimeById(MessageType messageTypeArgs);
+
+    public int add(MessageType messageTypeArgs);
 }

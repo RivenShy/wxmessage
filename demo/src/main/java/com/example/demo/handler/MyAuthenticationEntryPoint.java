@@ -21,6 +21,7 @@ public class MyAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         response.setContentType("application/json;charset=utf-8");
+//        System.out.println("过期");
         JSONObject jsonObject = new JSONObject();
         jsonObject.put(Constant.code, 403);
         jsonObject.put(Constant.success, false);

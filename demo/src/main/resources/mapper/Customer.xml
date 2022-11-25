@@ -21,4 +21,8 @@
     <update id="update" parameterType="Customer">
         update `PMS_Customer` set customerName = #{customerName}, customerCode = #{customerCode} where id = #{id};
     </update>
+
+    <update id="updateLogoPathById" parameterType="Customer">
+        update `PMS_Customer` set logoPath = #{logoPath} where id = #{id};
+    </update>
 </mapper>

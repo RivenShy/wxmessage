@@ -35,5 +35,10 @@ public class CustomerServiceImpl implements CustomerService {
         return customerMapper.update(customer);
     }
 
+    @Override
+    public int updateLogoPathById(Customer customer) {
+        return customerMapper.updateLogoPathById(customer);
+    }
+
 
 }

@@ -526,7 +526,16 @@ class DemoApplicationTests {
 	}
 
 	@Test
-	public void test123() {
+	public void testBCryptPasswordEncoder() {
 		System.out.println("密码"+ new BCryptPasswordEncoder().encode("123456"));
+
+	}
+
+	@Test
+	public void test1() {
+		Customer customer = new Customer();
+		String str = "customerLogo=%s";
+		str = String.format(str, customer.getCustomerName());
+		System.out.println(str);
 	}
 }

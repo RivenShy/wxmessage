@@ -11,4 +11,6 @@ public class Customer {
     private String customerCode;
 
     private String customerName;
+
+    private String logoPath;
 }

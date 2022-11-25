@@ -108,7 +108,7 @@ public class ScheduleJob implements Job {
             if (messageName.equals(MessageType.enumMessageType.EMT_ProcessToApprove.getName())) {
                 Server server = ScheduleConfig.getServerByServerId(serverId);
                 if (server != null && server.getServerUrl() != null && !server.equals("")) {
-                    if(beforeTwelveClock() && (!StringUtil.isEmpty(messageTime) && messageName.equals("早上"))) {
+                    if("早上".equals(messageTime)) {
                         // 早上统计消息
                         List<AuditDelayCount> auditDelayCountList = OkHttpUtil.getAuditDelayCountList(server.getServerUrl());
                         if (auditDelayCountList != null) {
@@ -120,12 +120,12 @@ public class ScheduleJob implements Job {
                                 UserInfo userInfo = ScheduleConfig.getUserInfoByServerIdAndUserId(userInfoArgs);
                                 if (userInfo == null) {
                                     logger.error("查询用户信息失败，" + userInfoArgs);
-                                    return;
+                                    continue;
                                 }
                                 Customer customer = ScheduleConfig.getCustomerById(server.getCustomerId());
                                 if (customer == null) {
                                     logger.error("查询客户信息失败，id = " + server.getCustomerId());
-                                    return;
+                                    continue;
                                 }
                                 if (userInfo.getOpenId() != null) {
                                     // 发送消息前，先插入message表，这样才能得到消息Id，放到推送消息链接参数里
@@ -138,7 +138,7 @@ public class ScheduleJob implements Job {
                                     int messageId = ScheduleConfig.addMessage(message);
                                     if (messageId == 0) {
                                         logger.error("添加消息失败");
-                                        return;
+                                        continue;
                                     }
                                     sendSuccess = WxUtil.sendProcessApprovalMsgToUser(customer.getCustomerName(), userInfo, messageId, auditDelayCount);
                                     if (!sendSuccess) {
@@ -161,11 +161,15 @@ public class ScheduleJob implements Job {
                         } else {
                             logger.error("auditDelayCountList 为 null");
                         }
-                    } else if(!StringUtil.isEmpty(messageTime) && messageName.equals("晚上")) {
+                    } else if("晚上".equals(messageTime)) {
                         // 晚上统计消息
                         List<PendingApproval> pendingApprovalList = OkHttpUtil.getPendingApprovalList(server.getServerUrl());
                         if (pendingApprovalList != null) {
                             for (PendingApproval pendingApproval : pendingApprovalList) {
+                                // 审核、未审都为0，跳过
+                                if(pendingApproval.getTotalCount() == 0 && pendingApproval.getAdcount() == 0) {
+                                    continue;
+                                }
                                 String userCode = pendingApproval.getJobuser();
                                 UserInfo userInfoArgs = new UserInfo();
                                 userInfoArgs.setUserId(userCode);
@@ -178,7 +182,7 @@ public class ScheduleJob implements Job {
                                 Customer customer = ScheduleConfig.getCustomerById(server.getCustomerId());
                                 if (customer == null) {
                                     logger.error("查询客户信息失败，id = " + server.getCustomerId());
-                                    return;
+                                    continue;
                                 }
                                 if (userInfo.getOpenId() != null) {
                                     // 发送消息前，先插入message表，这样才能得到消息Id，放到推送消息链接参数里
@@ -191,7 +195,7 @@ public class ScheduleJob implements Job {
                                     int messageId = ScheduleConfig.addMessage(message);
                                     if (messageId == 0) {
                                         logger.error("添加消息失败");
-                                        return;
+                                        continue;
                                     }
                                     sendSuccess = WxUtil.sendProcessApprovalMsgToUserAtNight(customer.getCustomerName(), userInfo, messageId, pendingApproval);
                                     if (!sendSuccess) {

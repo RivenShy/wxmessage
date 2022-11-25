@@ -172,6 +172,7 @@ public class ScheduleConfig implements ApplicationContextAware {
                     .usingJobData("scheduleTime", messageType.getScheduleTime())
                     .usingJobData("serverId", messageType.getServerId())
                     .usingJobData("userId", messageType.getUserId())
+                    .usingJobData("messageTime", messageType.getMessageTime())
                     .build();
             scheduler.scheduleJob(job, trigger);
         } catch (SchedulerException e) {

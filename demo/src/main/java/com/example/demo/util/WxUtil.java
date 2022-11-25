@@ -268,7 +268,7 @@ public class WxUtil {
     public static boolean sendProcessApprovalMsgToUserAtNight(String customerName, UserInfo userInfo, int messageId, PendingApproval pendingApproval) {
         String template_id = Constant.processApproveRemindTemplateId;
         // todo 改成一个前端页面(晚上详情)，传messgeId、userCode参数给这个页面
-        String url = "http://www.szwd.online:8009/#/approvalToday?messageId?" + messageId + "&userCode=" + userInfo.getUserId();
+        String url = "http://www.szwd.online:8009/#/approvalToday?messageId=" + messageId + "&userCode=" + userInfo.getUserId();
 //        String url = "http://www.szwd.online/userInfo/userClickWxMessage/" + messageId;
         //
         JSONObject jsonObject = new JSONObject();

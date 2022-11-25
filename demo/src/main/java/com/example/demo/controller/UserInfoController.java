@@ -324,6 +324,10 @@ public class UserInfoController {
         }
         if(message.getMsgTypeId() != 0) {
             MessageType messageType = messageTypeService.get(message.getMsgTypeId());
+            // todo 判空
+            if(messageType == null) {
+
+            }
             if(messageType.getMessageName().equals(MessageType.enumMessageType.EMT_ProcessToApprove.getName())) {
                 if(messageType.getMessageTime() != null) {
                     Server server = serverService.get(messageType.getServerId());
@@ -354,46 +358,36 @@ public class UserInfoController {
                         return jsonObjectReturn.toString();
                     } else if (messageType.getMessageTime().equals("晚上")) {
                         Map<String, String> hashMap = new HashMap<>();
-//                        hashMap.put("userCode", userCode);
-//                        List<ApprovalDetail> approvalDetailList = OkHttpUtil.getApprovalDetailList(server.getServerUrl(), hashMap);
-//                        if(approvalDetailList == null) {
-//                            logger.error("查询已审批详情失败");
-//                            jsonObjectReturn.put(Constant.code, 200);
-//                            jsonObjectReturn.put(Constant.success, false);
-//                            jsonObjectReturn.put(Constant.data, null);
-//                            jsonObjectReturn.put(Constant.msg, "查询已审批详情失败");
-//                            return jsonObjectReturn.toString();
-//                        }
                         hashMap.put("userCode", userCode);
                         // 用户今日已审、待审数目
                         PendingApproval pendingApprovalAdTotalCount = OkHttpUtil.getAdTototalCountByUserCode(server.getServerUrl(), hashMap);
                         if(pendingApprovalAdTotalCount == null) {
                             logger.error("查询用户" + userCode + "今日已审、待审数目");
-                            jsonObjectReturn.put(Constant.code, 200);
-                            jsonObjectReturn.put(Constant.success, false);
-                            jsonObjectReturn.put(Constant.data, null);
-                            jsonObjectReturn.put(Constant.msg, "查询用户" + userCode + "今日已审、待审数目失败");
-                            return jsonObjectReturn.toString();
+//                            jsonObjectReturn.put(Constant.code, 200);
+//                            jsonObjectReturn.put(Constant.success, false);
+//                            jsonObjectReturn.put(Constant.data, null);
+//                            jsonObjectReturn.put(Constant.msg, "查询用户" + userCode + "今日已审、待审数目失败");
+//                            return jsonObjectReturn.toString();
                         }
                         // 用户平均时效
                         PendingApproval pendingApprovalAverageTime = OkHttpUtil.getAverageTimeByUserCode(server.getServerUrl(), hashMap);
                         if(pendingApprovalAverageTime == null) {
                             logger.error("查询用户" + userCode + "平均时效失败");
-                            jsonObjectReturn.put(Constant.code, 200);
-                            jsonObjectReturn.put(Constant.success, false);
-                            jsonObjectReturn.put(Constant.data, null);
-                            jsonObjectReturn.put(Constant.msg, "查询用户" + userCode + "平均时效失败");
-                            return jsonObjectReturn.toString();
+//                            jsonObjectReturn.put(Constant.code, 200);
+//                            jsonObjectReturn.put(Constant.success, false);
+//                            jsonObjectReturn.put(Constant.data, null);
+//                            jsonObjectReturn.put(Constant.msg, "查询用户" + userCode + "平均时效失败");
+//                            return jsonObjectReturn.toString();
                         }
                         // 今日已审排行
                         List<PendingApproval> pendingApprovalTotalApprovalRank = OkHttpUtil.getTotalApprovalRank(server.getServerUrl(), null);
                         if(pendingApprovalTotalApprovalRank == null) {
                             logger.error("查询今日审核数目排行失败");
-                            jsonObjectReturn.put(Constant.code, 200);
-                            jsonObjectReturn.put(Constant.success, false);
-                            jsonObjectReturn.put(Constant.data, null);
-                            jsonObjectReturn.put(Constant.msg, "查询今日审核数目排行失败");
-                            return jsonObjectReturn.toString();
+//                            jsonObjectReturn.put(Constant.code, 200);
+//                            jsonObjectReturn.put(Constant.success, false);
+//                            jsonObjectReturn.put(Constant.data, null);
+//                            jsonObjectReturn.put(Constant.msg, "查询今日审核数目排行失败");
+//                            return jsonObjectReturn.toString();
                         }
                         JSONObject jsonObject = new JSONObject();
                         // 用户今日已审、待审数目
@@ -568,7 +562,7 @@ public class UserInfoController {
         userInfoArgs.setOpenId(null);
         int result = userInfoService.updateOpenIdAndNickName(userInfoArgs);
         if(result == 1) {
-            // 删除对应账号的绑定申请信息,设置status为2，userId设为null
+            // 删除对应账号的绑定申请信息,设置status为已删除状态，userId设为null
             BindApply bindApplyArgs = new BindApply();
             bindApplyArgs.setServerId(userInfoDB.getServerId());
             bindApplyArgs.setUserCode(userInfoDB.getUserId());

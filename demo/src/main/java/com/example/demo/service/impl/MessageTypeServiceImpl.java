@@ -33,4 +33,9 @@ public class MessageTypeServiceImpl implements MessageTypeService {
     public int updateScheduleTimeById(MessageType messageTypeArgs) {
         return messageTypeMapper.updateScheduleTimeById(messageTypeArgs);
     }
+
+    @Override
+    public int add(MessageType messageTypeArgs) {
+        return messageTypeMapper.add(messageTypeArgs);
+    }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface BindApplyMapper {
-    public int add(BindApply hero);
+    public int add(BindApply bndApply);
 
     public void delete(int id);
 

@@ -24,4 +24,9 @@
     <update id="updateScheduleTimeById" parameterType="MessageType">
         update `PMS_MessageType` set scheduleTime = #{scheduleTime} where id=#{id}
     </update>
+
+    <insert id="add" parameterType="MessageType" >
+        insert into `PMS_MessageType` (messageName, scheduleTime, serverId, userId, description, status, messageTime)
+        values (#{messageName}, #{scheduleTime}, #{serverId}, #{userId}, #{description}, #{status}, #{messageTime})
+    </insert>
 </mapper>

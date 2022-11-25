@@ -7,7 +7,6 @@
     <insert id="add" parameterType="BindApply" >
         insert into `PMS_BindApply` (serverId, userId, wxNickname, openId, status, operator, applyDate, reviewDate, userCode)
         values (#{serverId}, #{userId}, #{wxNickname}, #{openId}, #{status}, #{operator}, #{applyDate}, #{reviewDate}, #{userCode})
-
     </insert>
 
 <!--    <delete id="delete" parameterType="Hero" >-->

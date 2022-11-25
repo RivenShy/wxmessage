@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Message;
 import com.example.demo.entity.Server;
+import com.example.demo.service.CustomerService;
 import com.example.demo.service.ServerService;
 import com.example.demo.util.Constant;
 import com.github.pagehelper.PageHelper;
@@ -22,6 +23,9 @@ public class ServerController {
 
     @Autowired
     private ServerService serverService;
+
+    @Autowired
+    private CustomerService customerService;
 
     private static Logger logger = Logger.getLogger(ServerController.class);
 
@@ -53,6 +57,16 @@ public class ServerController {
             jsonObjectReturn.put(Constant.success, false);
             jsonObjectReturn.put(Constant.data, null);
             jsonObjectReturn.put(Constant.msg, "参数错误");
+            return jsonObjectReturn.toString();
+        }
+        Customer customer = customerService.get(server.getCustomerId());
+        if(customer == null) {
+            logger.error("查询客户信息失败");
+            jsonObjectReturn.put(Constant.code, 200);
+            jsonObjectReturn.put(Constant.success, false);
+            jsonObjectReturn.put(Constant.data, null);
+            jsonObjectReturn.put(Constant.msg, "查询客户信息失败");
+            return jsonObjectReturn.toString();
         }
         int result = serverService.add(server);
         if(result == 0) {

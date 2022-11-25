@@ -11,6 +11,8 @@ import java.util.function.Function;
  */
 public class JwtUtil {
     private static long TOKEN_EXPIRATION = 24 * 60 * 60 * 1000;
+//    test
+//    private static long TOKEN_EXPIRATION =  30 * 1000;
     private static String TOKEN_SECRET_KEY = "123456";
     /**
      * 生成Token
@@ -44,7 +46,19 @@ public class JwtUtil {
         final Claims claims = extractAllClaims(token);
         return claimsResolver.apply(claims);
     }
+//    private static Claims extractAllClaims(String token) {
+//        return Jwts.parser().setSigningKey(TOKEN_SECRET_KEY).parseClaimsJws(token).getBody();
+//    }
+
+    // 过期不抛500异常
     private static Claims extractAllClaims(String token) {
-        return Jwts.parser().setSigningKey(TOKEN_SECRET_KEY).parseClaimsJws(token).getBody();
+        Claims claims;
+        try{
+            claims =  Jwts.parser().setSigningKey(TOKEN_SECRET_KEY).parseClaimsJws(token).getBody();
+
+        } catch (ExpiredJwtException e) {
+            claims = e.getClaims();
+        }
+        return claims;
     }
 }

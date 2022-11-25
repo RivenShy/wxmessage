@@ -176,3 +176,28 @@
 2022-11-22 18:11:54,800 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - 请求失败， url = http://localhost:8111/pendingApprovalDetail/listByUserCode/zhouhm5
 2022-11-22 18:11:54,801 ERROR http-nio-80-exec-1 com.example.demo.util.OkHttpUtil - responseData 为 null
 2022-11-22 18:11:54,801 ERROR http-nio-80-exec-1 com.example.demo.controller.UserInfoController - 查询待审批详情失败
+2022-11-23 10:59:01,210 INFO http-nio-80-exec-7 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 10:59:57,573 ERROR http-nio-80-exec-8 com.example.demo.controller.MessageTypeController - status为0，定时任务在运行中
+2022-11-23 11:00:13,467 INFO http-nio-80-exec-10 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 2
+2022-11-23 11:00:26,943 INFO http-nio-80-exec-1 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 11:01:00,018 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 未处理的时间，messageTime:null
+2022-11-23 11:02:36,050 INFO http-nio-80-exec-4 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 2
+2022-11-23 11:03:11,140 INFO http-nio-80-exec-6 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 11:05:12,075 ERROR http-nio-80-exec-2 com.example.demo.config.ScheduleConfig - 添加定时任务失败
+2022-11-23 11:05:12,079 ERROR http-nio-80-exec-2 com.example.demo.controller.MessageTypeController - 添加定时任务失败
+2022-11-23 11:05:44,675 INFO http-nio-80-exec-5 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 2
+2022-11-23 11:05:58,890 INFO http-nio-80-exec-4 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 11:06:00,020 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 未处理的时间，messageTime:早上
+2022-11-23 11:08:25,153 INFO http-nio-80-exec-3 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 2
+2022-11-23 11:08:38,547 INFO http-nio-80-exec-4 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 11:09:00,016 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - 未处理的时间，messageTime:早上
+2022-11-23 11:10:46,400 INFO http-nio-80-exec-1 com.example.demo.config.ScheduleConfig - 停用定时任务，定时消息id = 2
+2022-11-23 11:10:55,549 INFO http-nio-80-exec-3 com.example.demo.config.ScheduleConfig - 启用定时任务，定时消息id = 2
+2022-11-23 11:11:02,306 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.util.OkHttpUtil - 请求失败， url = http://localhost:8111/auditDelayCount/list
+2022-11-23 11:11:02,306 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.util.OkHttpUtil - responseData 为 null
+2022-11-23 11:11:02,306 ERROR DefaultQuartzScheduler_Worker-1 com.example.demo.entity.ScheduleJob - auditDelayCountList 为 null
+2022-11-24 11:08:03,501 ERROR http-nio-80-exec-3 com.example.demo.controller.BindApplyController - 查询不到更换绑定信息，id=2
+2022-11-24 12:38:36,944 INFO http-nio-80-exec-3 com.example.demo.controller.BindApplyController - 更改用户的微信昵称和openId成功
+2022-11-25 14:37:22,731 ERROR http-nio-80-exec-6 com.example.demo.controller.MessageTypeController - messageTime时间段不正确
+2022-11-25 14:38:47,212 ERROR http-nio-80-exec-10 com.example.demo.controller.MessageTypeController - messageTime时间段不正确
+2022-11-25 16:07:35,737 ERROR http-nio-80-exec-5 com.example.demo.controller.CustomerController - 请传入JPG、JPEG、PNG 等格式的图片
