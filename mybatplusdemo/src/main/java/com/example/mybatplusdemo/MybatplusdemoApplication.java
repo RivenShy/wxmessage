@@ -13,7 +13,7 @@ public class MybatplusdemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MybatplusdemoApplication.class, args);
-		System.out.println("fsdf");
+		System.out.println("springboot started");
 	}
 
 }

@@ -30,10 +30,10 @@ public class CustomerController {
     private static Logger logger = Logger.getLogger(CustomerController.class);
 
     public static final String logoLogicPath = "/logoData/";
-    //  服务器真实logo路径
-//    public static final String logoRealPath  = "/home/customerLogo/";
+    //  61服务器真实logo路径
+    public static final String logoRealPath  = "/home/customerLogo/";
     // 本地测试地址logo路径
-    public static final String logoRealPath = "D:/customerLogo/";
+//    public static final String logoRealPath = "D:/customerLogo/";
 
     @Autowired
     private CustomerService customerService;

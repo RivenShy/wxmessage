@@ -8,3 +8,47 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/mybatisplusdemo?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+
+  main:
+    banner-mode: off # 关闭SpringBoot启动图标(banner)
+
+
+# mybatis-plus日志控制台输出
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    banner: off
+#  mapperLocations: classpath:com/example/mybatplusdemo/mapper/*.xml
+#  mapper-locations: classpath:com/example/mybatplusdemo/mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/*.xml
+
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8080/xxl-job-admin
+    accessToken: default_token
+    executor:
+      appname: xxl-job-executor-sample
+      address:
+      ip:
+      port: 9999
+      logpath: /data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+#### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+#xxl.job.admin.addresses=http://127.0.0.1:8080/xxl-job-admin
+#
+#### xxl-job, access token
+#xxl.job.accessToken=default_token
+#
+#### xxl-job executor appname
+#xxl.job.executor.appname=xxl-job-executor-sample
+#### xxl-job executor registry-address: default use address to registry , otherwise use ip:port if address is null
+#xxl.job.executor.address=
+#### xxl-job executor server-info
+#xxl.job.executor.ip=
+#xxl.job.executor.port=9999
+#### xxl-job executor log-path
+#xxl.job.executor.logpath=/data/applogs/xxl-job/jobhandler
+#### xxl-job executor log-retention-days
+#xxl.job.executor.logretentiondays=30

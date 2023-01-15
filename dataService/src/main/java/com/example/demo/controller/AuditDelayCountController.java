@@ -30,13 +30,13 @@ public class AuditDelayCountController {
         List<AuditDelayCount> list = auditDelayCountService.list();
         if(list == null) {
             jsonObject.put(Constant.code, 200);
-            jsonObject.put(Constant.success, true);
+            jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, list);
             jsonObject.put(Constant.msg, "查询失败");
             return jsonObject.toString();
         } else {
             jsonObject.put(Constant.code, 200);
-            jsonObject.put(Constant.success, false);
+            jsonObject.put(Constant.success, true);
             jsonObject.put(Constant.data, list);
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();

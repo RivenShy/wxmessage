@@ -31,4 +31,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     public int insert1(User user){
         return userMapper.insert(user);
     }
+
+    @Override
+    public List<User> selectAllIncludeDelete() {
+        return userMapper.selectAllIncludeDelete();
+    }
+
+    @Override
+    public List<User> selectAllFromXml() {
+        return userMapper.selectAllFromXml();
+    }
 }
