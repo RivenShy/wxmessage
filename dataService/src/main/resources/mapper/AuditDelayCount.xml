@@ -10,4 +10,11 @@
         left join st_common.dbo.Ark_DelayCount b
         on a.jobuser = b.jobuser
     </select>
+
+    <select id="getByUserCode" resultType="AuditDelayCount" parameterType="string">
+        select a.*,isnull(b.delaycount,0) as delaycount from st_common.dbo.Ark_AuditCount a
+        left join st_common.dbo.Ark_DelayCount b
+        on a.jobuser = b.jobuser
+        where a.jobuser = #{userCode}
+    </select>
 </mapper>

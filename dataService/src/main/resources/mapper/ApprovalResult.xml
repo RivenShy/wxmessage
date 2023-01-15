@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ApprovalResultMapper">
+
+    <select id="list" resultType="ApprovalResult">
+<!--        select Codeid,SubMitUser,SubTime,Status,AuditName,AuditTime,CodeDesc,NumDesc from st_common.dbo.ST_AuditMain-->
+<!--        where datediff(hour,isnull(AuditTime,0),getdate()) &lt; 1000-->
+        select Codeid,SubMitUser,SubTime,Status,AuditName,AuditTime,CodeDesc,NumDesc from st_common.dbo.ST_AuditMain
+        where datediff(hour,isnull(AuditTime,0),getdate()) &lt; 24
+
+    </select>
+</mapper>

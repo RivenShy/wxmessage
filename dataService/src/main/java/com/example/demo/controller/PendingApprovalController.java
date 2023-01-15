@@ -39,6 +39,7 @@ public class PendingApprovalController {
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();
         } else{
+            logger.error("查询失败");
             jsonObject.put(Constant.code, 200);
             jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, null);
@@ -66,6 +67,7 @@ public class PendingApprovalController {
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();
         } else {
+            logger.error("查询失败，userCode = " + userCode);
             jsonObject.put(Constant.code, 200);
             jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, null);
@@ -77,7 +79,7 @@ public class PendingApprovalController {
     @GetMapping("/getAverageTimeByUserCode/{userCode}")
     public String getAverageTimeByUserCode(@PathVariable String userCode) {
         JSONObject jsonObject = new JSONObject();
-        logger.info("查询待平均耗时");
+        logger.info("查询平均耗时");
         Map<String, String> hashMap = new HashMap<>();
         hashMap.put("UserId", userCode);
         PendingApproval pendingApproval = pendingApprovalService.getAverageTime(hashMap);
@@ -94,6 +96,7 @@ public class PendingApprovalController {
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();
         } else {
+            logger.error("查询失败，userCode = " + userCode);
             jsonObject.put(Constant.code, 200);
             jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, null);
@@ -123,6 +126,7 @@ public class PendingApprovalController {
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();
         } else{
+            logger.error("查询失败");
             jsonObject.put(Constant.code, 200);
             jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, null);

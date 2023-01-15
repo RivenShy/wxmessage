@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.MessageTemplateMapper">
+
+
+    <select id="get" parameterType="_int" resultType="MessageTemplate">
+        select * from `PMS_MessageTemplate` where id = #{id} and deleted = 0;
+    </select>
+
+    <select id="list" resultType="MessageTemplate">
+        select pmsMessageTemplate.* from `PMS_MessageTemplate` pmsMessageTemplate
+        where 1=1
+        <if test="deleted != -1">
+            and pmsMessageTemplate.deleted = #{deleted}
+        </if>
+    </select>
+
+    <select id="selectByTemplateName" parameterType="string" resultType="MessageTemplate">
+        select * from `PMS_MessageTemplate` where templateName = #{templateName}
+    </select>
+
+    <update id="update" parameterType="MessageTemplate">
+        update `PMS_MessageTemplate`
+        set templateName = #{templateName}, wxTemplateId = #{wxTemplateId}, detailUrl = #{detailUrl}, firstData = #{firstData},
+        firstDataColor = #{firstDataColor}, keyword1Data = #{keyword1Data}, keyword1DataColor = #{keyword1DataColor}, keyword2Data = #{keyword2Data},
+        keyword2DataColor = #{keyword2DataColor}, keyword3Data = #{keyword3Data}, keyword3DataColor = #{keyword3DataColor}, keyword4Data = #{keyword4Data},
+        keyword4DataColor = #{keyword4DataColor}, keyword5Data = #{keyword5Data}, keyword5DataColor = #{keyword5DataColor}, remarkData = #{remarkData}, remarkDataColor = #{remarkDataColor}, description = #{description}
+        where id = #{id};
+    </update>
+
+    <delete id="delete" parameterType="_int">
+        update `PMS_MessageTemplate` set deleted = 1 where id=#{id}
+    </delete>
+
+    <insert id="add" parameterType="MessageTemplate">
+        insert into `PMS_MessageTemplate`
+        (templateName, wxTemplateId, detailUrl, firstData, firstDataColor, keyword1Data, keyword1DataColor, keyword2Data,
+               keyword2DataColor, keyword3Data, keyword3DataColor, keyword4Data, keyword4DataColor, remarkData, remarkDataColor, description, keyword5Data, keyword5DataColor)
+        values (#{templateName}, #{wxTemplateId}, #{detailUrl}, #{firstData},#{firstDataColor}, #{keyword1Data}, #{keyword1DataColor}, #{keyword2Data},
+               #{keyword2DataColor}, #{keyword3Data}, #{keyword3DataColor}, #{keyword4Data},#{keyword4DataColor},#{remarkData},#{remarkDataColor},#{description},#{keyword5Data},#{keyword5DataColor})
+    </insert>
+
+    <select id="selectMessageTemplateConfigList" parameterType="_int" resultType="MessageTemplateConfig">
+        select * from `PMS_MessageTemplateConfig` where messageTemplateId = #{messageTemplateId}
+    </select>
+
+    <select id="selectMessageTemplateConfigAlertField" parameterType="_int" resultType="MessageTemplateConfig">
+        select * from `PMS_MessageTemplateConfig` where messageTemplateId = #{messageTemplateId} and alertField = 1
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.MessageMapper">
+
+    <insert id="add" parameterType="Message" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into `PMS_Message` (msgTypeId, status, sendTime, userId, clickTime, messageName, messageTemplateId)
+        values (#{msgTypeId}, #{status}, #{sendTime}, #{userId}, #{clickTime}, #{messageName}, #{messageTemplateId})
+    </insert>
+
+    <select id="get" parameterType="_int" resultType="Message">
+        select * from `PMS_Message` where id = #{id}
+    </select>
+
+    <update id="updateClickTime" parameterType="Message" >
+        update `PMS_Message` set clickTime = #{clickTime} where id=#{id}
+    </update>
+
+    <select id="list" resultType="Message">
+        select message.*, userInfo.userName, userInfo.wxNickname from `PMS_Message` message, `PMS_UserInfo` userInfo
+        where message.userId = userInfo.id
+        <if test="deleted != -1">
+            and message.deleted = #{deleted}
+        </if>
+    </select>
+
+    <update id="updateStatus" parameterType="Message" >
+        update `PMS_Message` set status = #{status} where id=#{id}
+    </update>
+
+    <select id="listCondition" resultType="Message" parameterType="Message">
+        select message.*, userInfo.userName, userInfo.wxNickname from `PMS_Message` message, `PMS_UserInfo` userInfo
+        where message.userId = userInfo.id
+        <if test="message!=null">
+<!--            <if test="userInfo.uname!=null and userInfo.uname!='' ">-->
+<!--                and uname like '%' #{userInfo.uname} '%'-->
+<!--            </if>-->
+
+            <if test="message.status!=-1">
+                and status = #{message.status}
+            </if>
+        </if>
+    </select>
+
+    <delete id="removeById" parameterType="_int">
+        update `PMS_Message` set deleted = 1 where id=#{id}
+    </delete>
+</mapper>

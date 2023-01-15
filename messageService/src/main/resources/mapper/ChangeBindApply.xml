@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ChangeBindApplyMapper">
+    <insert id="add" parameterType="ChangeBindApply" >
+        insert into `PMS_ChangeBindApply` (serverId, userId, wxNickname, openId, status, operator, applyDate, reviewDate, userCode)
+        values (#{serverId}, #{userId}, #{wxNickname}, #{openId}, #{status}, #{operator}, #{applyDate}, #{reviewDate}, #{userCode})
+    </insert>
+
+    <update id="review" parameterType="_int" >
+        update `PMS_ChangeBindApply` set status = 1, reviewDate = now() where id=#{id}
+    </update>
+    <select id="list" resultType="ChangeBindApply">
+        select changeBindApply.*, server.serverName, customer.customerName
+        from `PMS_ChangeBindApply` changeBindApply
+        left join `PMS_Server` server on changeBindApply.serverId = server.id
+        left join `PMS_Customer` customer on server.customerId = customer.id
+        where 1 = 1
+        <if test="deleted != -1">
+            and changeBindApply.deleted = #{deleted}
+        </if>
+
+    </select>
+
+    <select id="get" parameterType="_int" resultType="ChangeBindApply">
+        select * from `PMS_ChangeBindApply` where id= #{id}
+    </select>
+
+    <select id="getUnReviewByServerIdAndOpenIdAndUserCode" parameterType="ChangeBindApply" resultType="ChangeBindApply">
+        select * from `PMS_ChangeBindApply` where serverId = #{serverId} and openId = #{openId} and userCode = #{userCode} and status = 0 and deleted = 0;
+    </select>
+
+    <delete id="removeById" parameterType="_int">
+        update `PMS_ChangeBindApply` set deleted = 1 where id=#{id}
+    </delete>
+</mapper>

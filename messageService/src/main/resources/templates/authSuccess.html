@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>授权确认</title>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+</head>
+<body>
+<div class="cont" id="app">
+    <div class="avatar">
+        <div class="avatar-i">
+            <img v-bind:src="userInfo.headimgurl" alt="">
+            <p>{{ userInfo.nickname }}</p>
+        </div>
+        <div class="avatar-bindicon">
+            <img src="http://www.szwd.online/img/icon.png" alt="">
+        </div>
+        <div class="avatar-i">
+<!--            <img src="/img/logo.jpg" alt="">-->
+            <img src="http://www.szwd.online/img/logo.jpg" alt="">
+            <p>深圳创惠工程</p>
+        </div>
+    </div>
+    <div class="tip">
+        <p>{{ userInfo.nickname }} 将会与{{ userInfo.customerName }}项目管理系统的用户 {{ userInfo.userName }} 绑定并享有以下权利 </p>
+        <ul>
+            <li>收到系统审批提醒</li>
+            <li>查看审批延迟排名</li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var data4Vue ={
+        userInfo: {nickname: '[[${nickname}]]', headimgurl: '[[${headimgurl}]]', userName: '[[${userName}]]', customerName: '[[${customerName}]]'},
+    };
+
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted: function(){
+<!--            alert("hello vue");-->
+        },
+        methods: {
+<!--            confirmBind: function(event){-->
+<!--                alert("确定绑定吗？");-->
+<!--                var url = "/bindApply/add";-->
+<!--                axios.post(url, this.hero4Add).then(function(response){-->
+<!--                    console.log(response);-->
+<!--                });-->
+<!--            }-->
+        },
+    });
+</script>
+
+</body>
+<style>
+    .cont {
+        margin-top: 30%;
+    }
+    .avatar {
+        width: 80%;
+        padding: 5%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(160, 160, 160, 0.5);
+    }
+    .avatar-i {
+        width: 100px;
+    }
+    .avatar-i p {
+        text-align: center;
+        width: 100%;
+        margin: 0;
+    }
+    .avatar-i img {
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(192, 192, 192, 0.253);
+    }
+    .avatar-bindicon {
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .avatar-bindicon img {
+        width: 50px;
+        height: 50px;
+    }
+    .tip p{
+        padding: 20px 20px 0 20px;
+        font-size: 18px;
+    }
+    .tip ul li {
+        line-height: 25px;
+        font-size: 18px;
+        color: rgb(148, 148, 148);
+    }
+</style>
+</html>

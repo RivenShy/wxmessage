@@ -11,7 +11,9 @@ public class PendingApproval {
     private int adcount;
 
 //    今日已审核数
-    private int totalCount;
+    private int todayCount;
+
+    private String jobuserName;
 
     private String UserName;
 

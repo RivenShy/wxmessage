@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ServerMapper">
+
+    <select id="get" parameterType="_int" resultType="Server">
+        select * from PMS_Server where id= #{id}
+    </select>
+
+    <select id="getServerByServerIp" parameterType="string" resultType="Server">
+        select pmsServer.*,
+        (select customerName from `PMS_Customer` pmsCustomer where pmsServer.customerId = pmsCustomer.id) as customerName,
+        (select logoPath from `PMS_Customer` pmsCustomer where pmsServer.customerId = pmsCustomer.id) as customerLogo
+        from PMS_Server pmsServer
+        where serverIp= #{serverIp} and deleted = 0
+    </select>
+
+    <select id="list" resultType="Server">
+        select * from `PMS_Server` pmsServer
+        where 1 = 1
+        <if test="deleted != -1">
+            and pmsServer.deleted = #{deleted}
+        </if>
+    </select>
+
+    <insert id="add" parameterType="Server">
+        insert into `PMS_Server` (serverName, customerId, serverUrl, serverIp)
+        values (#{serverName}, #{customerId}, #{serverUrl}, #{serverIp})
+    </insert>
+
+    <update id="update" parameterType="Server">
+        update `PMS_Server`
+        set serverName = #{serverName}, customerId = #{customerId}, serverUrl = #{serverUrl}, serverIp = #{serverIp}
+        where id = #{id};
+    </update>
+
+    <select id="selectListByCustomerId" parameterType="_int" resultType="Server">
+        select * from PMS_Server where customerId = #{customerId}
+    </select>
+
+    <delete id="removeById" parameterType="_int">
+        update `PMS_Server` set deleted = 1 where id=#{id}
+    </delete>
+</mapper>

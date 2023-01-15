@@ -18,4 +18,9 @@ public class AuditDelayCountServiceImpl implements IAuditDelayCountService {
     public List<AuditDelayCount> list() {
         return auditDelayCountMapper.list();
     }
+
+    @Override
+    public AuditDelayCount getByUserCode(String userCode) {
+        return auditDelayCountMapper.getByUserCode(userCode);
+    }
 }

@@ -15,7 +15,7 @@
         select isnull(a.jobuser,b.jobuser) as jobuser,isnull(a.adcount,0) as adcount,
         isnull(b.todayCount,0) as todayCount from st_common.dbo.Ark_AuditCount a full
         outer join st_common.dbo.Ark_AuditFinToday b on a.jobuser = b.jobuser
-        where a.jobuser = #{userCode};
+        where a.jobuser = #{userCode}  or b.jobuser = #{userCode};
     </select>
 
     <select id="getAverageTime" statementType="CALLABLE" parameterType="hashmap" resultType="PendingApproval">
@@ -28,7 +28,9 @@
     </select>
 
     <select id="getRank" resultType="PendingApproval">
-        select * from st_common.dbo.Ark_AuditFinToday order by todayCount desc
+<!--        select * from st_common.dbo.Ark_AuditFinToday order by todayCount desc-->
+        select a.*,b.Description as jobuserName from st_common.dbo.Ark_AuditFinToday a
+        left join st_common.dbo.STS_UserDepm b on a.jobuser = b.UserName order by a.todayCount desc
     </select>
 
     <!--    <select id="callProce" statementType="CALLABLE" parameterType="hashmap" resultType="PendingApproval">-->
