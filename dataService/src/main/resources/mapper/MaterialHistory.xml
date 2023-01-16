@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.MaterialHistoryMapper">
+
+    <select id="selectMeterialHistoryPriceByCondition" resultType="MaterialHistory">
+<!--        select ItemCode,ItemName,BandName,ModelNum,Unit,max(a.Price) as MaxPrice,min(a.Price) as MinPrice-->
+<!--        from hb.dbo.POR1 a join hb.dbo.DPOR b on a.DocEntry=b.DocEntry-->
+<!--        where b.U_Submit='D0004' and ( (a.ItemName like '%天线%') or (a.BandName like '%天线%') or (a.modelnum like '%天线%') )-->
+<!--        group by ItemCode,ItemName,BandName,ModelNum,Unit-->
+        select ItemCode,ItemName,BandName,ModelNum,Unit,max(a.Price) as MaxPrice,min(a.Price) as MinPrice
+        from hb.dbo.POR1 a join hb.dbo.DPOR b on a.DocEntry=b.DocEntry
+        where b.U_Submit='D0004' and ( (a.ItemName like CONCAT(CONCAT('%', #{queryParam}), '%')) or (a.BandName like CONCAT(CONCAT('%', #{queryParam}), '%')) or (a.modelnum like CONCAT(CONCAT('%', #{queryParam}), '%')) )
+        group by ItemCode,ItemName,BandName,ModelNum,Unit
+    </select>
+</mapper>

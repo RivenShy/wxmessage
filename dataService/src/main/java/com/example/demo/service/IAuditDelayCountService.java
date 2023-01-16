@@ -8,4 +8,6 @@ import java.util.List;
 public interface IAuditDelayCountService {
 
     public List<AuditDelayCount> list();
+
+    AuditDelayCount getByUserCode(String userCode);
 }

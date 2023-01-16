@@ -50,6 +50,7 @@ public class PendingApprovalDetailController {
             jsonObject.put(Constant.msg, "查询成功");
             return jsonObject.toString();
         } else {
+            logger.error("查询失败，userCode = " + userCode);
             jsonObject.put(Constant.code, 200);
             jsonObject.put(Constant.success, false);
             jsonObject.put(Constant.data, list);

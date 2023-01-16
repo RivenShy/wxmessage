@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.WarehouseNoticeDetailMapper">
+
+    <select id="getWarehouseNoticeDetailByDocEntry" resultType="WarehouseNoticeDetail" parameterType="string">
+        select ItemName,BandName,ModelNum,Unit,Qty,TechPramas from hb.dbo.RKN1 where DocEntry = #{docEntry}
+    </select>
+</mapper>

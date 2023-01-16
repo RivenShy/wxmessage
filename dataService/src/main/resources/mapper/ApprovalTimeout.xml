@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ApprovalTimeoutMapper">
+
+    <select id="list" resultType="ApprovalTimeout">
+        select a.*,b.lastAuditTime from
+        (
+        select a.codeid,a.NumDesc,a.CodeDesc,a.SubTime,a.AuditName,b.jobuser from st_common.dbo.ST_AuditMain a
+        join st_common.dbo.ST_AuditDetail b on a.Codeid=b.Codeid and a.AuditStage=b.Stage
+        where a.Status='审批中' and isnull(b.AuditUser,'')=''
+        ) a left join (
+        select  a.Codeid, isnull(b.LastAuditTime, a.SubTime) as lastAuditTime from st_common.dbo.ST_AuditMain a left join
+        (select codeid, max(isnull(auditTime,0)) as LastAuditTime from st_common.dbo.ST_AuditDetail where isAudit = 1 group by codeid) b
+        on a.Codeid = b.Codeid
+        ) b on a.Codeid = b.Codeid
+        where (DATEADD(HOUR, - 24, GETDATE()) > ISNULL(b.lastAuditTime, 0))
+    </select>
+</mapper>

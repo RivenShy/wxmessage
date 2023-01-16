@@ -9,4 +9,6 @@ import java.util.List;
 public interface AuditDelayCountMapper {
 
     public List<AuditDelayCount> list();
+
+    AuditDelayCount getByUserCode(String userCode);
 }
