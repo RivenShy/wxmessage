@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ConsultantMapper">
+
+    <select id="get" parameterType="_int" resultType="Consultant">
+        select * from `PMS_Consultant` where id= #{id}
+    </select>
+
+    <select id="list" resultType="Consultant">
+        select * from `PMS_Consultant` pmsConsultant
+        where 1 = 1
+        <if test="deleted != -1">
+            and pmsConsultant.deleted = #{deleted}
+        </if>
+    </select>
+
+    <insert id="add" parameterType="Consultant">
+        insert into `PMS_Consultant` (consultCode, consultName, wxNickName, openId, deleted)
+        values (#{consultCode}, #{consultName}, #{wxNickName}, #{openId}, 0)
+    </insert>
+
+    <update id="update" parameterType="Consultant">
+        update `PMS_Consultant` set consultCode = #{consultCode}, consultName = #{consultName},
+        wxNickName = #{wxNickName}, openId = #{openId}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="_int">
+        update `PMS_Consultant` set deleted = 1 where id=#{id}
+    </delete>
+
+    <select id="selectByConsultCode" parameterType="string" resultType="Consultant">
+        select * from `PMS_Consultant` where consultCode= #{consultCode} and deleted = 0 limit 0,1;
+    </select>
+
+    <select id="checkIfExistConsultCode" parameterType="Consultant" resultType="java.lang.Integer">
+        select count(*) from `PMS_Consultant` where consultCode= #{consultCode} and id != #{id} and deleted = 0;
+    </select>
+</mapper>

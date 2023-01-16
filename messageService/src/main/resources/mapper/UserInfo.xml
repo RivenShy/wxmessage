@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.UserInfoMapper">
+
+
+    <update id="updateOpenIdAndNickName" parameterType="UserInfo">
+        update `PMS_UserInfo` set openId=#{openId}, wxNickname = #{wxNickname} where id=#{id}
+    </update>
+
+    <select id="getUserInfoByServerIdAndUserId" parameterType="UserInfo" resultType="UserInfo">
+        select * from `PMS_UserInfo` where userId=#{userId} and serverId = #{serverId} and deleted = 0
+    </select>
+
+    <select id="list" resultType="UserInfo" parameterType="_int">
+        select userInfo.*, server.serverName, server.serverIp, customer.customerName,
+        (select consultCode from `PMS_Consultant` pmsConsultant where pmsConsultant.id = userInfo.consultantId) as consultCode
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id
+        <if test="deleted != -1">
+            and userInfo.deleted = #{deleted}
+        </if>
+    </select>
+
+    <select id="get" parameterType="_int" resultType="UserInfo">
+        select userInfo.*, server.serverName, customer.customerName
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id and userInfo.id= #{id}
+    </select>
+
+    <insert id="add" parameterType="UserInfo" >
+        insert into `PMS_UserInfo` (serverId, userId, userName, phone, wxNickname, openId, wxNickname2, openId2, deleted)
+        values (#{serverId}, #{userId}, #{userName}, #{phone}, #{wxNickname}, #{openId}, #{wxNickname2}, #{openId2}, 0)
+    </insert>
+
+    <delete id="removeById" parameterType="_int">
+        update `PMS_UserInfo` set deleted = 1 where id=#{id}
+    </delete>
+
+    <update id="updateUserNameById" parameterType="UserInfo">
+        update `PMS_UserInfo` set userName = #{userName} where id = #{id}
+    </update>
+
+    <update id="updateConsultById" parameterType="UserInfo">
+        update `PMS_UserInfo` set consultantId = #{consultantId} where id = #{id}
+    </update>
+
+    <select id="selectUnbindUserListByServerId" resultType="UnbindUser" parameterType="_int">
+        select * from `PMS_UnbindUser` where serverId = #{serverId} and deleted = 0
+    </select>
+
+    <select id="selectUnbindUserByServerIdAndUserCode" parameterType="UnbindUser" resultType="UnbindUser">
+        select * from `PMS_UnbindUser` where userId=#{userId} and serverId = #{serverId} and deleted = 0
+    </select>
+
+    <insert id="addUnbindUser" parameterType="UnbindUser">
+        insert into `PMS_UnbindUser` (serverId, serverIp, userId, userName, serverName, customerName, description, deleted)
+        values (#{serverId}, #{serverIp}, #{userId}, #{userName}, #{serverName}, #{customerName}, #{description}, 0)
+    </insert>
+
+    <update id="deleteUnbindUserByServerIdAndUserId" parameterType="UnbindUser">
+        update `PMS_UnbindUser` set deleted = 1 where userId = #{userId} and serverId = #{serverId} and deleted = 0
+    </update>
+
+    <select id="selectBindUserInfoByServerId" parameterType="_int" resultType="UserInfo">
+        select userInfo.*, server.serverName, customer.customerName
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id and userInfo.serverId= #{serverId}
+        and userInfo.deleted = 0
+        and userInfo.openId is not null
+    </select>
+
+    <select id="selectUserInfoByOpenId" parameterType="string" resultType="UserInfo">
+        select userInfo.userId, userInfo.serverId, server.serverName, customer.customerName
+        from `PMS_UserInfo` userInfo, `PMS_Server` server, `PMS_Customer` customer
+        where userInfo.serverId = server.id and server.customerId = customer.id and userInfo.openId= #{openId}
+        and userInfo.deleted = 0
+    </select>
+</mapper>

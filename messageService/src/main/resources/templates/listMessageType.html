@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>信息类型列表</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <script src="/layui/layui.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <style type="text/css">
+        td{
+            border:1px solid gray;
+        }
+          
+        table{
+            border-collapse:collapse;
+        }
+      
+        div#app{
+            margin:20px auto;
+            width:1200px;
+            padding:20px;
+
+        }      
+        
+        div#pagination{
+        	text-align: center;
+			#line-height: 100px;
+        }
+        div#pagination a{
+        	text-decoration:none;
+        }
+        
+        .disableHref{
+		    cursor:default;
+		    color:#E5E0E0;
+		    text-decoration:none;        
+        }
+    </style>
+    <script>
+	    $(function(){
+	    	$("a.disableHref").click(function(event){
+	    		return false;
+// 	    		  event.preventDefault();
+	    	});
+	    });
+    </script>
+</head>
+
+<body>
+<div id="app">
+    定时消息列表页面：
+    <table id="bindApplyListTable" class="layui-table" lay-even>
+        <thead>
+        <tr>
+<!--            <td>Id</td>-->
+            <td>消息名称</td>
+            <td>定时时间(cron表达式)</td>
+            <td>客户名称</td>
+            <td>服务器名称</td>
+            <td>用户Id</td>
+            <td>用户代码</td>
+            <td>用户微信昵称</td>
+            <td>用户名称</td>
+            <td>描述</td>
+            <td>状态</td>
+            <td>操作</td>
+        </tr>
+        </thead>
+        <tr v-for="messageType in messageTypes">
+<!--            <td>{{messageType.id}}</td>-->
+            <td>{{messageType.messageName}}</td>
+            <td>{{messageType.scheduleTime}}</td>
+            <td>{{messageType.customerName}}</td>
+            <td>{{messageType.serverName}}</td>
+            <td>{{messageType.userId}}</td>
+            <td>{{messageType.userCode}}</td>
+            <td>{{messageType.wxNickname}}</td>
+            <td>{{messageType.userName}}</td>
+            <td>{{messageType.description}}</td>
+            <td v-html="messageType.status==0?'启用':'未启用'">{{messageType.status}}</td>
+            <td>
+                <button type="button" v-if="messageType.status==0" @click="stopUse(messageType.id)" class="layui-btn layui-btn-sm layui-btn-danger">停用</button>
+                <button type="button" v-else @click="startUse(messageType.id)" class="layui-btn layui-btn-sm">启用</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="11">
+                <div id="pagination" >
+                    <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==1 }" href="#nowhere" @click="jump('first')">第一页</a>
+                    <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasPreviousPage }" href="#nowhere" @click="jump('pre')">前一页</a>
+
+                    <a class="layui-btn layui-btn-xs" href="#nowhere" :class="{disableHref:pagination.pageNum==i}"  v-for="i in pagination.navigatepageNums" @click="jumpByNumber(i)" >
+                        {{i}}
+                    </a>
+
+                    <a class="layui-btn layui-btn-xs" :class="{ disableHref: !pagination.hasNextPage }" href="#nowhere" @click="jump('next')">下一页</a>
+                    <a class="layui-btn layui-btn-xs" :class="{ disableHref: pagination.pageNum==pagination.pages }" href="#nowhere" @click="jump('last')">最后一页</a>
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+    <img v-bind:src="qrCode">
+</div>
+
+<script type="text/javascript">
+    var data4Vue = {
+            messageTypes: [],
+            pagination:{},
+            qrCode: '',
+	};
+
+    //ViewModel
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted:function(){ //mounted　表示这个 Vue 对象加载成功了
+        	this.list(1);
+        },        
+        methods: {     	
+        	list:function(start){
+                var url = "/messageType/messageTypes?start="+start;
+                axios.get(url).then(function(response) {
+                	vue.pagination = response.data;
+                	console.log(vue.pagination);
+                	vue.messageTypes = response.data.list;
+                })     
+        	},
+        	startUse:function(id){
+                layer.confirm('确定启用吗？', { icon: 3, title: '提示' }, function (index, layero) {
+                    layer.close(index);
+                var url = "/messageType/addSchduleJob/" + id;
+                axios.get(url).then(function(response) {
+                    if(response.data.code == 200) {
+                        if(response.data.success == true) {
+                            layer.alert(response.data.msg, {icon: 1});
+                            vue.list(1);
+                        } else{
+                            layer.alert(response.data.msg, {icon: 5});
+                        }
+                    } else{
+                        layer.alert("请求失败", {icon: 5});
+                    }
+                });
+                }, function (index, layero) {
+                    layer.close(index);
+                });
+        	},
+        	stopUse:function(id){
+                layer.confirm('确定停用吗？', { icon: 3, title: '提示' }, function (index, layero) {
+                    layer.close(index);
+                var url = "/messageType/deleteScheduleJob/" + id;
+                axios.get(url).then(function(response) {
+                    if(response.data.code == 200) {
+                        if(response.data.success == true) {
+                            layer.alert(response.data.msg, {icon: 1});
+                            vue.list(1);
+                        } else{
+                            layer.alert(response.data.msg, {icon: 5});
+                        }
+                    } else{
+                        layer.alert("请求失败", {icon: 5});
+                    }
+                });
+                }, function (index, layero) {
+                    layer.close(index);
+                });
+        	},
+            jump: function(page){
+				if('first'== page && 1!=vue.pagination.pageNum)
+					vue.list(1);
+				
+				else if('pre'== page &&	vue.pagination.hasPreviousPage )
+					vue.list(vue.pagination.prePage);
+				
+				else if('next'== page && vue.pagination.hasNextPage)
+					vue.list(vue.pagination.nextPage);					
+				
+				else if('last'== page && vue.pagination.pageNum!=vue.pagination.pages)
+					vue.list(vue.pagination.pages);
+				
+            },
+            jumpByNumber: function(start){
+            	if(start!=vue.pagination.pageNum)
+					vue.list(start);
+            }
+        }
+    });
+    </script>
+</body>
+</html>
+		

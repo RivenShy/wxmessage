@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.ApprovalConfigMapper">
+
+    <select id="list" resultType="ApprovalConfig">
+        select * from `PMS_ApprovalConfig` pmsApprovalConfig
+    </select>
+
+    <select id="selectByAuditName" resultType="ApprovalConfig" parameterType="string">
+        select * from `PMS_ApprovalConfig` where auditName = #{auditName} and deleted = 0 limit 0, 1
+    </select>
+</mapper>

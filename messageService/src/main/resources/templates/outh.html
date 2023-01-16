@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>授权页面</title>
+</head>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/vue.min.js"></script>
+    <script src="/js/axios.min.js"></script>
+    <script src="/js/bindVue.js"></script>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/bind.css">
+<body>
+<!--<a class="layui-btn" href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx226ffc0b68fa17e9&redirect_uri=http://www.szwd.online/wx/listBindUserPage&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">公众号授权</a>-->
+   <div id="app">
+    欢迎来到绑定公众号页面！<br>
+<!--        用户ID:-->
+<!--        <span th:text="${id}">获取失败</span><br>-->
+<!--        用户openID:-->
+<!--        <span th:text="${opendId}">获取失败</span><br>-->
+<!--        用户昵称:-->
+<!--        <span th:text="${nickname}">获取失败</span>-->
+
+
+       id: <input th:value="${id}" name="id" v-model="hero4Add.userId" readonly="true" /> <br/>
+       用户openID: <input value="affffffsafsda" name="openId" v-model="hero4Add.userOpenid" readonly="true" /> <br/>
+       用户昵称: <input value="alibaba" name="nickname" v-model="hero4Add.nickName" readonly="true" /> <br/>
+       <button type="button" v-on:click="confirmBind">绑定</button>
+
+   </div>
+
+<script type="text/javascript">
+    var data4Vue ={
+        hero4Add: {userId: [[${id}]], nickName: '[[${nickName}]]', userOpenid: '[[${userOpenid}]]'},
+    };
+
+    var vue = new Vue({
+        el: '#app',
+        data: data4Vue,
+        mounted: function(){
+<!--            alert("Hello vue!");-->
+        },
+        methods: {
+<!--            confirmBind: function(event){-->
+<!--                alert("确定绑定吗？");-->
+<!--                var url = "/bindApply/add";-->
+<!--                axios.post(url, this.hero4Add).then(function(response){-->
+<!--                    console.log(response);-->
+<!--                });-->
+<!--            }-->
+        },
+    });
+</script>
+
+</body>
+</html>

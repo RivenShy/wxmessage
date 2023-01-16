@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.BindApplyMapper">
+    <insert id="add" parameterType="BindApply" >
+        insert into `PMS_BindApply` (serverId, userId, wxNickname, openId, status, operator, applyDate, reviewDate, userCode, userName, userPassword)
+        values (#{serverId}, #{userId}, #{wxNickname}, #{openId}, #{status}, #{operator}, #{applyDate}, #{reviewDate}, #{userCode}, #{userName}, #{userPassword})
+    </insert>
+
+<!--    <delete id="delete" parameterType="Hero" >-->
+<!--        delete from hero where id= #{id}-->
+<!--    </delete>-->
+
+    <select id="get" parameterType="_int" resultType="BindApply">
+        select * from `PMS_BindApply` where id= #{id}
+    </select>
+
+    <select id="getUnRevewByServerIdAndUserId" parameterType="BindApply" resultType="BindApply">
+        select * from `PMS_BindApply` where serverId = #{serverId} and userCode = #{userCode} and deleted != 1;
+    </select>
+
+    <select id="getUnRevewByServerIdAndUserName" parameterType="BindApply" resultType="BindApply">
+        select * from `PMS_BindApply` where serverId = #{serverId} and userName = #{userName} and deleted = 0 limit 0,1
+    </select>
+
+<!--    <update id="update" parameterType="Hero" >-->
+<!--        update hero set name=#{name}, hp = #{hp} where id=#{id}-->
+<!--    </update>-->
+    <update id="review" parameterType="_int" >
+        update `PMS_BindApply` set status = 1, reviewDate = now() where id=#{id}
+    </update>
+    <select id="list" resultType="BindApply">
+        select bindApply.*, userInfo.userId as userCode, server.serverName, customer.customerName
+        from `PMS_BindApply` bindApply
+        left join `PMS_Server` server on bindApply.serverId = server.id
+        left join `PMS_Customer` customer on server.customerId = customer.id
+        left join  `PMS_UserInfo` userInfo on bindApply.userId = userInfo.id
+        where 1 = 1
+        <if test="deleted != -1">
+            and bindApply.deleted = #{deleted}
+        </if>
+    </select>
+
+    <update id="deleteByServerIdAndUserCode" parameterType="BindApply" >
+<!--        update `PMS_BindApply` set status = 3, userId = 0, userCode = null where serverId=#{serverId} and userCode=#{userCode}-->
+        update `PMS_BindApply` set deleted = 1 where serverId=#{serverId} and userCode=#{userCode} and deleted = 0
+
+    </update>
+
+    <update id="reBindByServerIdAndUserId" parameterType="BindApply" >
+        update `PMS_BindApply` set status = 1, reviewDate = now(), userId = #{userId}, userCode = #{userCode} where id=#{id}
+    </update>
+
+    <delete id="removeById" parameterType="_int">
+        update `PMS_BindApply` set deleted = 1 where id=#{id}
+    </delete>
+</mapper>
