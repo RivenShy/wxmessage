@@ -5,11 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
@@ -21,8 +26,20 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * @Author 三更  B站： https://space.bilibili.com/663528522
  */
-@Configuration
+//@Configuration
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private AuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
+
+    @Autowired
+    private AuthenticationSuccessHandler successHandler;
+
+    @Autowired
+    private AuthenticationFailureHandler failureHandler;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -48,6 +65,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         //把token校验过滤器添加到过滤器链中
         http.addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).
+                accessDeniedHandler(accessDeniedHandler);
+        http.formLogin()
+//                配置认证成功处理器
+                .successHandler(successHandler)
+//                配置认证失败处理器
+                .failureHandler(failureHandler);
     }
 
     @Bean

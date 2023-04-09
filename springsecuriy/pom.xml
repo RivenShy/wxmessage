@@ -61,6 +61,23 @@
 
     </dependencies>
 
-
+    <build>
+        <!-- 如果不添加此节点mybatis的mapper.xml文件都会被漏掉 -->
+        <!-- 解决idea导入maven工程无法把mapper.xml文件添加到target文件目录下的问题 -->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
 
 </project>

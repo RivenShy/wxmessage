@@ -28,4 +28,12 @@ public class User {
 
     @Version
     private Integer version;
+
+    public User(){
+    }
+
+    public User(String name, Integer age){
+        this.nameXXX = name;
+        this.age = age;
+    }
 }

@@ -8,10 +8,24 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/mybatisplusdemo?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
-
   main:
     banner-mode: off # 关闭SpringBoot启动图标(banner)
-
+  # swagger配置
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+    # thymeleaf页面模板配置
+    thymeleaf:
+      prefix: classpath:/templates/
+      suffix: .html
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/
+#  elasticsearch:
+#    rest:
+#      uris: 192.168.1.195:9200,192.168.1.195:9201,192.168.1.195:9202 #设置集群
 
 # mybatis-plus日志控制台输出
 mybatis-plus:
@@ -23,18 +37,18 @@ mybatis-plus:
 #  mapper-locations: classpath:com/example/mybatplusdemo/mapper/*Mapper.xml
   mapper-locations: classpath:mapper/*.xml
 
-xxl:
-  job:
-    admin:
-      addresses: http://127.0.0.1:8080/xxl-job-admin
-    accessToken: default_token
-    executor:
-      appname: xxl-job-executor-sample
-      address:
-      ip:
-      port: 9999
-      logpath: /data/applogs/xxl-job/jobhandler
-      logretentiondays: 30
+#xxl:
+#  job:
+#    admin:
+#      addresses: http://127.0.0.1:8080/xxl-job-admin
+#    accessToken: default_token
+#    executor:
+#      appname: xxl-job-executor-sample
+#      address:
+#      ip:
+#      port: 9999
+#      logpath: /data/applogs/xxl-job/jobhandler
+#      logretentiondays: 30
 #### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
 #xxl.job.admin.addresses=http://127.0.0.1:8080/xxl-job-admin
 #
@@ -52,3 +66,9 @@ xxl:
 #xxl.job.executor.logpath=/data/applogs/xxl-job/jobhandler
 #### xxl-job executor log-retention-days
 #xxl.job.executor.logretentiondays=30
+
+
+#pageOffice
+file:
+  save:
+    path: d:/page/

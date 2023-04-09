@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.security.demo.MapperTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.869 s - in com.security.demo.MapperTest
