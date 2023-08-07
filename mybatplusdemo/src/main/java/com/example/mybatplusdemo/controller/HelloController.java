@@ -27,7 +27,7 @@ public class HelloController {
     @Autowired
     private UserMapper userMapper;
 
-    @GetMapping("/success")
+        @GetMapping("/success")
     public R<String> success() {
         return R.success("Hello Spring Boot!");
     }
