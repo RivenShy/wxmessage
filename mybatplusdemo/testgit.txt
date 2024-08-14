@@ -1,2 +1,3 @@
 main
+add a
 add b
