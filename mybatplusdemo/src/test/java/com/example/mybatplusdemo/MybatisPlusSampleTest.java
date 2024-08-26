@@ -1,5 +1,6 @@
 package com.example.mybatplusdemo;
 
+import cn.hutool.core.lang.Assert;
 import com.example.mybatplusdemo.mapper.UserMapper;
 import com.example.mybatplusdemo.model.User;
 import com.example.mybatplusdemo.service.IUserService;
@@ -56,14 +57,20 @@ class MybatisPlusSampleTest {
         userService.saveBatch(list);
     }
 
+    /**
+     * 设置版本
+     * 传入的版本号需要与数据库版本一致才能更新成功
+     */
     @Test
     void saveOrUpdate() {
         User sample = new User();
-//        sample.setId(1L);
+        sample.setId(1L);
         sample.setAge(1);
         sample.setEmail("1u");
         sample.setNameXXX("1u");
-        userService.saveOrUpdate(sample);
+        sample.setVersion(2);
+        boolean update = userService.saveOrUpdate(sample);
+        Assert.isTrue(update);
         assertThat(sample.getId()).isNotNull();
     }
 
