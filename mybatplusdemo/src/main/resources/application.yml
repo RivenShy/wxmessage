@@ -26,9 +26,6 @@ spring:
 #  elasticsearch:
 #    rest:
 #      uris: 192.168.1.195:9200,192.168.1.195:9201,192.168.1.195:9202 #设置集群
-  messages:
-    basename: i18n/messages,i18n/messages_en,i18n/messages_zh_CN
-    encoding: UTF-8
 
 # mybatis-plus日志控制台输出
 mybatis-plus:
