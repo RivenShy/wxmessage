@@ -4,11 +4,13 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan("com.example.mybatplusdemo.mapper")
 //@ComponentScan("com.example.mybatplusdemo")
+@EnableCaching
 public class MybatplusdemoApplication {
 
 	public static void main(String[] args) {

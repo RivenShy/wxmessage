@@ -30,6 +30,8 @@ spring:
     basename: i18n/messages,i18n/messages_en,i18n/messages_zh_CN
     encoding: UTF-8
 
+  cache:
+    type: simple
 # mybatis-plus日志控制台输出
 mybatis-plus:
   configuration:
