@@ -21,4 +21,8 @@ public class Func {
     public static boolean isEmpty(@Nullable Object obj) {
         return ObjectUtil.isEmpty(obj);
     }
+
+    public static String toStr(Object str, String defaultValue) {
+        return null != str && !str.equals("null") ? String.valueOf(str) : defaultValue;
+    }
 }

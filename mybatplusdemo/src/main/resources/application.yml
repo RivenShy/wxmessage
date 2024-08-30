@@ -30,8 +30,23 @@ spring:
     basename: i18n/messages,i18n/messages_en,i18n/messages_zh_CN
     encoding: UTF-8
 
+  #CacheManager
   cache:
     type: simple
+
+  # JavaMailSender
+  mail:
+    host: smtp.qq.com
+    username: 1724059570@qq.com
+    password: arrvvtxmkzdlcjgf
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
 # mybatis-plus日志控制台输出
 mybatis-plus:
   configuration:
