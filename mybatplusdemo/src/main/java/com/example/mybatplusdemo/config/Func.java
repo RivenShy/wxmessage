@@ -1,6 +1,9 @@
 package com.example.mybatplusdemo.config;
 
+import com.example.mybatplusdemo.utils.StringUtil;
 import org.springframework.lang.Nullable;
+
+import java.util.Objects;
 
 public class Func {
 
@@ -24,5 +27,13 @@ public class Func {
 
     public static String toStr(Object str, String defaultValue) {
         return null != str && !str.equals("null") ? String.valueOf(str) : defaultValue;
+    }
+
+    public static boolean isNull(@Nullable Object obj) {
+        return Objects.isNull(obj);
+    }
+
+    public static boolean isNotBlank(@Nullable final CharSequence cs) {
+        return StringUtil.isNotBlank(cs);
     }
 }
