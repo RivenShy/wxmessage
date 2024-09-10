@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.mybatplusdemo.annotation.MyDataScope;
+import com.example.mybatplusdemo.dto.BaseQueryDTO;
 import com.example.mybatplusdemo.mapper.UserMapper;
 import com.example.mybatplusdemo.model.User;
 import com.example.mybatplusdemo.model.UserQuery;
@@ -27,8 +29,9 @@ public class HelloController {
     @Autowired
     private UserMapper userMapper;
 
-        @GetMapping("/success")
-    public R<String> success() {
+    @MyDataScope
+    @GetMapping("/success")
+    public R<String> success(BaseQueryDTO baseQueryDTO) {
         return R.success("Hello Spring Boot!");
     }
 
