@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatplusdemo.mapper.MessageMapper">
+
+    <!--    最新信息-->
+    <resultMap id="newMsgMap" type="com.example.mybatplusdemo.entity.websocket.ChatMessage">
+        <result column="acceptUserId" jdbcType="BIGINT" property="acceptUserId" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="sendTime" jdbcType="VARCHAR" property="sendTime" />
+        <result column="readedNum" jdbcType="BIGINT" property="readedNum" />
+        <association property="wxUser" javaType="com.example.mybatplusdemo.entity.websocket.WxUser">
+            <result column="nickName" jdbcType="VARCHAR" property="nickName" />
+            <result column="headImg" jdbcType="VARCHAR" property="headImg" />
+        </association>
+    </resultMap>
+
+    <!--    聊天信息-->
+    <resultMap id="chatMsgMap" type="com.example.mybatplusdemo.entity.websocket.ChatMessage">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="sendUserId" jdbcType="BIGINT" property="sendUserId" />
+        <result column="acceptUserId" jdbcType="BIGINT" property="acceptUserId" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="soundTime" jdbcType="BIGINT" property="soundTIme" />
+        <result column="sendTime" jdbcType="VARCHAR" property="sendTime" />
+        <association property="wxUser" javaType="com.example.mybatplusdemo.entity.websocket.WxUser">
+            <result column="nickName" jdbcType="VARCHAR" property="nickName" />
+            <result column="headImg" jdbcType="VARCHAR" property="headImg" />
+        </association>
+    </resultMap>
+
+
+    <!--    获取聊天信息-->
+    <select id="getChatMessage" parameterType="com.example.mybatplusdemo.entity.websocket.ChatMessage" resultMap="chatMsgMap" timeout="10">
+        SELECT
+        bcm.id,
+        bcm.send_user_id sendUserId,
+        bcm.accept_user_id acceptUserId,
+        wx.nickName,
+        wx.headImg,
+        bcm.content,
+        bcm.sound_time soundTime,
+        bcm.type,
+        bcm.send_time sendTime
+        FROM
+        chat_message bcm left JOIN wx_user wx on bcm.send_user_id = wx.user_id
+        WHERE
+        ( bcm.send_user_id = #{sendUserId} AND bcm.accept_user_id = #{acceptUserId} AND bcm.`delete` = 0 )
+        OR ( bcm.send_user_id = #{acceptUserId} AND bcm.accept_user_id = #{sendUserId} AND bcm.`delete` = 0 )
+        ORDER BY
+        bcm.send_time DESC
+    </select>
+
+    <!--    最新聊天信息-->
+    <select id="getFriendMsgList" parameterType="String" resultMap="newMsgMap" timeout="10">
+        SELECT
+        tmp.userId acceptUserId,
+        wu.nickName,
+        wu.headImg,
+        cm.content,
+        cm.type,
+        cm.send_time sendTime,
+        ( SELECT count( * ) FROM chat_message WHERE send_user_id = tmp.userId AND readed = 0 ) readedNum
+        FROM
+        (
+        SELECT
+        max( allMsg.msgId ) msgId,
+        allMsg.userId userId
+        FROM
+        (
+        ( SELECT max( id ) msgId, send_user_id userId FROM chat_message WHERE accept_user_id = #{userId} GROUP BY send_user_id ) UNION ALL
+        ( SELECT max( id ) msgId, accept_user_id userId FROM chat_message WHERE send_user_id = #{userId} GROUP BY accept_user_id )
+        ) allMsg
+        GROUP BY
+        allMsg.userId
+        ) tmp
+        INNER JOIN chat_message cm ON cm.id = tmp.msgId
+        INNER JOIN wx_user wu ON wu.user_id = tmp.userId
+        ORDER BY cm.send_time DESC
+    </select>
+
+
+    <!--    获取所有聊天未读消息数量-->
+    <select id="getAllNoReadMsgNum" parameterType="String" resultType="int" timeout="10">
+        SELECT
+        COUNT( * ) noReadNum
+        FROM
+        chat_message
+        WHERE
+        accept_user_id = #{userId}
+        AND readed = 0
+    </select>
+
+
+    <!--    已读消息-->
+    <update id="readedMsg" parameterType="String" timeout="10">
+        UPDATE chat_message
+        SET readed = 1
+        WHERE
+        accept_user_id = #{acceptUserId}
+        AND send_user_id = #{sendUserId}
+    </update>
+
+    <!--    删除信息-->
+    <update id="delMsg" parameterType="int" timeout="10">
+        UPDATE chat_message SET `delete` = 1 WHERE id = #{msgId}
+    </update>
+
+    <!--    发送消息-->
+    <insert id="sendMsg" parameterType="com.example.mybatplusdemo.entity.websocket.ChatMessage" timeout="10">
+        INSERT INTO chat_message
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            send_user_id,
+            accept_user_id,
+            <if test="content!=null">
+                content,
+            </if>
+            <if test="soundTime!=null">
+                sound_time,
+            </if>
+            `type`,
+            send_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{sendUserId},
+            #{acceptUserId},
+            <if test="content!=null">
+                #{content},
+            </if>
+            <if test="soundTime!=null">
+                #{soundTime},
+            </if>
+            #{type},
+            #{sendTime}
+        </trim>
+    </insert>
+
+
+
+</mapper>

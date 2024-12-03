@@ -253,6 +253,12 @@
 			<version>1.15.0</version> <!-- 请根据最新版本调整 -->
 		</dependency>
 
+<!--		websocket聊天-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+			<version>2.7.0</version> <!-- 可以根据你的Spring Boot版本调整这个版本号 -->
+		</dependency>
 
 	</dependencies>
 
