@@ -260,7 +260,20 @@
 			<version>2.7.0</version> <!-- 可以根据你的Spring Boot版本调整这个版本号 -->
 		</dependency>
 
+		<dependency>
+			<groupId>com.github.plexpt</groupId>
+			<artifactId>chatgpt</artifactId>
+			<version>4.0.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-http</artifactId>
+			<version>5.8.18</version>
+		</dependency>
+
 	</dependencies>
+
 
 	<build>
 		<plugins>

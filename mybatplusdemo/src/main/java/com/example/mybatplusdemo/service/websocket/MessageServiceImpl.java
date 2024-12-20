@@ -24,7 +24,7 @@ public class MessageServiceImpl implements MessageService {
     @Resource
     private MessageMapper messageMapper;
 
-    @Resource
+//    @Resource
     private WebSocketServer webSocketServer;
 
 
