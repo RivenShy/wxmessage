@@ -302,6 +302,13 @@
 			<version>1.32.1</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>25.7.0</version>
+		</dependency>
+
 	</dependencies>
 
 
