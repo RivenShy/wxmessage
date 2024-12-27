@@ -100,3 +100,9 @@ minio:
   secretKey: minioadmin
   bucketName: chen
   secure: false
+
+
+google:
+  client-id: 788764694057-uad5gib84d802j5g87kvtud8dh84p7u6.apps.googleusercontent.com
+  client-secret: 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
+  redirect-uri: http://localhost:8090/oauth/callback
