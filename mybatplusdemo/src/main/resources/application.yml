@@ -106,3 +106,12 @@ google:
   client-id: 788764694057-uad5gib84d802j5g87kvtud8dh84p7u6.apps.googleusercontent.com
   client-secret: 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
   redirect-uri: http://localhost:8090/oauth/callback
+
+
+hitpay:
+  merchant-id: YOUR_MERCHANT_ID
+  api-key: a5218db6c252258c9b3f4989b52d898b05a070b01ad812abbcfcdf0ee354014c
+#  api-base-url: https://api.hitpayapp.com/v1/
+  api-base-url: https://api.sandbox.hit-pay.com/v1/
+  endpoint: https://api.sandbox.hit-pay.com/v1
+  webhook-secret: your_webhook_secret_here
