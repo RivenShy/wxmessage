@@ -15,12 +15,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Semaphore;
 
 
 @Slf4j
-@ServerEndpoint("/websocket/{uid}")
-@Component("webSocketServer")
-public class WebSocketServer {
+@ServerEndpoint("/nofiticationWebsocket/{uid}")
+@Component("notificationWebSocketServer")
+public class NotificationWebSocketServer {
 
     private static int onlineCount = 0;
 
@@ -28,25 +29,46 @@ public class WebSocketServer {
 
     private String uid;
 
-    private static final ConcurrentHashMap<Object,WebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Object, NotificationWebSocketServer> webSocketMap = new ConcurrentHashMap<>();
+
+    /**
+     * 默认最多允许同时在线人数
+     */
+    public static int socketMaxOnlineCount = 100;
+
+    private static Semaphore socketSemaphore = new Semaphore(socketMaxOnlineCount);
+
     /**
      * 连接
      * @param session
      * @param uid
      */
     @OnOpen
-    public void onOpen(Session session, @PathParam("uid") String uid) {
-        this.session = session;
-        this.uid = uid;
-        if(webSocketMap.containsKey(uid)) {
-            webSocketMap.remove(uid);
-            webSocketMap.put(uid,this);
-        }else {
-            webSocketMap.put(uid,this);
-            onlineCount++;
-        }
+    public void onOpen(Session session, @PathParam("uid") String uid) throws IOException {
 
-        log.info("用户：{} 连接成功，当前在线人数：{}",uid,onlineCount);
+        boolean semaphoreFlag = false;
+        // 尝试获取信号量
+        semaphoreFlag = SemaphoreUtils.tryAcquire(socketSemaphore);
+        if (!semaphoreFlag)
+        {
+            // 未获取到信号量
+            log.error("\n 当前在线人数超过限制数- {}", socketMaxOnlineCount);
+            WebSocketUsers.sendMessageToUserByText(session, "当前在线人数超过限制数：" + socketMaxOnlineCount);
+            session.close();
+        }
+        else {
+            this.session = session;
+            this.uid = uid;
+            if (webSocketMap.containsKey(uid)) {
+                webSocketMap.remove(uid);
+                webSocketMap.put(uid, this);
+            } else {
+                webSocketMap.put(uid, this);
+                onlineCount++;
+            }
+
+            log.info("用户：{} 连接成功，当前在线人数：{}", uid, onlineCount);
+        }
     }
 
     /**
@@ -95,20 +117,6 @@ public class WebSocketServer {
             msgInfo.put("msg",content);
             webSocketMap.get(toUid).sendMessage(JSON.toJSONString(msgInfo));
             log.info("用户：{} 向用户： {} 发送了信息：{}",uid,toUid,content);
-            // 测试消费分类：聊天or通知
-            MessageSendInfoDto<Map<String,Object>> messageSendInfoDto = new MessageSendInfoDto<>();
-            messageSendInfoDto.setMsgKind(1);
-            messageSendInfoDto.setMsgData(msgInfo);
-            webSocketMap.get(toUid).sendMessage(JSON.toJSONString(messageSendInfoDto));
-            // dto
-            ChatMsgSendDto chatMsgSendDto = new ChatMsgSendDto();
-            chatMsgSendDto.setSendUserId(uid);
-            chatMsgSendDto.setAcceptUserId(toUid);
-            chatMsgSendDto.setContent(content.toString());
-            MessageSendInfoDto<ChatMsgSendDto> messageSendInfoDto2 = new MessageSendInfoDto<>();
-            messageSendInfoDto2.setMsgKind(1);
-            messageSendInfoDto2.setMsgData(chatMsgSendDto);
-            webSocketMap.get(toUid).sendMessage(JSON.toJSONString(messageSendInfoDto2));
         }
         else {
             log.info("用户：{} 没在线",toUid);

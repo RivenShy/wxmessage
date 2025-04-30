@@ -24,7 +24,7 @@ public class MessageServiceImpl implements MessageService {
     @Resource
     private MessageMapper messageMapper;
 
-//    @Resource
+    @Resource
     private WebSocketServer webSocketServer;
 
 
@@ -112,6 +112,7 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public Map<String,Object> sendMsg(ChatMessage chatMessage) {
         Map<String,Object> repData = new HashMap<>();
+        // 改成dao.save()
         if(messageMapper.sendMsg(chatMessage.getSendUserId(), chatMessage.getAcceptUserId(), chatMessage.getContent(), chatMessage.getType(), chatMessage.getSoundTIme(), Time.getTime("yyyy-MM-dd HH:mm:ss"))) {
             try {
                 List<Map<String,Object>> newMsg = (List<Map<String, Object>>) this.getChatMessage(chatMessage.getSendUserId(), chatMessage.getAcceptUserId(),1,1).get("data");
