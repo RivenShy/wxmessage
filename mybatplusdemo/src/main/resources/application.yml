@@ -47,6 +47,74 @@ spring:
             enable: true
             required: true
 
+  shardingsphere:
+    datasource:
+      names: ds0  # ✅ 这里一定要指定一个或多个数据源名称
+
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/mybatisplusdemo?serverTimezone=UTC&useSSL=false
+        username: root
+        password: 123456
+
+    rules:
+      sharding:
+        tables:
+          order:
+            actual-data-nodes: ds0.order_$->{202501..202507}
+            table-strategy:
+              standard:
+                sharding-column: order_date
+                sharding-algorithm-name: order-date-algorithm
+
+          pet_chat_message:
+            actual-data-nodes: ds0.pet_chat_message_$->{202501..202507}
+            table-strategy:
+              standard:
+                sharding-column: creation_date
+                sharding-algorithm-name: pet-chat-message-algorithm
+
+          pet_chat_sender:
+            actual-data-nodes: ds0.pet_chat_sender_$->{202501..202507}
+            table-strategy:
+              standard:
+                sharding-column: creation_date
+                sharding-algorithm-name: pet-chat-sender-algorithm
+
+          pet_chat_accepter:
+            actual-data-nodes: ds0.pet_chat_accepter_$->{202501..202507}
+            table-strategy:
+              standard:
+                sharding-column: creation_date
+                sharding-algorithm-name: pet-chat-accepter-algorithm
+
+        sharding-algorithms:
+          order-date-algorithm:
+            type: CLASS_BASED
+            props:
+              strategy: standard
+              algorithmClassName: com.example.mybatplusdemo.sharedingjdbc.OrderDateShardingAlgorithm
+          # pet_chat_message 表的分片算法
+          pet-chat-message-algorithm:
+            type: CLASS_BASED
+            props:
+              strategy: standard
+              algorithmClassName: com.example.mybatplusdemo.sharedingjdbc.PetChatMessageShardingAlgorithm
+          pet-chat-sender-algorithm:
+            type: CLASS_BASED
+            props:
+              strategy: standard
+              algorithmClassName: com.example.mybatplusdemo.sharedingjdbc.PetChatSenderShardingAlgorithm
+          pet-chat-accepter-algorithm:
+            type: CLASS_BASED
+            props:
+              strategy: standard
+              algorithmClassName: com.example.mybatplusdemo.sharedingjdbc.PetChatAccepterShardingAlgorithm
+    props:
+      sql-show: true  # 可选：打印 SQL 日志
+
+
 # mybatis-plus日志控制台输出
 mybatis-plus:
   configuration:
@@ -115,3 +183,5 @@ hitpay:
   api-base-url: https://api.sandbox.hit-pay.com/v1/
   endpoint: https://api.sandbox.hit-pay.com/v1
   webhook-secret: your_webhook_secret_here
+
+

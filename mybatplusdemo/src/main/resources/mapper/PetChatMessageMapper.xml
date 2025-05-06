@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatplusdemo.mapper.PetChatMessageMapper">
+
+<!--    &lt;!&ndash;    最新信息&ndash;&gt;-->
+<!--    <resultMap id="newMsgMap" type="com.ruoyi.framework.websocket.socket.PetChatMessage">-->
+<!--        <result column="acceptUserId" jdbcType="BIGINT" property="acceptUserId" />-->
+<!--        <result column="content" jdbcType="VARCHAR" property="content" />-->
+<!--        <result column="type" jdbcType="VARCHAR" property="type" />-->
+<!--        <result column="sendTime" jdbcType="VARCHAR" property="sendTime" />-->
+<!--        <result column="readedNum" jdbcType="BIGINT" property="readedNum" />-->
+<!--        <association property="wxUser" javaType="com.ruoyi.common.core.domain.entity.SysUser">-->
+<!--            <result column="nickName" jdbcType="VARCHAR" property="nickName" />-->
+<!--            <result column="headImg" jdbcType="VARCHAR" property="headImg" />-->
+<!--        </association>-->
+<!--    </resultMap>-->
+
+    <!--    聊天信息-->
+<!--    <resultMap id="chatMsgMap" type="com.ruoyi.framework.websocket.socket.PetChatMessage">-->
+<!--        <id column="id" jdbcType="BIGINT" property="id" />-->
+<!--        <result column="sendUserId" jdbcType="BIGINT" property="sendUserId" />-->
+<!--        <result column="acceptUserId" jdbcType="BIGINT" property="acceptUserId" />-->
+<!--        <result column="content" jdbcType="VARCHAR" property="content" />-->
+<!--        <result column="type" jdbcType="VARCHAR" property="type" />-->
+<!--        <result column="soundTime" jdbcType="BIGINT" property="soundTIme" />-->
+<!--        <result column="sendTime" jdbcType="VARCHAR" property="sendTime" />-->
+<!--        <association property="wxUser" javaType="com.ruoyi.common.core.domain.entity.SysUser">-->
+<!--            <result column="nick_name" jdbcType="VARCHAR" property="nickName" />-->
+<!--            <result column="avatar" jdbcType="VARCHAR" property="headImg" />-->
+<!--        </association>-->
+<!--    </resultMap>-->
+
+
+    <!--    获取聊天信息-->
+<!--    <select id="getChatMessage" parameterType="com.ruoyi.framework.websocket.socket.PetChatMessage" resultMap="chatMsgMap" timeout="10">-->
+<!--        SELECT-->
+<!--        bcm.id,-->
+<!--        bcm.send_user_id sendUserId,-->
+<!--        bcm.accept_user_id acceptUserId,-->
+<!--        &lt;!&ndash;        wx.nickName,&ndash;&gt;-->
+<!--        &lt;!&ndash;        wx.headImg,&ndash;&gt;-->
+<!--        bcm.content,-->
+<!--        bcm.sound_time,-->
+<!--        bcm.type,-->
+<!--        bcm.CREATION_DATE-->
+<!--        FROM-->
+<!--        pet_chat_message bcm left JOIN pet_sys_user wx on bcm.send_user_id = wx.id-->
+<!--        WHERE-->
+<!--        ( bcm.send_user_id = #{sendUserId} AND bcm.accept_user_id = #{acceptUserId} AND bcm.`is_delete` = 0 )-->
+<!--        OR ( bcm.send_user_id = #{acceptUserId} AND bcm.accept_user_id = #{sendUserId} AND bcm.`is_delete` = 0 )-->
+<!--        ORDER BY-->
+<!--        bcm.CREATION_DATE DESC-->
+<!--    </select>-->
+
+    <!--    最新聊天信息-->
+    <!--    <select id="getFriendMsgList" parameterType="String" resultMap="newMsgMap" timeout="10">-->
+    <!--        SELECT-->
+    <!--        tmp.userId acceptUserId,-->
+    <!--        wu.nickName,-->
+    <!--        wu.headImg,-->
+    <!--        cm.content,-->
+    <!--        cm.type,-->
+    <!--        cm.send_time sendTime,-->
+    <!--        ( SELECT count( * ) FROM chat_message WHERE send_user_id = tmp.userId AND readed = 0 ) readedNum-->
+    <!--        FROM-->
+    <!--        (-->
+    <!--        SELECT-->
+    <!--        max( allMsg.msgId ) msgId,-->
+    <!--        allMsg.userId userId-->
+    <!--        FROM-->
+    <!--        (-->
+    <!--        ( SELECT max( id ) msgId, send_user_id userId FROM chat_message WHERE accept_user_id = #{userId} GROUP BY send_user_id ) UNION ALL-->
+    <!--        ( SELECT max( id ) msgId, accept_user_id userId FROM chat_message WHERE send_user_id = #{userId} GROUP BY accept_user_id )-->
+    <!--        ) allMsg-->
+    <!--        GROUP BY-->
+    <!--        allMsg.userId-->
+    <!--        ) tmp-->
+    <!--        INNER JOIN chat_message cm ON cm.id = tmp.msgId-->
+    <!--        INNER JOIN wx_user wu ON wu.user_id = tmp.userId-->
+    <!--        ORDER BY cm.send_time DESC-->
+    <!--    </select>-->
+
+
+    <!--    获取所有聊天未读消息数量-->
+    <select id="getAllNoReadMsgNum" resultType="int" timeout="10">
+        SELECT
+        COUNT(1) noReadNum
+        FROM
+        pet_chat_message
+        WHERE
+        accept_user_id = #{userId}
+        AND readed = 0
+    </select>
+
+
+    <!--    已读消息-->
+    <update id="readedMsg" timeout="10">
+        UPDATE pet_chat_message
+        SET readed = 1
+        WHERE
+        accept_user_id = #{ew.currentUserId}
+        AND send_user_id = #{ew.userId}
+    </update>
+
+    <!--    删除信息-->
+    <update id="delMsg" parameterType="int" timeout="10">
+        UPDATE chat_message SET `delete` = 1 WHERE id = #{msgId}
+    </update>
+
+    <!--    发送消息-->
+    <insert id="sendMsg" parameterType="com.example.mybatplusdemo.entity.websocket.PetChatMessage" timeout="10">
+        INSERT INTO pet_chat_message
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            send_user_id,
+            accept_user_id,
+            <if test="content!=null">
+                content,
+            </if>
+            <if test="soundTime!=null">
+                sound_time,
+            </if>
+            `type`,
+            send_time
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{sendUserId},
+            #{acceptUserId},
+            <if test="content!=null">
+                #{content},
+            </if>
+            <if test="soundTime!=null">
+                #{soundTime},
+            </if>
+            #{type},
+            #{sendTime}
+        </trim>
+    </insert>
+
+    <resultMap id="baseResultMap" type="com.example.mybatplusdemo.vo.PetChatMessageVo">
+
+    </resultMap>
+
+    <sql id="baseColumn">
+        chatMessage.ID
+        ,chatMessage.SEND_USER_ID
+        ,chatMessage.ACCEPT_USER_ID
+        ,chatMessage.TYPE
+        ,chatMessage.CONTENT
+        ,chatMessage.READED
+        ,chatMessage.SOUND_TIME
+        ,chatMessage.IS_DELETE
+        ,chatMessage.status
+        ,chatMessage.created_by
+        ,chatMessage.creation_date
+        ,chatMessage.create_dept
+        ,chatMessage.last_updated_by
+        ,chatMessage.last_update_date
+    </sql>
+
+    <sql id="baseWhere">
+        <where>
+            chatMessage.IS_DELETE = 0
+            <if test="ew.sendUserId != null">
+                and chatMessage.send_user_id = #{ew.sendUserId}
+            </if>
+            <if test="ew.acceptUserId != null">
+                and chatMessage.accept_user_id = #{ew.acceptUserId}
+            </if>
+        </where>
+        order by chatMessage.last_update_date desc, chatMessage.id
+    </sql>
+
+    <sql id="myChatPageWhere">
+        <where>
+            (
+            chatMessage.send_user_id = #{ew.currentUserId}
+            AND chatMessage.accept_user_id = #{ew.userId}
+            AND chatMessage.is_delete = 0
+            and chatSender.is_delete = 0
+            )
+            OR
+            (
+            chatMessage.send_user_id = #{ew.userId}
+            AND chatMessage.accept_user_id = #{ew.currentUserId}
+            AND chatMessage.is_delete = 0
+            and chatAccepter.is_delete = 0
+            )
+        </where>
+        order by chatMessage.last_update_date desc, chatMessage.id
+    </sql>
+
+    <select id="getPage" resultMap="baseResultMap">
+        select
+        <include refid="baseColumn"/>
+        from pet_chat_message chatMessage
+<!--        left join pet_sys_user sysUser on chatMessage.send_user_id = sysUser.id-->
+        <include refid="baseWhere"/>
+    </select>
+
+    <select id="getMyChatPage" resultMap="baseResultMap">
+        select
+        <include refid="baseColumn"/>
+        from pet_chat_message chatMessage
+<!--        join pet_sys_user sysUser on chatMessage.send_user_id = sysUser.id-->
+        join pet_chat_sender chatSender on chatSender.chat_message_id = chatMessage.id
+        join pet_chat_accepter chatAccepter on chatAccepter.chat_message_id = chatMessage.id
+        <include refid="myChatPageWhere"/>
+    </select>
+
+    <select id="getFriendMsgList" resultMap="baseResultMap">
+        SELECT
+        cm.id,
+        cm.SEND_USER_ID,
+        cm.accept_user_id,
+        cm.content,
+        cm.type,
+        cm.creation_date,
+        tmp.friendUserId,
+        ( SELECT count( * ) FROM pet_chat_message WHERE send_user_id = tmp.friendUserId AND readed = 0 ) unReadNum
+        FROM
+        (
+        SELECT
+        max( allMsg.msgId ) msgId,
+        allMsg.friendUserId friendUserId
+        FROM
+        (
+        (
+        SELECT max(chatMessage.id) msgId, chatMessage.send_user_id friendUserId
+        FROM pet_chat_message chatMessage
+        join pet_chat_sender chatSender on chatSender.chat_message_id = chatMessage.id
+        join pet_chat_accepter chatAccepter on chatAccepter.chat_message_id = chatMessage.id
+        WHERE chatMessage.accept_user_id = #{ew.userId}
+        and chatMessage.is_delete = 0
+        and chatAccepter.is_delete = 0
+        GROUP BY chatMessage.send_user_id
+        )
+        UNION ALL
+        (
+        SELECT max(chatMessage.id) msgId, chatMessage.accept_user_id friendUserId
+        FROM pet_chat_message chatMessage
+        join pet_chat_sender chatSender on chatSender.chat_message_id = chatMessage.id
+        join pet_chat_accepter chatAccepter on chatAccepter.chat_message_id = chatMessage.id
+        WHERE chatMessage.send_user_id = #{ew.userId}
+        and chatMessage.is_delete = 0
+        and chatSender.is_delete = 0
+        GROUP BY chatMessage.accept_user_id
+        )
+        ) allMsg
+        GROUP BY
+        allMsg.friendUserId
+        ) tmp
+        INNER JOIN pet_chat_message cm ON cm.id = tmp.msgId
+        INNER JOIN pet_sys_user wu ON wu.id = tmp.friendUserId
+        ORDER BY cm.CREATION_DATE DESC
+    </select>
+
+    <update id="deleteChatAccepterMsg" timeout="10">
+        UPDATE pet_chat_accepter SET is_delete = 1 WHERE chat_message_id = #{msgId}
+    </update>
+
+    <update id="deleteChatSenderMsg" timeout="10">
+        UPDATE pet_chat_sender SET is_delete = 1 WHERE chat_message_id = #{msgId}
+    </update>
+
+    <update id="delTargetUserSendMsg" timeout="10">
+        UPDATE pet_chat_accepter chatAccepter
+        JOIN pet_chat_sender chatSender ON chatSender.chat_message_id = chatAccepter.chat_message_id
+        SET chatAccepter.is_delete = 1
+        WHERE chatSender.send_user_id = #{userId}
+        AND chatAccepter.accept_user_id = #{currentUserId}
+    </update>
+
+    <update id="delTargetUserAcceptMsg" timeout="10">
+        UPDATE pet_chat_sender chatSender
+        JOIN pet_chat_accepter chatAccepter ON chatSender.chat_message_id = chatAccepter.chat_message_id
+        SET chatSender.is_delete = 1
+        WHERE chatSender.send_user_id = #{currentUserId}
+        AND chatAccepter.accept_user_id = #{userId}
+    </update>
+</mapper>

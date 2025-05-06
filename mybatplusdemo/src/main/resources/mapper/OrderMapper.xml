@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.mybatplusdemo.mapper.OrderMapper">
+    <insert id="insert">
+        INSERT INTO `order` (id, user_id, order_date)
+        VALUES (#{id}, #{userId}, #{orderDate})
+    </insert>
+
+    <select id="selectByDate" resultType="com.example.mybatplusdemo.entity.sharedingjdbc.Order">
+<!--        SELECT * FROM `order` WHERE order_date = #{date}-->
+        SELECT * FROM `order`
+    </select>
+</mapper>
