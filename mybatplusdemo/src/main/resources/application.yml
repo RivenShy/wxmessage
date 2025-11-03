@@ -1,5 +1,6 @@
 server:
-  port: 8090
+#  port: 8090
+  port: 8102
 
 # DataSource Config
 spring:
@@ -185,3 +186,10 @@ hitpay:
   webhook-secret: your_webhook_secret_here
 
 
+myinfo:
+  client-id: AYWvqtbtCSEI6pZwi0lndUsfhseWK7PV
+  redirect-uri: http://localhost:8102/singpass/callback
+  private-key-path: keys/ec_private.pem
+  public-cert-path: keys/ec_public.pem
+  private-en-key-path: keys/ec_en_private.pem
+  public-en-cert-path: keys/ec_en_public.pem
