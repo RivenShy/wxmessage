@@ -14,7 +14,9 @@ import java.util.UUID;
  * @Author: xmc
  * @Date: 创建时间 2024-04-24
  */
-@Configuration
+
+// todo 运行SpringbootTest,暂时注释
+//@Configuration
 public class WebSocketConfig {
 
     public static final String WEBSOCKET_SERVER_ID = UUID.randomUUID().toString();

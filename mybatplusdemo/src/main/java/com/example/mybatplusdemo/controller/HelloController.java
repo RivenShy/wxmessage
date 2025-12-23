@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.mybatplusdemo.annotation.MyAopLogAnnotation;
 import com.example.mybatplusdemo.annotation.MyDataScope;
 import com.example.mybatplusdemo.dto.BaseQueryDTO;
 import com.example.mybatplusdemo.mapper.UserMapper;
@@ -29,6 +30,7 @@ public class HelloController {
     @Autowired
     private UserMapper userMapper;
 
+    @MyAopLogAnnotation
     @MyDataScope
     @GetMapping("/success")
     public R<String> success(BaseQueryDTO baseQueryDTO) {
@@ -276,5 +278,16 @@ public class HelloController {
     @GetMapping("/selectAllFromXml")
     public R<List<User>> selectAllFromXml() {
         return R.data(userService.selectAllFromXml());
+    }
+
+    @MyAopLogAnnotation
+    @GetMapping("/apiCostTime")
+    public R<String> apiCostTime(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "age", required = false) Integer age) {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        return R.success("apiCostTime respond!");
     }
 }
