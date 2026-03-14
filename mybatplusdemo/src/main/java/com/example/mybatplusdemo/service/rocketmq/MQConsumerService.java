@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
  * @slogan 慢慢学，不要停。
  */
 @Slf4j
-@Service
-@RocketMQMessageListener(topic = "springboot_topic", selectorExpression = "test", consumerGroup = "springboot_consumer_group")
+//@Service
+//@RocketMQMessageListener(topic = "springboot_topic", selectorExpression = "test", consumerGroup = "springboot_consumer_group")
 public class MQConsumerService implements RocketMQListener<String> {
 
     // 监听到消息就会执行此方法

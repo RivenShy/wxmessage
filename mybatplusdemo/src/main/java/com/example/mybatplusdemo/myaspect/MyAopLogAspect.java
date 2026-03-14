@@ -28,6 +28,12 @@ public class MyAopLogAspect {
 
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new NamedThreadLocal<>("cost time");
 
+    /**
+     * ThreadLocal 可以存储多个变量，但需要创建多个 ThreadLocal 实例。
+     */
+    private static final ThreadLocal<String> userThreadLocal = new ThreadLocal<>();
+    private static final ThreadLocal<Integer> userIdThreadLocal = new ThreadLocal<>();
+
     @Before(value = "@annotation(controllerLog)")
     public void before(JoinPoint joinPoint, MyAopLogAnnotation controllerLog) {
         TIME_THREADLOCAL.set(System.currentTimeMillis());
